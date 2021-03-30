@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31112.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pdbc.Music.Domain", "Pdbc.Music.Domain\Pdbc.Music.Domain.csproj", "{21655A5C-93F8-4FD6-B017-FAA6CDC4A5B8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "T4", "T4", "{2CA72A91-BE99-432D-B63F-0EADAFA01FBF}"
+	ProjectSection(SolutionItems) = preProject
+		T4\BuilderGenerationTemplates.tt = T4\BuilderGenerationTemplates.tt
+		T4\GetClassesHelperMethods.tt = T4\GetClassesHelperMethods.tt
+		T4\MapperTemplates.tt = T4\MapperTemplates.tt
+		T4\UnitTestTemplates.tt = T4\UnitTestTemplates.tt
+		T4\Utilities.tt = T4\Utilities.tt
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pdbc.Music.Common", "Pdbc.Music.Common\Pdbc.Music.Common.csproj", "{FE344BA1-8492-4DD9-AE1A-22295115DFAF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{21655A5C-93F8-4FD6-B017-FAA6CDC4A5B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21655A5C-93F8-4FD6-B017-FAA6CDC4A5B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21655A5C-93F8-4FD6-B017-FAA6CDC4A5B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21655A5C-93F8-4FD6-B017-FAA6CDC4A5B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE344BA1-8492-4DD9-AE1A-22295115DFAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE344BA1-8492-4DD9-AE1A-22295115DFAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE344BA1-8492-4DD9-AE1A-22295115DFAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE344BA1-8492-4DD9-AE1A-22295115DFAF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5FE6B856-AFCA-4CEF-8096-057AC79538A1}
+	EndGlobalSection
+EndGlobal
