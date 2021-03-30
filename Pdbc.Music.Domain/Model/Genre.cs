@@ -8,12 +8,9 @@ namespace Pdbc.Music.Domain.Model
         public virtual IList<Song> Songs { get; set; }
         public virtual String Name { get; set; }
 
-        //public virtual DuplicationInformation DuplicationInformation { get; set; }
-
         public Genre()
         {
             Songs = new List<Song>();
-            //  DuplicationInformation = new DuplicationInformation();
         }
 
         public Genre(String name)
