@@ -37,5 +37,5 @@ namespace Pdbc.Music.Common
         /// <returns></returns>
         public abstract T Build();
     }
-
 }
+

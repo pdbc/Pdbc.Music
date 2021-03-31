@@ -9,7 +9,7 @@ namespace Pdbc.Music.UnitTests.Model
     public class GenreTestFixture : BaseSpecification
     {
         [Test]
-        public void Verify_equals_resturn_false_with_two_different_objects()
+        public void Verify_equals_return_false_with_two_different_objects()
         {
             var genre1 = new GenreTestDataBuilder().Build();
             var genre2 = new GenreTestDataBuilder().Build();
