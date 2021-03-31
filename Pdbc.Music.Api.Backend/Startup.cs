@@ -32,44 +32,24 @@ namespace Pdbc.Music.Api.Backend
                     options.ReturnHttpNotAcceptable = true;
                     options.SetOutputFormatters();
                 })
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+
+
+            services.Configure<ApiBehaviorOptions>(options =>
+            {
+                options.SetInvalidModelStateResponse();
+            });
+
+            services.AddVersionedApiExplorer(setupAction =>
+            {
+                setupAction.SetVersion();
+            });
 
             services.AddSwaggerGen();
 
             services.AddControllers();
         }
 
-        //private static void SetOutputFormatters(MvcOptions options)
-        //{
-        //    options.OutputFormatters.Add(new XmlSerializerOutputFormatter());
-
-        //    var jsonOutputFormatter = options.OutputFormatters
-        //        .OfType<Microsoft.AspNetCore.Mvc.Formatters.Json.JsonOutputFormatter>().FirstOrDefault();
-
-        //    if (jsonOutputFormatter != null)
-        //    {
-        //        // remove text/json as it isn't the approved media type
-        //        // for working with JSON at API level
-        //        if (jsonOutputFormatter.SupportedMediaTypes.Contains("text/json"))
-        //        {
-        //            jsonOutputFormatter.SupportedMediaTypes.Remove("text/json");
-        //        }
-        //    }
-        //}
-
-        private static void NewMethod(MvcOptions setupAction)
-        {
-            setupAction.Filters.Add(
-                new ProducesResponseTypeAttribute(StatusCodes.Status400BadRequest));
-            setupAction.Filters.Add(
-                new ProducesResponseTypeAttribute(StatusCodes.Status406NotAcceptable));
-            setupAction.Filters.Add(
-                new ProducesResponseTypeAttribute(StatusCodes.Status500InternalServerError));
-            setupAction.Filters.Add(
-                new ProducesDefaultResponseTypeAttribute());
-            setupAction.Filters.Add(
-                new ProducesResponseTypeAttribute(StatusCodes.Status401Unauthorized));
-        }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
