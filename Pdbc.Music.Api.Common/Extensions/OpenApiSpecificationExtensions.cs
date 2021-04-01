@@ -108,7 +108,7 @@ namespace Pdbc.Music.Api.Common.Extensions
             //ApiVersionDescription apiVersionDescription)
         {
             options.SwaggerDoc(
-                name,
+                version, // name
                 new Microsoft.OpenApi.Models.OpenApiInfo()
                 {
                     Title = title,
