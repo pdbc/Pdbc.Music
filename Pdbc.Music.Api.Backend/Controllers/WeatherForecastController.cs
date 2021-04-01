@@ -23,7 +23,7 @@ namespace Pdbc.Music.Api.Backend.Controllers
             _logger = logger;
         }
 
-        [HttpGet]
+        [HttpGet(Name = nameof(Get))]
         public IEnumerable<WeatherForecast> Get()
         {
             var rng = new Random();
