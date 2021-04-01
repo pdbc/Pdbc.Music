@@ -7,7 +7,7 @@ using Pdbc.Music.Common;
 
 namespace Pdbc.Music.Data
 {
-    public class DataModule : IModule
+    public class MusicDataModule : IModule
     {
         public void Register(IServiceCollection serviceCollection, IConfiguration configuration)
         {

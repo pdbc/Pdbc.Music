@@ -36,7 +36,7 @@ namespace Pdbc.Music.Data.Migrator
             })
             .ConfigureServices((hostContext, services) =>
             {
-                services.RegisterModule<DataModule>(hostContext.Configuration);
+                services.RegisterModule<MusicDataModule>(hostContext.Configuration);
 
                 services.AddHostedService<DatabaseMigrator>();
             });

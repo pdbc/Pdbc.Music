@@ -1,9 +1,6 @@
-﻿using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
-namespace Pdbc.Music.UnitTests.Base
+namespace Pdbc.Music.UnitTest.Helpers.Base
 {
     ///<summary>
     /// Base class for simple test fixtures

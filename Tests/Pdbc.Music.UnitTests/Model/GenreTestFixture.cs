@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using Pdbc.Music.Domain.Model;
+using Pdbc.Music.UnitTest.Helpers.Base;
 using Pdbc.Music.UnitTest.Helpers.Domain.Model;
 using Pdbc.Music.UnitTests.Base;
 

@@ -53,7 +53,7 @@ namespace Pdbc.Music.Core
         }
     }
 
-        public class GenericPipelineBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
+    public class GenericPipelineBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     {
         private readonly TextWriter _writer;
 
@@ -66,7 +66,7 @@ namespace Pdbc.Music.Core
         {
             await _writer.WriteLineAsync("-- Handling Request");
             var response = await next();
-            await  _writer.WriteLineAsync("-- Finished Request");
+            await _writer.WriteLineAsync("-- Finished Request");
             return response;
         }
     }
