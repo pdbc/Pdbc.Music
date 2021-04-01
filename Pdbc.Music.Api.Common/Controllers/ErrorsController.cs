@@ -1,6 +1,8 @@
 ﻿using System.Net;
 using System.Threading.Tasks;
+
 using Microsoft.AspNetCore.Mvc;
+
 using Pdbc.Music.Api.Contracts.Requests.Errors;
 
 namespace Pdbc.Music.Api.Common.Controllers
@@ -35,7 +37,7 @@ namespace Pdbc.Music.Api.Common.Controllers
         [ProducesResponseType(typeof(GetErrorResponse), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<GetErrorResponse>> GetErrorMessage([FromRoute] GetErrorRequest request)
         {
-            return Ok(); //_errorTranslationService.GetError(request));
+            return Ok();
         }
     }
 }
