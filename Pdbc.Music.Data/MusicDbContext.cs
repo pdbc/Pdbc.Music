@@ -24,6 +24,8 @@ namespace Pdbc.Music.Data
 
             modelBuilder.HasDefaultSchema(DbConstants.DefaultSchemaName);
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(GenreConfiguration).Assembly);
+
+            //modelBuilder.Entity<Artist>().HasData(new Artist());
         }
 
         #region DbSets
@@ -158,6 +160,8 @@ namespace Pdbc.Music.Data
         }
 
         #endregion //Private Helpers
+
+
     }
 }
 

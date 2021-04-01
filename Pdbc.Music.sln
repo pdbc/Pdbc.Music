@@ -30,9 +30,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pdbc.Music.Data.Migrator", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{9250222F-36D0-4612-BC2C-B60A7C6F976D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pdbc.Music.Api.Backend", "Pdbc.Music.Api.Backend\Pdbc.Music.Api.Backend.csproj", "{DC57E253-E2CC-4832-B19E-4F7F8CCF8501}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pdbc.Music.Api.Backend", "Pdbc.Music.Api.Backend\Pdbc.Music.Api.Backend.csproj", "{DC57E253-E2CC-4832-B19E-4F7F8CCF8501}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pdbc.Music.Api.Common", "Pdbc.Music.Api.Common\Pdbc.Music.Api.Common.csproj", "{642F4712-16BC-4AE4-972D-E437FD164B4F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pdbc.Music.Api.Common", "Pdbc.Music.Api.Common\Pdbc.Music.Api.Common.csproj", "{642F4712-16BC-4AE4-972D-E437FD164B4F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pdbc.Music.Api.Contracts", "Pdbc.Music.Api.Contracts\Pdbc.Music.Api.Contracts.csproj", "{C25B2382-18C1-4D69-98DF-DDD911DE9869}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -72,6 +74,10 @@ Global
 		{642F4712-16BC-4AE4-972D-E437FD164B4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{642F4712-16BC-4AE4-972D-E437FD164B4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{642F4712-16BC-4AE4-972D-E437FD164B4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C25B2382-18C1-4D69-98DF-DDD911DE9869}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C25B2382-18C1-4D69-98DF-DDD911DE9869}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C25B2382-18C1-4D69-98DF-DDD911DE9869}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C25B2382-18C1-4D69-98DF-DDD911DE9869}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -82,6 +88,7 @@ Global
 		{14B8652C-97F0-483E-B1E3-15C0B3F7477E} = {30695348-4C43-4CD5-91AF-50AD23E79636}
 		{DC57E253-E2CC-4832-B19E-4F7F8CCF8501} = {9250222F-36D0-4612-BC2C-B60A7C6F976D}
 		{642F4712-16BC-4AE4-972D-E437FD164B4F} = {9250222F-36D0-4612-BC2C-B60A7C6F976D}
+		{C25B2382-18C1-4D69-98DF-DDD911DE9869} = {9250222F-36D0-4612-BC2C-B60A7C6F976D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5FE6B856-AFCA-4CEF-8096-057AC79538A1}

@@ -6,7 +6,7 @@ namespace Pdbc.Music.Api.Common.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class HealthCheckController : ControllerBase
+    public class HealthCheckController : MusicBaseController
     {
         [HttpGet(Name = nameof(IsRunning))]
         public async Task<ActionResult<String>> IsRunning()

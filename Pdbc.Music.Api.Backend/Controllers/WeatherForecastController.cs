@@ -4,12 +4,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Pdbc.Music.Api.Common.Controllers;
 
 namespace Pdbc.Music.Api.Backend.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
+    public class WeatherForecastController : MusicBaseController
     {
         private static readonly string[] Summaries = new[]
         {
