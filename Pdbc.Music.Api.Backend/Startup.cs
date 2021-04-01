@@ -33,9 +33,8 @@ namespace Pdbc.Music.Api.Backend
 
             services.AddMvc(options =>
                 {
-                    options.RegisterProducesTypes();
-                    //options.Filters.Add(new AuthorizeFilter());
-                    //options.ReturnHttpNotAcceptable = true;
+                    options.RegisterProducesResponseTypes();
+                     //options.ReturnHttpNotAcceptable = true;
                     options.SetOutputFormatters();
 
                     //options.Filters.Add(new AuthorizeFilter());
@@ -59,15 +58,30 @@ namespace Pdbc.Music.Api.Backend
             //services.AddAuthentication("Basic").AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("Basic", null);
 
             var serviceProvider = services.BuildServiceProvider(); //.GetService<IApiVersionDescriptionProvider>();
-            services.AddSwaggerGen(a =>
+            services.AddSwaggerGen(options =>
             {
-                a.ConfigureSwaggerGeneration(serviceProvider, "Pdbc.Music", "Pdbc.Music API", "API for maintaining songs, artists & playlists",
-                    new List<Assembly>()
-                    {
-                        Assembly.GetAssembly(typeof(HealthCheckController))
-                    });
+                options.ConfigureSwaggerDocument("PDBC.Music API",
+                    "v1",
+                    "API for maintaining songs, artists & playlists");
 
-                a.ResolveConflictingActions(apiDescriptions => apiDescriptions.First()); //This line
+                options.ConfigureSwaggerDocumentationAssemblies(new[]
+                {
+                    Assembly.GetExecutingAssembly(),
+                    Assembly.GetAssembly(typeof(HealthCheckController)),
+                });
+
+                // TODO Common somewhere - Add filters to fix enums
+                //options.AddEnumsWithValuesFixFilters();
+
+                //options.ConfigureOauthFlow(swaggerApiConfiguration.IdpBaseUrl, new Dictionary<string, string>()
+                //{
+                //    {
+                //        IdpScopes.ActionsScope, "Access to protected controllers of the FunctionalityDomain Actions Api"
+                //    }
+                //});
+
+
+                options.ResolveConflictingActions(apiDescriptions => apiDescriptions.First()); //This line
 
                 //a.ConfigureSwaggerAuthentication();
             });
@@ -99,6 +113,12 @@ namespace Pdbc.Music.Api.Backend
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Pdbc.Music");
+
+                c.DefaultModelExpandDepth(2);
+                c.DefaultModelRendering(Swashbuckle.AspNetCore.SwaggerUI.ModelRendering.Model);
+                c.DocExpansion(Swashbuckle.AspNetCore.SwaggerUI.DocExpansion.None);
+                c.EnableDeepLinking();
+                c.DisplayOperationId();
 
                 //foreach (var description in apiVersionDescriptionProvider.ApiVersionDescriptions)
                 //{
