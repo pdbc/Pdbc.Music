@@ -28,7 +28,7 @@ namespace Pdbc.Music.Core.IntegrationTests
         {
             LoadConfiguration();
 
-            //DbProviderFactories.RegisterFactory("System.Data.SqlClient", SqlClientFactory.Instance);
+            DbProviderFactories.RegisterFactory("System.Data.SqlClient", SqlClientFactory.Instance);
             
             try
             {
@@ -37,7 +37,7 @@ namespace Pdbc.Music.Core.IntegrationTests
 
                 SetupServiceProvider();
                 
-                //Context = ServiceProvider.GetService<MusicDbContext>();
+                Context = ServiceProvider.GetService<MusicDbContext>();
 
                 TestStartedDatTime = DateTime.Now;
                 base.Establish_context();
@@ -62,10 +62,8 @@ namespace Pdbc.Music.Core.IntegrationTests
         private  void LoadConfiguration()
         {
             var configurationBuilder = new ConfigurationBuilder();
-            //configurationBuilder.WithFunctionalityDomainConfiguration(action =>
-            //{
-            //    action.EnableCiaServiceAgent();
-            //});
+            configurationBuilder
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
 
             Configuration = configurationBuilder.Build();
 

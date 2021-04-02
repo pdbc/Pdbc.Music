@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Pdbc.Music.Api.Common.Controllers;
+using Pdbc.Music.Api.Contracts.Requests.Artists;
 
 namespace Pdbc.Music.Api.Backend.Controllers
 {
@@ -12,16 +10,15 @@ namespace Pdbc.Music.Api.Backend.Controllers
     [Route("[controller]")]
     public class ArtistsController : MusicBaseController
     {
-        ///// <summary>
-        ///// Gets all artists
-        ///// </summary>
-        ///// <returns>An ActionResult of type IEnumerable of Author</returns>
-        //[HttpGet]
-        //[ProducesResponseType(StatusCodes.Status200OK)]
-        //public async Task<ActionResult<IEnumerable<Artist>>> GetAuthors()
-        //{
-        //    var authorsFromRepo = await _authorsRepository.GetAuthorsAsync();
-        //    return Ok(_mapper.Map<IEnumerable<Author>>(authorsFromRepo));
-        //}
+        /// <summary>
+        /// Gets all artists from the music library
+        /// </summary>
+        /// <returns>An ActionResult of type ListArtistsResponse</returns>
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<ActionResult<ListArtistsResponse>> GetArtists(ListArtistsRequest request)
+        {
+            return null;
+        }
     }
 }

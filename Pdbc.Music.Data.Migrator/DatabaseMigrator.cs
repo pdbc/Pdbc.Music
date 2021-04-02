@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Pdbc.Music.Data.Extensions;
 
 namespace Pdbc.Music.Data.Migrator
 {
@@ -28,7 +29,7 @@ namespace Pdbc.Music.Data.Migrator
 
                     Console.WriteLine("Migrating database...");
                     database.Migrate();
-                    //dbContext.EnsureSeedData();
+                    dbContext.EnsureSeedData();
 
                     Console.WriteLine("DbContext has been upgraded");
                 }

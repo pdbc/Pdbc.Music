@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Pdbc.Music.Common;
+using Pdbc.Music.Data.Repositories;
+using Pdbc.Music.Domain.Model;
 
 namespace Pdbc.Music.Data
 {
@@ -25,6 +27,19 @@ namespace Pdbc.Music.Data
 
                     builder.MigrationsHistoryTable(DbConstants.MigrationsTableName, DbConstants.DefaultSchemaName);
                 }));
+
+
+            serviceCollection.AddOptions(); //Is necessary in order for IOptions<T> to work
+
+
+            serviceCollection.AddScoped<IArtistRepository, ArtistRepository>();
+            serviceCollection.AddScoped<IEntityRepository<Artist>, EntityFrameworkRepository<Artist>>();
+
+            //serviceCollection.Scan(scan => scan.FromAssemblyOf<MusicDataModule>()
+            //    .AddClasses(true)
+            //    .AsMatchingInterface()
+            //    .WithScopedLifetime()
+            //);
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Pdbc.Music.Domain.Model
 {
-    public class Album : BaseEntity<string>, IEquatable<Album>
+    public class Album : BaseEntity, IEquatable<Album>
     {
         public virtual IList<Song> Songs { get; set; }
         public virtual String Name { get; set; }
@@ -11,13 +11,6 @@ namespace Pdbc.Music.Domain.Model
         public Album()
         {
             Songs = new List<Song>();
-        }
-
-        public Album(String name)
-            : this()
-        {
-            Id = name.Trim().ToUpper();
-            Name = name;
         }
 
         #region Equals

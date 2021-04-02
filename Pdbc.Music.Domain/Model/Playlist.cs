@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Pdbc.Music.Domain.Model
 {
-    public class Playlist : BaseEntity<Guid>, IEquatable<Playlist>
+    public class Playlist : BaseEntity, IEquatable<Playlist>
     {
         public virtual String Name { get; set; }
         public virtual IList<Song> Songs { get; set; }

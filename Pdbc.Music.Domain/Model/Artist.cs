@@ -3,23 +3,16 @@ using System.Collections.Generic;
 
 namespace Pdbc.Music.Domain.Model
 {
-    public class Artist : BaseEntity<string>, IEquatable<Artist>, IDuplicatable<Artist>
+    public class Artist : BaseEntity, IEquatable<Artist> //, IDuplicatable<Artist>
     {
         public virtual IList<Song> Songs { get; set; }
         public virtual String Name { get; set; }
 
-        public virtual bool IsDuplicate { get; set; }
+        //public virtual bool IsDuplicate { get; set; }
         
         public Artist()
         {
             Songs = new List<Song>();
-        }
-
-        public Artist(String name)
-            : this()
-        {
-            Id = name.Trim().ToUpper();
-            Name = name;
         }
 
         #region Equals

@@ -3,7 +3,7 @@ using System.IO;
 
 namespace Pdbc.Music.Domain.Model
 {
-    public class FileInformation : BaseEntity<Guid>
+    public class FileInformation : BaseEntity
     {
         public virtual String CurrentFullPath { get; set; }
 

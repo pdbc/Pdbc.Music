@@ -7,15 +7,16 @@ namespace Pdbc.Music.Api.Contracts.Requests
     /// </summary>
     public interface IMusicResponse
     {
-        /// <summary>
-        /// information about the success of the request
-        /// </summary>
-        ValidationResult Notifications { get; set; }
+        ///// <summary>
+        ///// information about the success of the request
+        ///// </summary>
+        ////ValidationResult Notifications { get; set; }
     }
 
+    /// <inheritdoc />
     public class MusicResponse : IMusicResponse
     {
-        /// <inheritdoc />
-        public ValidationResult Notifications { get; set; }
+        ///// <inheritdoc />
+        //public ValidationResult Notifications { get; set; }
     }
 }

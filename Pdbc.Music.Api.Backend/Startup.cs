@@ -15,6 +15,10 @@ using Microsoft.AspNetCore.Mvc.Formatters;
 using Pdbc.Music.Api.Common.Authentication;
 using Pdbc.Music.Api.Common.Controllers;
 using Pdbc.Music.Api.Common.Extensions;
+using Pdbc.Music.Common.Extensions;
+using Pdbc.Music.Core;
+using Pdbc.Music.Core.Services;
+using Pdbc.Music.Data;
 
 namespace Pdbc.Music.Api.Backend
 {
@@ -56,6 +60,12 @@ namespace Pdbc.Music.Api.Backend
             //services.AddApiVersioning(a => { a.SetVersion(); });
 
             //services.AddAuthentication("Basic").AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("Basic", null);
+
+
+            services.RegisterModule<MusicCoreModule>(Configuration);
+            services.RegisterModule<MusicDataModule>(Configuration);
+            services.RegisterModule<MusicCqrsServiceModule>(Configuration);
+
 
             var serviceProvider = services.BuildServiceProvider(); //.GetService<IApiVersionDescriptionProvider>();
             services.AddSwaggerGen(options =>

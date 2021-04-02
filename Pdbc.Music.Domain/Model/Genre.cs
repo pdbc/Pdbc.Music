@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Pdbc.Music.Domain.Model
 {
-    public class Genre : BaseEntity<string>, IEquatable<Genre>
+    public class Genre : BaseEntity, IEquatable<Genre>
     {
         public virtual IList<Song> Songs { get; set; }
         public virtual String Name { get; set; }
@@ -13,17 +13,7 @@ namespace Pdbc.Music.Domain.Model
             Songs = new List<Song>();
         }
 
-        public Genre(String name)
-            : this()
-        {
-            Id = name.ToUpper();
-            Name = name;
-        }
 
-        public override string ToString()
-        {
-            return Id;
-        }
 
         #region Equals
         public virtual bool Equals(Genre other)

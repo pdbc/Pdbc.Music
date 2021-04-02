@@ -2,9 +2,11 @@
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Logging;
 using Pdbc.Music.Data.Configurations;
 using Pdbc.Music.Data.Exceptions;
+using Pdbc.Music.Data.Extensions;
 using Pdbc.Music.Domain.Model;
 
 namespace Pdbc.Music.Data
@@ -12,6 +14,10 @@ namespace Pdbc.Music.Data
     public class MusicDbContext : DbContext
     {
         private readonly ILogger<MusicDbContext> _logger;
+
+        public MusicDbContext(DbContextOptions<MusicDbContext> options) : base(options)
+        {
+        }
 
         public MusicDbContext(DbContextOptions<MusicDbContext> options, ILogger<MusicDbContext> logger) : base(options)
         {
@@ -25,12 +31,15 @@ namespace Pdbc.Music.Data
             modelBuilder.HasDefaultSchema(DbConstants.DefaultSchemaName);
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(GenreConfiguration).Assembly);
 
+            //modelBuilder.SetupInitialData();
             //modelBuilder.Entity<Artist>().HasData(new Artist());
         }
 
         #region DbSets
 
         public DbSet<Genre> Genres { get; set; }
+
+        public DbSet<Artist> Artists{ get; set; }
 
         #endregion //DbSets
 

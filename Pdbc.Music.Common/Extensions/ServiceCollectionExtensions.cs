@@ -60,5 +60,6 @@ namespace Pdbc.Music.Common.Extensions
         {
             return library.Name.ToLower() == assemblyName;
         }
+
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Pdbc.Music.Domain.Model
 {
-    public class Song :  BaseEntity<long>, IModifiable, IDuplicatable<Song>
+    public class Song :  BaseEntity, IModifiable //, IDuplicatable<Song>
     {
 
         public virtual String Title { get; set; }
@@ -16,9 +16,7 @@ namespace Pdbc.Music.Domain.Model
         public virtual IList<Playlist> Playlists { get; set; }
 
         public virtual FileInformation FileInformation { get; set; }
-
-        public virtual bool IsDuplicate { get; set; }
-
+        
         #region Album Setter/Remover
         public virtual void SetAlbum(Album album)
         {

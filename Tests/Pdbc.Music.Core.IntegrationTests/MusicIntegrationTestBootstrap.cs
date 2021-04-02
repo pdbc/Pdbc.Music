@@ -17,7 +17,7 @@ namespace Pdbc.Music.Core.IntegrationTests
         {
             services.RegisterModule<MusicCoreModule>(configuration);
             services.RegisterModule<MusicCqrsServiceModule>(configuration);
-            //services.RegisterModule<MusicDataModule>(configuration);
+            services.RegisterModule<MusicDataModule>(configuration);
 
             //services.RegisterModule<MusicDataModule>(configuration);
             //services.RegisterModule<InfrastructureModule>(configuration);

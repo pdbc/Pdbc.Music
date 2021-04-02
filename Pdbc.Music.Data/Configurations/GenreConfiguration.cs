@@ -1,18 +1,18 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Pdbc.Music.Domain.Model;
+using Pdbc.Music.Domain.Validation;
 
 namespace Pdbc.Music.Data.Configurations
 {
-    public class GenreConfiguration : IEntityTypeConfiguration<Genre>
+    internal class GenreConfiguration : IdentifiableMapping<Genre>
     {
         public void Configure(EntityTypeBuilder<Genre> builder)
         {
             builder.ToTable("Genres");
 
-            builder.HasKey(e => e.Id);
             builder.Property(e => e.Name)
-                .HasMaxLength(256)
+                .HasMaxLength(ValidationConstants.GenreNameMaxLength)
                 .IsRequired();
 
             builder.HasIndex(e => new { e.Name}).IsUnique();

@@ -203,12 +203,6 @@ public ArtistBuilder WithName(System.String name)
     this.Name = name;
 	return this;
 }	
-protected System.Boolean IsDuplicate { get; set; }		
-public ArtistBuilder WithIsDuplicate(System.Boolean isduplicate)
-{
-    this.IsDuplicate = isduplicate;
-	return this;
-}	
 
 
 
@@ -221,9 +215,6 @@ public override Artist Build()
 	    	
 		
 	item.Name = Name;
-	    	
-		
-	item.IsDuplicate = IsDuplicate;
 	    
     return item;
 }
@@ -782,12 +773,6 @@ public SongBuilder WithFileInformation(Action<Pdbc.Music.Domain.Model.FileInform
 }
 
 
-protected System.Boolean IsDuplicate { get; set; }		
-public SongBuilder WithIsDuplicate(System.Boolean isduplicate)
-{
-    this.IsDuplicate = isduplicate;
-	return this;
-}	
 protected System.String ModifiedBy { get; set; }		
 public SongBuilder WithModifiedBy(System.String modifiedby)
 {
@@ -830,9 +815,6 @@ public override Song Build()
 	    	
 		
 	item.FileInformation = FileInformation;
-	    	
-		
-	item.IsDuplicate = IsDuplicate;
 	    	
 		
 	item.ModifiedBy = ModifiedBy;
