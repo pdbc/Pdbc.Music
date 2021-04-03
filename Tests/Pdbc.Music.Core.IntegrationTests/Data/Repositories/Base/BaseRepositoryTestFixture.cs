@@ -9,6 +9,7 @@ using Pdbc.Music.Data.Repositories;
 using Pdbc.Music.Domain.Model;
 using Pdbc.Music.UnitTests.Base;
 using Microsoft.Extensions.DependencyInjection;
+using Pdbc.Music.Data.Exceptions;
 using Pdbc.Music.Data.Extensions;
 using Pdbc.Music.UnitTest.Helpers.Extensions;
 
@@ -113,81 +114,65 @@ namespace Pdbc.Music.Core.IntegrationTests.Data.Repositories
             Repository.Update(ExistingItem);
             ExistingItem.VerifyAuditModifiedPropertiesAreFilledIn(base.TestStartedDatTime);
         }
-        //[Test]
-        //public void Verify_object_can_be_altered_by_applying_changes()
-        //{
-        //    Repository.ApplyChanges(ExistingItem.Id, ExistingItem.ModifiedOn, GetChangesToApply());
-        //}
 
-        //[Test]
-        //public void Verify_object_cannot_be_updated_when_optimistic_locking_is_wrong()
-        //{
-        //    EditItem(ExistingItem);
-        //    Context.SaveChanges();
+        [Test]
+        public void Verify_object_cannot_be_updated_when_optimistic_locking_is_wrong()
+        {
+            EditItem(ExistingItem);
+            Context.SaveChanges();
 
-        //    ExistingItem.ModifiedOn = DateTime.Now.AddSeconds(-60);
+            ExistingItem.ModifiedOn = DateTime.Now.AddSeconds(-60);
 
-        //    Action action = () =>
-        //    {
-        //        Repository.Update(ExistingItem);
-        //        Context.SaveChanges();
-        //    };
-        //    action.ShouldThrowException<System.Data.Entity.Infrastructure.DbUpdateConcurrencyException>();
-        //}
+            Action action = () =>
+            {
+                Repository.Update(ExistingItem);
+                Context.SaveChanges();
+            };
+            action.ShouldThrowException<DbUpdateConcurrencyException>();
+        }
 
-        //[Test]
-        //public void Verify_object_cannot_be_altered_by_applying_changes_with_optimistic_locking_failed()
-        //{
-        //    Action action = () =>
-        //    {
-        //        Repository.ApplyChanges(ExistingItem.Id, DateTime.Now, GetChangesToApply());
-        //        Context.SaveChanges();
-        //    };
-        //    action.ShouldThrowException<System.Data.Entity.Infrastructure.DbUpdateConcurrencyException>();
-        //}
+        protected void VerifyDependentObjectIsDeletedWhenDeletingEntity<TDependant>(TDependant dependentItem, TEntity entity) where TDependant : class, IIdentifiable<long>
+        {
+            GetRepositoryFor<TDependant>().Insert(dependentItem);
+            Context.SaveChanges();
 
-        //protected void VerifyDependentObjectIsDeletedWhenDeletingEntity<TDependant>(TDependant dependentItem, TEntity entity) where TDependant : class, IIdentifiable<long>
-        //{
-        //    GetRepositoryFor<TDependant>().Insert(dependentItem);
-        //    Context.SaveChanges();
+            Context.Entry(entity).Reload();
+            Repository.Delete(entity);
+            Context.SaveChanges();
 
-        //    Context.Entry(entity).Reload();
-        //    Repository.Delete(entity);
-        //    Context.SaveChanges();
+            Repository.GetById(entity.Id).ShouldBeNull();
 
-        //    Repository.GetById(entity.Id).ShouldBeNull();
+            Repository.GetById(entity.Id).ShouldBeNull();
+            Context.SaveChanges();
 
-        //    Repository.GetById(entity.Id).ShouldBeNull();
-        //    Context.SaveChanges();
+            GetRepositoryFor<TDependant>().GetById(dependentItem.Id).ShouldBeNull();
+        }
 
-        //    GetRepositoryFor<TDependant>().GetById(dependentItem.Id).ShouldBeNull();
-        //}
+        protected void VerifyDependentObjectIsNotDeletedWhenDeletingEntity<TDependant>(TDependant dependentItem, TEntity entity) where TDependant : class, IIdentifiable<long>
+        {
+            Repository.Delete(entity);
+            Context.SaveChanges();
 
-        //protected void VerifyDependentObjectIsNotDeletedWhenDeletingEntity<TDependant>(TDependant dependentItem, TEntity entity) where TDependant : class, IIdentifiable<long>
-        //{
-        //    Repository.Delete(entity);
-        //    Context.SaveChanges();
+            Repository.GetById(entity.Id).ShouldBeNull();
+            Context.SaveChanges();
 
-        //    Repository.GetById(entity.Id).ShouldBeNull();
-        //    Context.SaveChanges();
+            GetRepositoryFor<TDependant>().GetById(dependentItem.Id).ShouldNotBeNull();
+        }
 
-        //    GetRepositoryFor<TDependant>().GetById(dependentItem.Id).ShouldNotBeNull();
-        //}
+        protected void VerifyEntityCannotBeDeletedWhenDependentItemIsAvailable<TDependant>(TDependant dependentItem, TEntity entity) where TDependant : class, IIdentifiable<long>
+        {
+            GetRepositoryFor<TDependant>().Insert(dependentItem);
+            Context.SaveChanges();
 
-        //protected void VerifyEntityCannotBeDeletedWhenDependentItemIsAvailable<TDependant>(TDependant dependentItem, TEntity entity) where TDependant : class, IIdentifiable<long>
-        //{
-        //    GetRepositoryFor<TDependant>().Insert(dependentItem);
-        //    Context.SaveChanges();
+            Action action = () =>
+            {
+                Repository.Delete(ExistingItem);
+                Context.SaveChanges();
+            };
+            action.ShouldThrowException<DependentObjectStillUsedException>();
 
-        //    Action action = () =>
-        //    {
-        //        Repository.Delete(ExistingItem);
-        //        Context.SaveChanges();
-        //    };
-        //    action.ShouldThrowException<DependentObjectStillUsedException>();
-
-        //    GetRepositoryFor<TDependant>().Delete(dependentItem);
-        //    Context.SaveChanges();
-        //}
+            GetRepositoryFor<TDependant>().Delete(dependentItem);
+            Context.SaveChanges();
+        }
     }
 }

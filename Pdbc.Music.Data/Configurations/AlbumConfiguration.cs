@@ -5,7 +5,7 @@ using Pdbc.Music.Domain.Validation;
 
 namespace Pdbc.Music.Data.Configurations
 {
-    internal class AlbumConfiguration : IdentifiableMapping<Album>
+    internal class AlbumConfiguration : AuditableIdentifiableMapping<Album>
     {
         public void Configure(EntityTypeBuilder<Album> builder)
         {

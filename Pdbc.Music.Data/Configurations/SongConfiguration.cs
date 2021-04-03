@@ -4,7 +4,7 @@ using Pdbc.Music.Domain.Model;
 
 namespace Pdbc.Music.Data.Configurations
 {
-    internal class SongConfiguration : IdentifiableMapping<Song>
+    internal class SongConfiguration : AuditableIdentifiableMapping<Song>
     {
         public void Configure(EntityTypeBuilder<Playlist> builder)
         {
