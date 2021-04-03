@@ -31,13 +31,32 @@ namespace Pdbc.Music.Data
 
             serviceCollection.AddOptions(); //Is necessary in order for IOptions<T> to work
 
+            // Manually register all repositories
+            //serviceCollection.AddScoped<IArtistRepository, ArtistRepository>();
+            //serviceCollection.AddScoped<IEntityRepository<Artist>, ArtistRepository>();
+            //serviceCollection.AddScoped<IGenreRepository, GenreRepository>();
+            //serviceCollection.AddScoped<IEntityRepository<Genre>, GenreRepository>();
 
-            serviceCollection.AddScoped<IArtistRepository, ArtistRepository>();
-            serviceCollection.AddScoped<IEntityRepository<Artist>, ArtistRepository>();
-            serviceCollection.AddScoped<IGenreRepository, GenreRepository>();
-            serviceCollection.AddScoped<IEntityRepository<Genre>, GenreRepository>();
+            // Scans all classes to register them as its matching interface.
+            //serviceCollection.Scan(scan => scan.FromAssemblyOf<MusicDataModule>()
+            //    .AddClasses(true)
+            //    .AsImplementedInterfaces()
+            //    .WithScopedLifetime()
+            //);
 
+            //// Scan register 
+            serviceCollection.Scan(scan => scan.FromAssemblyOf<MusicDataModule>()
+                .AddClasses(classes => classes.AssignableTo(typeof(IEntityRepository<>)).Where(_ => !_.IsGenericType))  // Get all classes inheriting the entity repository
+                .AsImplementedInterfaces()
+                .WithScopedLifetime()
+            );
 
+            //serviceCollection.Scan(scan =>
+            //    scan.FromAssembliesOf(typeof(ICommandHandler<>))
+            //        .AddClasses(classes =>
+            //            classes.AssignableTo(typeof(ICommandHandler<>)).Where(_ => !_.IsGenericType))
+            //        .AsImplementedInterfaces()
+            //        .WithTransientLifetime());
 
             //serviceCollection.Scan(scan => scan.FromAssemblyOf<MusicDataModule>()
             //    .AddClasses(true)

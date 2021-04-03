@@ -9,23 +9,23 @@ using Pdbc.Music.UnitTest.Helpers.Extensions;
 
 namespace Pdbc.Music.Core.IntegrationTests.Data.Repositories
 {
-    public class GenreRepositoryTestFixture : BaseRepositoryTestFixture<Genre>
+    public class SongRepositoryTestFixture : BaseRepositoryTestFixture<Song>
     {
-        protected override Genre CreateExistingItem()
+        protected override Song CreateExistingItem()
         {
-            return new GenreTestDataBuilder()
+            return new SongTestDataBuilder()
                 .Build();
         }
 
-        protected override Genre CreateNewItem()
+        protected override Song CreateNewItem()
         {
-            return new GenreTestDataBuilder()
+            return new SongTestDataBuilder()
                 .Build();
         }
 
-        protected override void EditItem(Genre entity)
+        protected override void EditItem(Song entity)
         {
-            entity.Name = UnitTestValueGenerator.GenerateRandomCode();
+            //entity.Name = UnitTestValueGenerator.GenerateRandomCode();
         }
     }
 }

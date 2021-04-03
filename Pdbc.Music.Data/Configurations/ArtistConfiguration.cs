@@ -7,8 +7,10 @@ namespace Pdbc.Music.Data.Configurations
 {
     internal class ArtistConfiguration : AuditableIdentifiableMapping<Artist>
     {
-        public void Configure(EntityTypeBuilder<Artist> builder)
+        public override void Configure(EntityTypeBuilder<Artist> builder)
         {
+            base.Configure(builder);
+
             builder.ToTable("Artists");
 
             builder.Property(e => e.Name)

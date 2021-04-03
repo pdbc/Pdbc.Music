@@ -40,7 +40,13 @@ namespace Pdbc.Music.Data
         public DbSet<Genre> Genres { get; set; }
 
         public DbSet<Artist> Artists{ get; set; }
+        public DbSet<Album> Albums { get; set; }
 
+        public DbSet<FileInformation> FileInformations { get; set; }
+
+        public DbSet<Playlist> Playlists { get; set; }
+
+        public DbSet<Song> Songs { get; set; }
         #endregion //DbSets
 
         public override int SaveChanges()

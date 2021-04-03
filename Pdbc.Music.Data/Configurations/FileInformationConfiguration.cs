@@ -7,8 +7,10 @@ namespace Pdbc.Music.Data.Configurations
 {
     internal class FileInformationConfiguration : AuditableIdentifiableMapping<FileInformation>
     {
-        public void Configure(EntityTypeBuilder<FileInformation> builder)
+        public override void Configure(EntityTypeBuilder<FileInformation> builder)
         {
+            base.Configure(builder);
+
             builder.ToTable("FileInformations");
         }
     }

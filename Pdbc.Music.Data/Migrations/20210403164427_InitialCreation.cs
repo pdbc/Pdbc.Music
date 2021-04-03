@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Pdbc.Music.Data.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class InitialCreation : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -11,21 +11,21 @@ namespace Pdbc.Music.Data.Migrations
                 name: "dbo");
 
             migrationBuilder.CreateTable(
-                name: "Album",
+                name: "Albums",
                 schema: "dbo",
                 columns: table => new
                 {
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Name = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     CreatedOn = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
-                    ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ModifiedBy = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     ModifiedOn = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Album", x => x.Id);
+                    table.PrimaryKey("PK_Albums", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -35,10 +35,10 @@ namespace Pdbc.Music.Data.Migrations
                 {
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Name = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     CreatedOn = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
-                    ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ModifiedBy = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     ModifiedOn = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false)
                 },
                 constraints: table =>
@@ -47,7 +47,7 @@ namespace Pdbc.Music.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "FileInformation",
+                name: "FileInformations",
                 schema: "dbo",
                 columns: table => new
                 {
@@ -57,14 +57,14 @@ namespace Pdbc.Music.Data.Migrations
                     Filename = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Directory = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Extension = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedBy = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     CreatedOn = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
-                    ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ModifiedBy = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     ModifiedOn = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_FileInformation", x => x.Id);
+                    table.PrimaryKey("PK_FileInformations", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -74,10 +74,10 @@ namespace Pdbc.Music.Data.Migrations
                 {
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Name = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     CreatedOn = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
-                    ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ModifiedBy = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     ModifiedOn = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false)
                 },
                 constraints: table =>
@@ -86,25 +86,25 @@ namespace Pdbc.Music.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Playlist",
+                name: "Playlists",
                 schema: "dbo",
                 columns: table => new
                 {
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Name = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     CreatedOn = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
-                    ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ModifiedBy = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     ModifiedOn = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Playlist", x => x.Id);
+                    table.PrimaryKey("PK_Playlists", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Song",
+                name: " Songs",
                 schema: "dbo",
                 columns: table => new
                 {
@@ -115,26 +115,26 @@ namespace Pdbc.Music.Data.Migrations
                     Year = table.Column<int>(type: "int", nullable: false),
                     AlbumId = table.Column<long>(type: "bigint", nullable: true),
                     FileInformationId = table.Column<long>(type: "bigint", nullable: true),
-                    ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ModifiedBy = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     ModifiedOn = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedBy = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     CreatedOn = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Song", x => x.Id);
+                    table.PrimaryKey("PK_ Songs", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Song_Album_AlbumId",
+                        name: "FK_ Songs_Albums_AlbumId",
                         column: x => x.AlbumId,
                         principalSchema: "dbo",
-                        principalTable: "Album",
+                        principalTable: "Albums",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Song_FileInformation_FileInformationId",
+                        name: "FK_ Songs_FileInformations_FileInformationId",
                         column: x => x.FileInformationId,
                         principalSchema: "dbo",
-                        principalTable: "FileInformation",
+                        principalTable: "FileInformations",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -151,17 +151,17 @@ namespace Pdbc.Music.Data.Migrations
                 {
                     table.PrimaryKey("PK_ArtistSong", x => new { x.ArtistsId, x.SongsId });
                     table.ForeignKey(
+                        name: "FK_ArtistSong_ Songs_SongsId",
+                        column: x => x.SongsId,
+                        principalSchema: "dbo",
+                        principalTable: " Songs",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
                         name: "FK_ArtistSong_Artists_ArtistsId",
                         column: x => x.ArtistsId,
                         principalSchema: "dbo",
                         principalTable: "Artists",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_ArtistSong_Song_SongsId",
-                        column: x => x.SongsId,
-                        principalSchema: "dbo",
-                        principalTable: "Song",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -178,17 +178,17 @@ namespace Pdbc.Music.Data.Migrations
                 {
                     table.PrimaryKey("PK_GenreSong", x => new { x.GenresId, x.SongsId });
                     table.ForeignKey(
+                        name: "FK_GenreSong_ Songs_SongsId",
+                        column: x => x.SongsId,
+                        principalSchema: "dbo",
+                        principalTable: " Songs",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
                         name: "FK_GenreSong_Genres_GenresId",
                         column: x => x.GenresId,
                         principalSchema: "dbo",
                         principalTable: "Genres",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_GenreSong_Song_SongsId",
-                        column: x => x.SongsId,
-                        principalSchema: "dbo",
-                        principalTable: "Song",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -205,20 +205,46 @@ namespace Pdbc.Music.Data.Migrations
                 {
                     table.PrimaryKey("PK_PlaylistSong", x => new { x.PlaylistsId, x.SongsId });
                     table.ForeignKey(
-                        name: "FK_PlaylistSong_Playlist_PlaylistsId",
-                        column: x => x.PlaylistsId,
+                        name: "FK_PlaylistSong_ Songs_SongsId",
+                        column: x => x.SongsId,
                         principalSchema: "dbo",
-                        principalTable: "Playlist",
+                        principalTable: " Songs",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_PlaylistSong_Song_SongsId",
-                        column: x => x.SongsId,
+                        name: "FK_PlaylistSong_Playlists_PlaylistsId",
+                        column: x => x.PlaylistsId,
                         principalSchema: "dbo",
-                        principalTable: "Song",
+                        principalTable: "Playlists",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ Songs_AlbumId",
+                schema: "dbo",
+                table: " Songs",
+                column: "AlbumId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ Songs_FileInformationId",
+                schema: "dbo",
+                table: " Songs",
+                column: "FileInformationId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Albums_Name",
+                schema: "dbo",
+                table: "Albums",
+                column: "Name",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Artists_Name",
+                schema: "dbo",
+                table: "Artists",
+                column: "Name",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_ArtistSong_SongsId",
@@ -227,28 +253,30 @@ namespace Pdbc.Music.Data.Migrations
                 column: "SongsId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Genres_Name",
+                schema: "dbo",
+                table: "Genres",
+                column: "Name",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_GenreSong_SongsId",
                 schema: "dbo",
                 table: "GenreSong",
                 column: "SongsId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Playlists_Name",
+                schema: "dbo",
+                table: "Playlists",
+                column: "Name",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_PlaylistSong_SongsId",
                 schema: "dbo",
                 table: "PlaylistSong",
                 column: "SongsId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Song_AlbumId",
-                schema: "dbo",
-                table: "Song",
-                column: "AlbumId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Song_FileInformationId",
-                schema: "dbo",
-                table: "Song",
-                column: "FileInformationId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -274,19 +302,19 @@ namespace Pdbc.Music.Data.Migrations
                 schema: "dbo");
 
             migrationBuilder.DropTable(
-                name: "Playlist",
+                name: " Songs",
                 schema: "dbo");
 
             migrationBuilder.DropTable(
-                name: "Song",
+                name: "Playlists",
                 schema: "dbo");
 
             migrationBuilder.DropTable(
-                name: "Album",
+                name: "Albums",
                 schema: "dbo");
 
             migrationBuilder.DropTable(
-                name: "FileInformation",
+                name: "FileInformations",
                 schema: "dbo");
         }
     }

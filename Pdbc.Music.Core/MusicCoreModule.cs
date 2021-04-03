@@ -20,6 +20,7 @@ namespace Pdbc.Music.Core
             serviceCollection.AddScoped(typeof(IRequestPreProcessor<>), typeof(GenericRequestPreProcessor<>));
             serviceCollection.AddScoped(typeof(IRequestPostProcessor<,>), typeof(GenericRequestPostProcessor<,>));
 
+            //serviceCollection.Scan()
         }
     }
 
