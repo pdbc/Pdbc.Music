@@ -10,10 +10,11 @@ using Pdbc.Music.Domain.Model;
 using Pdbc.Music.UnitTests.Base;
 using Microsoft.Extensions.DependencyInjection;
 using Pdbc.Music.Data.Extensions;
+using Pdbc.Music.UnitTest.Helpers.Extensions;
 
 namespace Pdbc.Music.Core.IntegrationTests.Data.Repositories
 {
-    public abstract class BaseRepositoryTestFixture<TEntity> : MusicIntegrationTestFixture where TEntity : Identifiable
+    public abstract class BaseRepositoryTestFixture<TEntity> : MusicIntegrationTestFixture where TEntity : AuditableIdentifiable
     {
         public IEntityRepository<TEntity> Repository { get; set; }
 
@@ -83,16 +84,16 @@ namespace Pdbc.Music.Core.IntegrationTests.Data.Repositories
 
         }
 
-        //[Test]
-        //public void Verify_object_can_be_created_by_repository()
-        //{
-        //    Repository.Insert(NewItem);
-        //    Context.SaveChanges();
+        [Test]
+        public void Verify_object_can_be_created_by_repository()
+        {
+            Repository.Insert(NewItem);
+            Context.SaveChanges();
 
-        //    NewItem.AssertIdFilledIn();
-        //    NewItem.AssertAuditCreatedPropertiesFilledIn();
-        //    NewItem.AssertAuditModifiedPropertiesFilledIn();
-        //}
+            NewItem.VerifyIdIsFilledIn();
+            NewItem.VerifyAuditCreatedPropertiesAreFilledIn(TestStartedDatTime);
+            NewItem.VerifyAuditModifiedPropertiesAreFilledIn(TestStartedDatTime);
+        }
 
         [Test]
         public void Verify_object_can_be_deleted()
@@ -103,15 +104,15 @@ namespace Pdbc.Music.Core.IntegrationTests.Data.Repositories
             Repository.GetById(ExistingItem.Id).ShouldBeNull();
         }
 
-        //[Test]
-        //public void Verify_object_can_be_updated()
-        //{
-        //    EditItem(ExistingItem);
-        //    Context.SaveChanges();
+        [Test]
+        public void Verify_object_can_be_updated()
+        {
+            EditItem(ExistingItem);
+            Context.SaveChanges();
 
-        //    Repository.Update(ExistingItem);
-        //    ExistingItem.AssertAuditModifiedPropertiesFilledIn();
-        //}
+            Repository.Update(ExistingItem);
+            ExistingItem.VerifyAuditModifiedPropertiesAreFilledIn(base.TestStartedDatTime);
+        }
         //[Test]
         //public void Verify_object_can_be_altered_by_applying_changes()
         //{

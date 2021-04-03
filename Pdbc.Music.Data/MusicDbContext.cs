@@ -48,8 +48,8 @@ namespace Pdbc.Music.Data
             try
             {
                 ValidateEntities();
-                //HandleCreatableEntities();
-                //HandleModifiableEntities();
+                HandleCreatableEntities();
+                HandleModifiableEntities();
 
                 return base.SaveChanges();
             }
@@ -96,50 +96,50 @@ namespace Pdbc.Music.Data
             }
         }
 
-        //private void HandleCreatableEntities()
-        //{
-        //    foreach (var entry in ChangeTracker.Entries().Where(e => e.State == EntityState.Added))
-        //    {
-        //        if (!(entry.Entity is ICreatable creatable)) continue;
+        private void HandleCreatableEntities()
+        {
+            foreach (var entry in ChangeTracker.Entries().Where(e => e.State == EntityState.Added))
+            {
+                if (!(entry.Entity is ICreatable creatable)) continue;
 
-        //        creatable.CreatedBy = GetExecutingUserName();
-        //        creatable.CreatedOn = DateTimeOffset.Now;
+                creatable.CreatedBy = GetExecutingUserName();
+                creatable.CreatedOn = DateTimeOffset.Now;
 
-        //        if (entry.Entity is IModifiable modifiable)
-        //        {
-        //            modifiable.ModifiedBy = creatable.CreatedBy;
-        //            modifiable.ModifiedOn = creatable.CreatedOn;
-        //        }
-        //    }
-        //}
+                if (entry.Entity is IModifiable modifiable)
+                {
+                    modifiable.ModifiedBy = creatable.CreatedBy;
+                    modifiable.ModifiedOn = creatable.CreatedOn;
+                }
+            }
+        }
 
-        //private void HandleModifiableEntities()
-        //{
-        //    foreach (var entry in ChangeTracker.Entries().Where(e => e.State == EntityState.Modified))
-        //    {
-        //        if (entry.Entity is IModifiable modifiable)
-        //        {
-        //            // Store ModifiedOn date for Optimistic Locking
-        //            entry.Property(nameof(modifiable.ModifiedOn)).OriginalValue = modifiable.ModifiedOn;
+        private void HandleModifiableEntities()
+        {
+            foreach (var entry in ChangeTracker.Entries().Where(e => e.State == EntityState.Modified))
+            {
+                if (entry.Entity is IModifiable modifiable)
+                {
+                    // Store ModifiedOn date for Optimistic Locking
+                    entry.Property(nameof(modifiable.ModifiedOn)).OriginalValue = modifiable.ModifiedOn;
 
-        //            // Save values for Modification.
-        //            modifiable.ModifiedBy = GetExecutingUserName();
-        //            modifiable.ModifiedOn = DateTimeOffset.Now;
-        //        }
+                    // Save values for Modification.
+                    modifiable.ModifiedBy = GetExecutingUserName();
+                    modifiable.ModifiedOn = DateTimeOffset.Now;
+                }
 
-        //        if (!(entry.Entity is ICreatable creatable)) continue;
+                if (!(entry.Entity is ICreatable creatable)) continue;
 
-        //        // must be set for required validation, but will not be saved
-        //        entry.Property(nameof(creatable.CreatedBy)).OriginalValue = "AsCreated";
-        //        entry.Property(nameof(creatable.CreatedBy)).IsModified = false;
-        //        entry.Property(nameof(creatable.CreatedOn)).IsModified = false;
-        //    }
-        //}
+                // must be set for required validation, but will not be saved
+                entry.Property(nameof(creatable.CreatedBy)).OriginalValue = "AsCreated";
+                entry.Property(nameof(creatable.CreatedBy)).IsModified = false;
+                entry.Property(nameof(creatable.CreatedOn)).IsModified = false;
+            }
+        }
 
-        //private string GetExecutingUserName()
-        //{
-        //    return UserContext.GetCurrentUsername(true, true, true);
-        //}
+        private string GetExecutingUserName()
+        {
+            return "TODO-Username"; //UserContext.GetCurrentUsername(true, true, true);
+        }
 
         private void ThrowErrorWhenDependentObjectStillUsedException(Exception ex)
         {

@@ -33,7 +33,11 @@ namespace Pdbc.Music.Data
 
 
             serviceCollection.AddScoped<IArtistRepository, ArtistRepository>();
-            serviceCollection.AddScoped<IEntityRepository<Artist>, EntityFrameworkRepository<Artist>>();
+            serviceCollection.AddScoped<IEntityRepository<Artist>, ArtistRepository>();
+            serviceCollection.AddScoped<IGenreRepository, GenreRepository>();
+            serviceCollection.AddScoped<IEntityRepository<Genre>, GenreRepository>();
+
+
 
             //serviceCollection.Scan(scan => scan.FromAssemblyOf<MusicDataModule>()
             //    .AddClasses(true)
