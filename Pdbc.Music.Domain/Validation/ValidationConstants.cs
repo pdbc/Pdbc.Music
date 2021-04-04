@@ -12,6 +12,7 @@ namespace Pdbc.Music.Domain.Validation
         public static Int32 GenreNameMaxLength = 256;
         public static Int32 ArtistNameMaxLength = 256;
         public static Int32 PlaylistNameMaxLength = 256;
+        public static Int32 SongTitleMaxLength = 256;
 
 
     }

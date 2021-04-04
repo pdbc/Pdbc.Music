@@ -1,9 +1,4 @@
-﻿using System;
-using Microsoft.Extensions.DependencyInjection;
-using NUnit.Framework;
-using Pdbc.Music.Api.Contracts;
-using Pdbc.Music.Api.Contracts.Requests.Errors;
-using Pdbc.Music.Domain.Model;
+﻿using Pdbc.Music.Domain.Model;
 using Pdbc.Music.UnitTest.Helpers.Domain.Model;
 using Pdbc.Music.UnitTest.Helpers.Extensions;
 
@@ -25,7 +20,7 @@ namespace Pdbc.Music.Core.IntegrationTests.Data.Repositories
 
         protected override void EditItem(Song entity)
         {
-            //entity.Name = UnitTestValueGenerator.GenerateRandomCode();
+            entity.Title = UnitTestValueGenerator.GenerateRandomCode();
         }
     }
 }

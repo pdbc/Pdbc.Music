@@ -7,7 +7,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using NUnit.Framework;
 using Pdbc.Music.Data;
+using Pdbc.Music.Data.Interceptors;
 using Pdbc.Music.UnitTest.Helpers.Base;
+
 
 namespace Pdbc.Music.Core.IntegrationTests
 {

@@ -7,6 +7,7 @@ using Microsoft.Extensions.Logging;
 using Pdbc.Music.Data.Configurations;
 using Pdbc.Music.Data.Exceptions;
 using Pdbc.Music.Data.Extensions;
+using Pdbc.Music.Data.Interceptors;
 using Pdbc.Music.Domain.Model;
 
 namespace Pdbc.Music.Data
@@ -33,6 +34,18 @@ namespace Pdbc.Music.Data
 
             //modelBuilder.SetupInitialData();
             //modelBuilder.Entity<Artist>().HasData(new Artist());
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            //optionsBuilder.UseLoggerFactory()
+            // TODO put this behaind configuration
+            optionsBuilder.LogTo(Console.WriteLine)
+                .EnableSensitiveDataLogging()
+                .EnableDetailedErrors(); ;
+
+            optionsBuilder.AddInterceptors(new DatabaseCommandInterceptor());
+            base.OnConfiguring(optionsBuilder);
         }
 
         #region DbSets

@@ -272,8 +272,13 @@ namespace Pdbc.Music.Data.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("datetimeoffset");
 
+                    b.Property<long?>("PlaylistId")
+                        .HasColumnType("bigint");
+
                     b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
 
                     b.Property<int>("Year")
                         .HasColumnType("int");
@@ -284,22 +289,9 @@ namespace Pdbc.Music.Data.Migrations
 
                     b.HasIndex("FileInformationId");
 
-                    b.ToTable(" Songs");
-                });
+                    b.HasIndex("PlaylistId");
 
-            modelBuilder.Entity("PlaylistSong", b =>
-                {
-                    b.Property<long>("PlaylistsId")
-                        .HasColumnType("bigint");
-
-                    b.Property<long>("SongsId")
-                        .HasColumnType("bigint");
-
-                    b.HasKey("PlaylistsId", "SongsId");
-
-                    b.HasIndex("SongsId");
-
-                    b.ToTable("PlaylistSong");
+                    b.ToTable("Songs");
                 });
 
             modelBuilder.Entity("ArtistSong", b =>
@@ -334,35 +326,28 @@ namespace Pdbc.Music.Data.Migrations
 
             modelBuilder.Entity("Pdbc.Music.Domain.Model.Song", b =>
                 {
-                    b.HasOne("Pdbc.Music.Domain.Model.Album", "Album")
+                    b.HasOne("Pdbc.Music.Domain.Model.Album", null)
                         .WithMany("Songs")
                         .HasForeignKey("AlbumId");
 
                     b.HasOne("Pdbc.Music.Domain.Model.FileInformation", "FileInformation")
                         .WithMany()
-                        .HasForeignKey("FileInformationId");
+                        .HasForeignKey("FileInformationId")
+                        .OnDelete(DeleteBehavior.NoAction);
 
-                    b.Navigation("Album");
+                    b.HasOne("Pdbc.Music.Domain.Model.Playlist", null)
+                        .WithMany("Songs")
+                        .HasForeignKey("PlaylistId");
 
                     b.Navigation("FileInformation");
                 });
 
-            modelBuilder.Entity("PlaylistSong", b =>
+            modelBuilder.Entity("Pdbc.Music.Domain.Model.Album", b =>
                 {
-                    b.HasOne("Pdbc.Music.Domain.Model.Playlist", null)
-                        .WithMany()
-                        .HasForeignKey("PlaylistsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Pdbc.Music.Domain.Model.Song", null)
-                        .WithMany()
-                        .HasForeignKey("SongsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("Songs");
                 });
 
-            modelBuilder.Entity("Pdbc.Music.Domain.Model.Album", b =>
+            modelBuilder.Entity("Pdbc.Music.Domain.Model.Playlist", b =>
                 {
                     b.Navigation("Songs");
                 });

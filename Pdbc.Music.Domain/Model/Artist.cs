@@ -3,12 +3,10 @@ using System.Collections.Generic;
 
 namespace Pdbc.Music.Domain.Model
 {
-    public class Artist : BaseEntity, IEquatable<Artist> //, IDuplicatable<Artist>
+    public class Artist : BaseEntity, IEquatable<Artist>
     {
         public virtual IList<Song> Songs { get; set; }
         public virtual String Name { get; set; }
-
-        //public virtual bool IsDuplicate { get; set; }
         
         public Artist()
         {

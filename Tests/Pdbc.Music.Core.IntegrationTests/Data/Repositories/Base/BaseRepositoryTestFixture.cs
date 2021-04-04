@@ -36,6 +36,7 @@ namespace Pdbc.Music.Core.IntegrationTests.Data.Repositories
             ExistingItem = CreateExistingItem();
             Repository.Insert(ExistingItem);
 
+            Context.SaveChanges();
             //Context.SafeReload(ExistingItem);
         }
 
@@ -102,6 +103,7 @@ namespace Pdbc.Music.Core.IntegrationTests.Data.Repositories
             Repository.Delete(ExistingItem);
             Context.SaveChanges();
 
+           
             Repository.GetById(ExistingItem.Id).ShouldBeNull();
         }
 

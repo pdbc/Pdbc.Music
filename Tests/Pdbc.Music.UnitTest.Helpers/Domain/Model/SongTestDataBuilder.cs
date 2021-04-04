@@ -1,4 +1,7 @@
-﻿using Pdbc.Music.Domain.Model;
+﻿using System;
+using System.Collections.Generic;
+using Pdbc.Music.Domain.Model;
+using Pdbc.Music.UnitTest.Helpers.Extensions;
 
 namespace Pdbc.Music.UnitTest.Helpers.Domain.Model
 {
@@ -6,7 +9,19 @@ namespace Pdbc.Music.UnitTest.Helpers.Domain.Model
     {
         public SongTestDataBuilder()
         {
-            //Name = UnitTestValueGenerator.GenerateRandomCode();
+            Title = UnitTestValueGenerator.GenerateRandomCode();
+            //Genres = new List<Genre>()
+            //{
+            //    new GenreTestDataBuilder()
+            //};
+            //Album = new AlbumTestDataBuilder();
+            //FileInformation = new FileInformationTestDataBuilder();
+            Year = 1999;
+            Duration = new TimeSpan(0, 3, 23);
+            //Artists = new List<Artist>()
+            //{
+            //    new ArtistTestDataBuilder()
+            //};
         }
 
     }

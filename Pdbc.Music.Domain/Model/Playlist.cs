@@ -20,21 +20,17 @@ namespace Pdbc.Music.Domain.Model
             Name = name;
         }
 
-        #region Song Setter/Remover
-        public virtual void AddSong(Song song)
-        {
-            Songs.Add(song);
-            song.Playlists.Add(this);
-        }
+        //#region Song Setter/Remover
+        //public virtual void AddSong(Song song)
+        //{
+        //    Songs.Add(song);
+        //}
 
-        public virtual void RemoveSong(Song song)
-        {
-            if (Songs.Remove(song))
-            {
-                song.Playlists.Remove(this);
-            }
-        }
-        #endregion
+        //public virtual void RemoveSong(Song song)
+        //{
+        //    Songs.Remove(song);
+        //}
+        //#endregion
 
         public override string ToString()
         {

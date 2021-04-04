@@ -1,4 +1,5 @@
 ﻿using Pdbc.Music.Domain.Model;
+using Pdbc.Music.UnitTest.Helpers.Extensions;
 
 namespace Pdbc.Music.UnitTest.Helpers.Domain.Model
 {
@@ -6,7 +7,7 @@ namespace Pdbc.Music.UnitTest.Helpers.Domain.Model
     {
         public PlaylistTestDataBuilder()
         {
-            //Name = UnitTestValueGenerator.GenerateRandomCode();
+            Name = UnitTestValueGenerator.GenerateRandomCode();
         }
 
     }

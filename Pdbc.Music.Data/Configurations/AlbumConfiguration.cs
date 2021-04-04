@@ -20,6 +20,9 @@ namespace Pdbc.Music.Data.Configurations
 
             builder.HasIndex(e => new { e.Name }).IsUnique();
 
+            //builder.HasMany(e => e.Songs)
+            //    .WithMany(y=>y.Albums);
+
         }
     }
 }
