@@ -38,11 +38,11 @@ namespace Pdbc.Music.Data
             //serviceCollection.AddScoped<IEntityRepository<Genre>, GenreRepository>();
 
             // Scans all classes to register them as its matching interface.
-            //serviceCollection.Scan(scan => scan.FromAssemblyOf<MusicDataModule>()
-            //    .AddClasses(true)
-            //    .AsImplementedInterfaces()
-            //    .WithScopedLifetime()
-            //);
+            serviceCollection.Scan(scan => scan.FromAssemblyOf<MusicDataModule>()
+                .AddClasses(true)
+                .AsMatchingInterface()
+                .WithScopedLifetime()
+            );
 
             //// Scan register 
             serviceCollection.Scan(scan => scan.FromAssemblyOf<MusicDataModule>()

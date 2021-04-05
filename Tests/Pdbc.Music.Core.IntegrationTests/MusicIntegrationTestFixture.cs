@@ -20,10 +20,12 @@ namespace Pdbc.Music.Core.IntegrationTests
         protected IConfiguration Configuration { get; private set; }
 
         protected virtual bool ShouldLoadTestObjects { get; set; } = true;
+        protected MusicTestDataObjects MusicTestDataObjects { get; private set; } = null;
 
         protected ServiceProvider ServiceProvider;
 
-        //protected TestCaseService TestCaseService { get; private set; }
+        protected TestCaseService TestCaseService;
+
         protected DateTime TestStartedDatTime;
 
         protected override void Establish_context()
@@ -32,22 +34,23 @@ namespace Pdbc.Music.Core.IntegrationTests
 
             DbProviderFactories.RegisterFactory("System.Data.SqlClient", SqlClientFactory.Instance);
             
-            try
-            {
-                var dir = TestContext.CurrentContext.TestDirectory;
-                Directory.SetCurrentDirectory(dir);
+            var dir = TestContext.CurrentContext.TestDirectory;
+            Directory.SetCurrentDirectory(dir);
 
-                SetupServiceProvider();
-                
-                Context = ServiceProvider.GetService<MusicDbContext>();
+            SetupServiceProvider();
 
-                TestStartedDatTime = DateTime.Now;
-                base.Establish_context();
-            }
-            catch (Exception ex)
+            Context = ServiceProvider.GetService<MusicDbContext>();
+
+            TestCaseService = new TestCaseService(Context);
+            if (ShouldLoadTestObjects)
             {
-                throw;
+                MusicTestDataObjects = new MusicTestDataObjects(Context);
+                MusicTestDataObjects.LoadObjects();
             }
+
+            TestStartedDatTime = DateTime.Now;
+
+            base.Establish_context();
         }
 
         private void SetupServiceProvider()
@@ -61,7 +64,7 @@ namespace Pdbc.Music.Core.IntegrationTests
             ServiceProvider = services.BuildServiceProvider();
         }
 
-        private  void LoadConfiguration()
+        private void LoadConfiguration()
         {
             var configurationBuilder = new ConfigurationBuilder();
             configurationBuilder
@@ -84,7 +87,7 @@ namespace Pdbc.Music.Core.IntegrationTests
             {
                 action();
             }
-            catch (Exception)  {  }
+            catch (Exception) { }
         }
 
         protected override void Because()

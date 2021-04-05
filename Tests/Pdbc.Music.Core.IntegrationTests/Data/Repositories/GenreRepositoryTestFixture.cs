@@ -1,9 +1,4 @@
-﻿using System;
-using Microsoft.Extensions.DependencyInjection;
-using NUnit.Framework;
-using Pdbc.Music.Api.Contracts;
-using Pdbc.Music.Api.Contracts.Requests.Errors;
-using Pdbc.Music.Domain.Model;
+﻿using Pdbc.Music.Domain.Model;
 using Pdbc.Music.UnitTest.Helpers.Domain.Model;
 using Pdbc.Music.UnitTest.Helpers.Extensions;
 

@@ -249,6 +249,28 @@ public FileInformationBuilder WithExtension(System.String extension)
     this.Extension = extension;
 	return this;
 }	
+protected Pdbc.Music.Domain.Model.Song Song { get; set; }		
+public FileInformationBuilder WithSong(Pdbc.Music.Domain.Model.Song song)
+{
+    this.Song = song;
+	return this;
+}	
+
+public FileInformationBuilder WithSong(Action<Pdbc.Music.Domain.Model.SongBuilder> songBuilder)
+{
+	var b = new Pdbc.Music.Domain.Model.SongBuilder();
+	songBuilder.Invoke(b);
+	this.Song = b.Build();
+	return this;
+}
+
+
+protected System.Int64 SongId { get; set; }		
+public FileInformationBuilder WithSongId(System.Int64 songid)
+{
+    this.SongId = songid;
+	return this;
+}	
 
 
 
@@ -267,6 +289,12 @@ public override FileInformation Build()
 	    	
 		
 	item.Extension = Extension;
+	    	
+		
+	item.Song = Song;
+	    	
+		
+	item.SongId = SongId;
 	    
     return item;
 }
@@ -507,6 +535,184 @@ public SongBuilder WithYear(System.Int32 year)
     this.Year = year;
 	return this;
 }	
+protected System.Collections.Generic.IList<Pdbc.Music.Domain.Model.Genre> Genres { get; set; } = new System.Collections.Generic.List<Pdbc.Music.Domain.Model.Genre>();
+		
+public SongBuilder WithGenres(params Pdbc.Music.Domain.Model.Genre[] genres)
+{
+	Genres = genres.ToList();
+	return this;
+}
+			
+
+
+public virtual SongBuilder AddGenresItem(Pdbc.Music.Domain.Model.Genre item)
+{
+	if (Genres == null) {
+		Genres = new System.Collections.Generic.List<Pdbc.Music.Domain.Model.Genre>();
+	}
+
+	this.Genres.Add(item);
+	return this;
+}
+
+public virtual bool ContainsGenresItem(Pdbc.Music.Domain.Model.Genre item)
+{
+    if (Genres != null)
+    {
+        return this.Genres.Contains(item);
+    }
+    return false;
+}
+
+public virtual SongBuilder RemoveGenresItem(Pdbc.Music.Domain.Model.Genre item)
+{
+	if (Genres == null) {
+		Genres = new System.Collections.Generic.List<Pdbc.Music.Domain.Model.Genre>();
+	}
+
+	this.Genres.Remove(item);
+	return this;
+}
+public virtual SongBuilder ClearGenres()
+{
+	if (Genres == null) {
+		Genres = new System.Collections.Generic.List<Pdbc.Music.Domain.Model.Genre>();
+	}
+
+	this.Genres.Clear();
+	return this;
+}
+
+
+
+
+//public virtual SongBuilder WithGenres(params Action<Pdbc.Music.Domain.Model.GenreBuilder>[] builders)
+//{
+	//var genres = new System.Collections.Generic.List<Pdbc.Music.Domain.Model.Genre>();
+//
+	//foreach(var builder in builders)
+	//{
+		//var b = new Pdbc.Music.Domain.Model.GenreBuilder();
+		//builder.Invoke(b);
+		//genres.Add(b.Build());
+	//}
+//
+	//this.Genres  = genres;
+//
+	//return this;
+//}
+
+//public SongBuilder AddGenresItem(Pdbc.Music.Domain.Model.Genre item)
+//{
+	//if (Genres == null) {
+		//Genres = new System.Collections.Generic.List<Pdbc.Music.Domain.Model.Genre>();
+	//}
+//
+	//this.Genres.Add(item);
+	//return this;
+//}
+
+
+protected System.Collections.Generic.IList<Pdbc.Music.Domain.Model.Artist> Artists { get; set; } = new System.Collections.Generic.List<Pdbc.Music.Domain.Model.Artist>();
+		
+public SongBuilder WithArtists(params Pdbc.Music.Domain.Model.Artist[] artists)
+{
+	Artists = artists.ToList();
+	return this;
+}
+			
+
+
+public virtual SongBuilder AddArtistsItem(Pdbc.Music.Domain.Model.Artist item)
+{
+	if (Artists == null) {
+		Artists = new System.Collections.Generic.List<Pdbc.Music.Domain.Model.Artist>();
+	}
+
+	this.Artists.Add(item);
+	return this;
+}
+
+public virtual bool ContainsArtistsItem(Pdbc.Music.Domain.Model.Artist item)
+{
+    if (Artists != null)
+    {
+        return this.Artists.Contains(item);
+    }
+    return false;
+}
+
+public virtual SongBuilder RemoveArtistsItem(Pdbc.Music.Domain.Model.Artist item)
+{
+	if (Artists == null) {
+		Artists = new System.Collections.Generic.List<Pdbc.Music.Domain.Model.Artist>();
+	}
+
+	this.Artists.Remove(item);
+	return this;
+}
+public virtual SongBuilder ClearArtists()
+{
+	if (Artists == null) {
+		Artists = new System.Collections.Generic.List<Pdbc.Music.Domain.Model.Artist>();
+	}
+
+	this.Artists.Clear();
+	return this;
+}
+
+
+
+
+//public virtual SongBuilder WithArtists(params Action<Pdbc.Music.Domain.Model.ArtistBuilder>[] builders)
+//{
+	//var artists = new System.Collections.Generic.List<Pdbc.Music.Domain.Model.Artist>();
+//
+	//foreach(var builder in builders)
+	//{
+		//var b = new Pdbc.Music.Domain.Model.ArtistBuilder();
+		//builder.Invoke(b);
+		//artists.Add(b.Build());
+	//}
+//
+	//this.Artists  = artists;
+//
+	//return this;
+//}
+
+//public SongBuilder AddArtistsItem(Pdbc.Music.Domain.Model.Artist item)
+//{
+	//if (Artists == null) {
+		//Artists = new System.Collections.Generic.List<Pdbc.Music.Domain.Model.Artist>();
+	//}
+//
+	//this.Artists.Add(item);
+	//return this;
+//}
+
+
+protected Pdbc.Music.Domain.Model.FileInformation FileInformation { get; set; }		
+public SongBuilder WithFileInformation(Pdbc.Music.Domain.Model.FileInformation fileinformation)
+{
+    this.FileInformation = fileinformation;
+	return this;
+}	
+
+public SongBuilder WithFileInformation(Action<Pdbc.Music.Domain.Model.FileInformationBuilder> fileinformationBuilder)
+{
+	var b = new Pdbc.Music.Domain.Model.FileInformationBuilder();
+	fileinformationBuilder.Invoke(b);
+	this.FileInformation = b.Build();
+	return this;
+}
+
+
+protected System.Nullable<System.Int64> FileInformationId { get; set; }		
+public SongBuilder WithFileInformationId(System.Nullable<System.Int64> fileinformationid)
+{
+    this.FileInformationId = fileinformationid;
+	return this;
+}	
 
 
 
@@ -522,6 +728,18 @@ public override Song Build()
 	    	
 		
 	item.Year = Year;
+	    	
+		
+	item.Genres = Genres;
+	    	
+		
+	item.Artists = Artists;
+	    	
+		
+	item.FileInformation = FileInformation;
+	    	
+		
+	item.FileInformationId = FileInformationId;
 	    
     return item;
 }

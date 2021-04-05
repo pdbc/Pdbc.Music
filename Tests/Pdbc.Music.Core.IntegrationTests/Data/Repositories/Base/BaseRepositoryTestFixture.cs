@@ -22,6 +22,8 @@ namespace Pdbc.Music.Core.IntegrationTests.Data.Repositories
         public TEntity NewItem { get; set; }
         public TEntity ExistingItem { get; set; }
 
+        protected override bool ShouldLoadTestObjects { get; set; } = true;
+
         protected override void Establish_context()
         {
 
@@ -135,14 +137,12 @@ namespace Pdbc.Music.Core.IntegrationTests.Data.Repositories
 
         protected void VerifyDependentObjectIsDeletedWhenDeletingEntity<TDependant>(TDependant dependentItem, TEntity entity) where TDependant : class, IIdentifiable<long>
         {
-            GetRepositoryFor<TDependant>().Insert(dependentItem);
-            Context.SaveChanges();
+            //GetRepositoryFor<TDependant>().Insert(dependentItem);
+            //Context.SaveChanges();
 
             Context.Entry(entity).Reload();
             Repository.Delete(entity);
             Context.SaveChanges();
-
-            Repository.GetById(entity.Id).ShouldBeNull();
 
             Repository.GetById(entity.Id).ShouldBeNull();
             Context.SaveChanges();
@@ -154,6 +154,9 @@ namespace Pdbc.Music.Core.IntegrationTests.Data.Repositories
         {
             Repository.Delete(entity);
             Context.SaveChanges();
+            
+            // Detach all objects (force reload)
+            Context.DetachAll();
 
             Repository.GetById(entity.Id).ShouldBeNull();
             Context.SaveChanges();

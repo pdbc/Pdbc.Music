@@ -23,9 +23,9 @@ namespace Pdbc.Music.Data.Configurations
             //    .OnDelete(DeleteBehavior.NoAction);
 
             builder.HasOne(s => s.FileInformation)
-                .WithMany()
-                .HasForeignKey(x => x.FileInformationId)
-                .OnDelete(DeleteBehavior.NoAction);
+                .WithOne(f=>f.Song)
+                .HasForeignKey<FileInformation>(x => x.SongId)
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasMany(e => e.Artists)
                 .WithMany(x => x.Songs);

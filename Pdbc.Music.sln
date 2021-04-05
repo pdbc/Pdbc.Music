@@ -34,11 +34,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pdbc.Music.Api.Backend", "P
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pdbc.Music.Api.Common", "Pdbc.Music.Api.Common\Pdbc.Music.Api.Common.csproj", "{642F4712-16BC-4AE4-972D-E437FD164B4F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pdbc.Music.Api.Contracts", "Pdbc.Music.Api.Contracts\Pdbc.Music.Api.Contracts.csproj", "{C25B2382-18C1-4D69-98DF-DDD911DE9869}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pdbc.Music.Api.Contracts", "Pdbc.Music.Api.Contracts\Pdbc.Music.Api.Contracts.csproj", "{C25B2382-18C1-4D69-98DF-DDD911DE9869}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pdbc.Music.Core", "Pdbc.Music.Core\Pdbc.Music.Core.csproj", "{AFBD2735-1CBC-4DC3-B76F-E7D9CC3BBF2A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pdbc.Music.Core", "Pdbc.Music.Core\Pdbc.Music.Core.csproj", "{AFBD2735-1CBC-4DC3-B76F-E7D9CC3BBF2A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pdbc.Music.Core.IntegrationTests", "Tests\Pdbc.Music.Core.IntegrationTests\Pdbc.Music.Core.IntegrationTests.csproj", "{7ACFA49D-45EB-4123-A1D5-76E940B8FE5E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pdbc.Music.Core.IntegrationTests", "Tests\Pdbc.Music.Core.IntegrationTests\Pdbc.Music.Core.IntegrationTests.csproj", "{7ACFA49D-45EB-4123-A1D5-76E940B8FE5E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pdbc.Music.Data.Setup", "Pdbc.Music.Data.Setup\Pdbc.Music.Data.Setup.csproj", "{3FEC2B92-B9C0-4F73-9FB1-06FC2791AB6D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -90,6 +92,10 @@ Global
 		{7ACFA49D-45EB-4123-A1D5-76E940B8FE5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7ACFA49D-45EB-4123-A1D5-76E940B8FE5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7ACFA49D-45EB-4123-A1D5-76E940B8FE5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FEC2B92-B9C0-4F73-9FB1-06FC2791AB6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FEC2B92-B9C0-4F73-9FB1-06FC2791AB6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FEC2B92-B9C0-4F73-9FB1-06FC2791AB6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FEC2B92-B9C0-4F73-9FB1-06FC2791AB6D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -102,6 +108,7 @@ Global
 		{642F4712-16BC-4AE4-972D-E437FD164B4F} = {9250222F-36D0-4612-BC2C-B60A7C6F976D}
 		{C25B2382-18C1-4D69-98DF-DDD911DE9869} = {9250222F-36D0-4612-BC2C-B60A7C6F976D}
 		{7ACFA49D-45EB-4123-A1D5-76E940B8FE5E} = {F9162F35-4D8D-4DCB-8406-65A530775DCE}
+		{3FEC2B92-B9C0-4F73-9FB1-06FC2791AB6D} = {30695348-4C43-4CD5-91AF-50AD23E79636}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5FE6B856-AFCA-4CEF-8096-057AC79538A1}
