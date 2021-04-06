@@ -25,7 +25,7 @@ namespace Pdbc.Music.Core.IntegrationTests.Data.Repositories
 
         protected override void EditItem(FileInformation entity)
         {
-            //entity.Name = UnitTestValueGenerator.GenerateRandomCode();
+            entity.Filename = UnitTestValueGenerator.GenerateRandomCode();
         }
     }
 }

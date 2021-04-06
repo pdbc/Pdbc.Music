@@ -265,8 +265,8 @@ public FileInformationBuilder WithSong(Action<Pdbc.Music.Domain.Model.SongBuilde
 }
 
 
-protected System.Int64 SongId { get; set; }		
-public FileInformationBuilder WithSongId(System.Int64 songid)
+protected System.Nullable<System.Int64> SongId { get; set; }		
+public FileInformationBuilder WithSongId(System.Nullable<System.Int64> songid)
 {
     this.SongId = songid;
 	return this;

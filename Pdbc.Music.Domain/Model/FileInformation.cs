@@ -11,7 +11,7 @@ namespace Pdbc.Music.Domain.Model
         public virtual String Directory { get; set; }
         public virtual String Extension { get; set; }
         public virtual Song Song { get; set; }
-        public virtual Int64 SongId { get; set; }
+        public virtual Int64? SongId { get; set; }
 
         public virtual void SetValuesFromPath(String path)
         {

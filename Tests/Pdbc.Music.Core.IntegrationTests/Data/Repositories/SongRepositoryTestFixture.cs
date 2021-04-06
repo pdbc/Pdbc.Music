@@ -28,7 +28,7 @@ namespace Pdbc.Music.Core.IntegrationTests.Data.Repositories
         public void Verify_verify_genre_is_not_deleted_when_song_is_deleted()
         {
             // add dependent object
-            var genre = MusicTestDataObjects.MusicDataObjects.GenreLatin;
+            var genre = MusicObjects.GenreA;
             ExistingItem.Genres.Add(genre);
             Context.SaveChanges();
 
@@ -43,5 +43,7 @@ namespace Pdbc.Music.Core.IntegrationTests.Data.Repositories
 
             base.VerifyDependentObjectIsDeletedWhenDeletingEntity(fileInformation, ExistingItem);
         }
+
+
     }
 }

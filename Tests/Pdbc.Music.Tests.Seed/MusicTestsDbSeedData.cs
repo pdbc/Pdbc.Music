@@ -28,6 +28,8 @@ namespace Pdbc.Music.Tests.Seed
             SeedGenres();
             SeedArtists();
             SeedSongs();
+            SeedAlbums();
+            SeedPlaylists();
         }
 
 
@@ -36,6 +38,8 @@ namespace Pdbc.Music.Tests.Seed
         {
             SeedGenreIfNotExists(_dbContext, MusicTestsDataObjectsValues.GenreA);
             SeedGenreIfNotExists(_dbContext, MusicTestsDataObjectsValues.GenreB);
+            SeedGenreIfNotExists(_dbContext, MusicTestsDataObjectsValues.GenreC);
+
 
             _dbContext.SaveChanges();
 
@@ -47,6 +51,7 @@ namespace Pdbc.Music.Tests.Seed
         {
             SeedArtistIfNotExists(_dbContext, MusicTestsDataObjectsValues.ArtistA);
             SeedArtistIfNotExists(_dbContext, MusicTestsDataObjectsValues.ArtistB);
+            SeedArtistIfNotExists(_dbContext, MusicTestsDataObjectsValues.ArtistC);
 
 
             _dbContext.SaveChanges();
@@ -65,6 +70,32 @@ namespace Pdbc.Music.Tests.Seed
 
             _objects.LoadSongs();
         }
+        private void SeedAlbums()
+        {
+            SeedAlbumIfNotExists(_dbContext, MusicTestsDataObjectsValues.AlbumA, _objects.SongA);
+            SeedAlbumIfNotExists(_dbContext, MusicTestsDataObjectsValues.AlbumB, _objects.SongA, _objects.SongB);
+            SeedAlbumIfNotExists(_dbContext, MusicTestsDataObjectsValues.AlbumC);
+
+
+            _dbContext.SaveChanges();
+
+
+            _objects.LoadAlbums();
+        }
+
+        private void SeedPlaylists()
+        {
+            SeedPlaylistIfNotExists(_dbContext, MusicTestsDataObjectsValues.PlaylistA, _objects.SongA);
+            SeedPlaylistIfNotExists(_dbContext, MusicTestsDataObjectsValues.PlaylistB, _objects.SongA, _objects.SongB); ;
+            SeedPlaylistIfNotExists(_dbContext, MusicTestsDataObjectsValues.PlaylistC);
+
+
+            _dbContext.SaveChanges();
+
+
+            _objects.LoadPlaylists();
+        }
+
         private static void SeedGenreIfNotExists(MusicDbContext dbContext, String name)
         {
             var item = dbContext.Genres.FirstOrDefault(x => x.Name == name);
@@ -73,7 +104,6 @@ namespace Pdbc.Music.Tests.Seed
                 dbContext.Genres.Add(new GenreBuilder().WithName(name).Build());
             }
         }
-
         private static void SeedArtistIfNotExists(MusicDbContext dbContext, String name)
         {
             var item = dbContext.Artists.FirstOrDefault(x => x.Name == name);
@@ -82,7 +112,28 @@ namespace Pdbc.Music.Tests.Seed
                 dbContext.Artists.Add(new ArtistBuilder().WithName(name).Build());
             }
         }
-
+        private static void SeedAlbumIfNotExists(MusicDbContext dbContext, String name, params Song[] songs)
+        {
+            var item = dbContext.Albums.FirstOrDefault(x => x.Name == name);
+            if (item == null)
+            {
+                dbContext.Albums.Add(new AlbumBuilder()
+                    .WithName(name)
+                    .WithSongs(songs)
+                    .Build());
+            }
+        }
+        private static void SeedPlaylistIfNotExists(MusicDbContext dbContext, String name, params Song[] songs)
+        {
+            var item = dbContext.Playlists.FirstOrDefault(x => x.Name == name);
+            if (item == null)
+            {
+                dbContext.Playlists.Add(new PlaylistBuilder()
+                    .WithName(name)
+                    .WithSongs(songs)
+                    .Build());
+            }
+        }
         private static void SeedSongIfNotExists(MusicDbContext dbContext, String name, Genre genre, Artist artist)
         {
             var item = dbContext.Songs.FirstOrDefault(x => x.Title == name);

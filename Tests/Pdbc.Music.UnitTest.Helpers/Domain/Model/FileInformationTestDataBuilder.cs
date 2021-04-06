@@ -11,6 +11,7 @@ namespace Pdbc.Music.UnitTest.Helpers.Domain.Model
             Filename = "song";
 
             CurrentFullPath = $"{Directory}\\{Filename}.{Extension}";
+            SongId = null;
         }
 
     }

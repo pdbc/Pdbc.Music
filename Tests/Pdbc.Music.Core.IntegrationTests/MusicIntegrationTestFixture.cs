@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using NUnit.Framework;
 using Pdbc.Music.Data;
 using Pdbc.Music.Data.Interceptors;
+using Pdbc.Music.Tests.Seed;
 using Pdbc.Music.UnitTest.Helpers.Base;
 
 
@@ -20,7 +21,7 @@ namespace Pdbc.Music.Core.IntegrationTests
         protected IConfiguration Configuration { get; private set; }
 
         protected virtual bool ShouldLoadTestObjects { get; set; } = true;
-        protected MusicTestDataObjects MusicTestDataObjects { get; private set; } = null;
+        protected MusicTestsDataObjects MusicObjects { get; private set; } = null;
 
         protected ServiceProvider ServiceProvider;
 
@@ -44,8 +45,8 @@ namespace Pdbc.Music.Core.IntegrationTests
             TestCaseService = new TestCaseService(Context);
             if (ShouldLoadTestObjects)
             {
-                MusicTestDataObjects = new MusicTestDataObjects(Context);
-                MusicTestDataObjects.LoadObjects();
+                MusicObjects = new MusicTestsDataObjects(Context);
+                MusicObjects.LoadObjects();
             }
 
             TestStartedDatTime = DateTime.Now;

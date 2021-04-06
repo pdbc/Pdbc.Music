@@ -25,7 +25,18 @@ namespace Pdbc.Music.Core.IntegrationTests.Data.Repositories
 
         protected override void EditItem(Playlist entity)
         {
-            //entity.Name = UnitTestValueGenerator.GenerateRandomCode();
+            entity.Name = UnitTestValueGenerator.GenerateRandomCode();
+        }
+
+        [Test]
+        public void Verify_song_is_not_deleted_when_playlist_is_deleted()
+        {
+            // add dependent object
+            var song = MusicObjects.SongA;
+            ExistingItem.Songs.Add(song);
+            Context.SaveChanges();
+
+            base.VerifyDependentObjectIsNotDeletedWhenDeletingEntity(song, ExistingItem);
         }
     }
 }
