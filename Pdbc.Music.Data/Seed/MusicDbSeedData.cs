@@ -38,13 +38,13 @@ namespace Pdbc.Music.Data.Seed
         }
         private void SeedArtists()
         {
-            SeedGenreIfNotExists(_dbContext, MusicDataObjectsValues.Artist2Pac);
-            SeedGenreIfNotExists(_dbContext, MusicDataObjectsValues.ArtistAerosmith);
-            SeedGenreIfNotExists(_dbContext, MusicDataObjectsValues.ArtistAvicii);
-            SeedGenreIfNotExists(_dbContext, MusicDataObjectsValues.ArtistEminem);
-            SeedGenreIfNotExists(_dbContext, MusicDataObjectsValues.ArtistJonBonJovi);
-            SeedGenreIfNotExists(_dbContext, MusicDataObjectsValues.ArtistQueen);
-            SeedGenreIfNotExists(_dbContext, MusicDataObjectsValues.ArtistU2);
+            SeedArtistIfNotExists(_dbContext, MusicDataObjectsValues.Artist2Pac);
+            SeedArtistIfNotExists(_dbContext, MusicDataObjectsValues.ArtistAerosmith);
+            SeedArtistIfNotExists(_dbContext, MusicDataObjectsValues.ArtistAvicii);
+            SeedArtistIfNotExists(_dbContext, MusicDataObjectsValues.ArtistEminem);
+            SeedArtistIfNotExists(_dbContext, MusicDataObjectsValues.ArtistJonBonJovi);
+            SeedArtistIfNotExists(_dbContext, MusicDataObjectsValues.ArtistQueen);
+            SeedArtistIfNotExists(_dbContext, MusicDataObjectsValues.ArtistU2);
 
 
             _dbContext.SaveChanges();

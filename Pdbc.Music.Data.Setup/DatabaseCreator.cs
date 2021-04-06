@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Pdbc.Music.Data.Extensions;
 using Pdbc.Music.Data.Seed;
+using Pdbc.Music.Tests.Seed;
 
 namespace Pdbc.Music.Data.Setup
 {
@@ -41,6 +42,9 @@ namespace Pdbc.Music.Data.Setup
 
                     var musicSeeder = scope.ServiceProvider.GetRequiredService<IMusicDbSeedData>();
                     musicSeeder.Seed();
+
+                    var musicTestSeeder = scope.ServiceProvider.GetRequiredService<IMusicTestsDbSeedData>();
+                    musicTestSeeder.Seed();
                 }
                 catch (Exception e)
                 {

@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Pdbc.Music.Data\Pdbc.Music.Data.csproj" />
+    <ProjectReference Include="..\Tests\Pdbc.Music.Tests.Seed\Pdbc.Music.Tests.Seed.csproj" />
   </ItemGroup>
 
   <ItemGroup>

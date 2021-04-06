@@ -1,9 +1,11 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Threading;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Logging;
+using Pdbc.Music.Common;
 using Pdbc.Music.Data.Configurations;
 using Pdbc.Music.Data.Exceptions;
 using Pdbc.Music.Data.Extensions;
@@ -157,7 +159,7 @@ namespace Pdbc.Music.Data
 
         private string GetExecutingUserName()
         {
-            return "TODO-Username"; //UserContext.GetCurrentUsername(true, true, true);
+            return UserContext.GetUsername();
         }
 
         private void ThrowErrorWhenDependentObjectStillUsedException(Exception ex)
