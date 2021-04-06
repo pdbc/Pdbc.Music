@@ -4,7 +4,7 @@ Pdbc.Music is a pet project of mine to try out various things.  I tend to find m
 
 Stuff included in PDBC.Music contains the following topics
 
-## Domain Layer
+## The PDBC.Music Domain
 
 The domain I have chosen here is a simple music database.  I have a lot of music that over time gets copied and over again, new songs are added, songs are duplicated.  So the first intent of the project was to organize my music files, find duplicated files and remove these.  Verify the mp3 tags on the file and correct them.  And additionaly allow the directory and file structure to be uniform wich clear naming conventions.
 
