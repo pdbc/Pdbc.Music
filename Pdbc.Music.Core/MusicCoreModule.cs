@@ -26,48 +26,51 @@ namespace Pdbc.Music.Core
 
     public class GenericRequestPreProcessor<TRequest> : IRequestPreProcessor<TRequest>
     {
-        private readonly TextWriter _writer;
+        //private readonly TextWriter _writer;
 
-        public GenericRequestPreProcessor(TextWriter writer)
-        {
-            _writer = writer;
-        }
+        //public GenericRequestPreProcessor(TextWriter writer)
+        //{
+        //    _writer = writer;
+        //}
 
         public Task Process(TRequest request, CancellationToken cancellationToken)
         {
-            return _writer.WriteLineAsync("- Starting Up");
+            //return _writer.WriteLineAsync("- Starting Up");
+            return Task.CompletedTask;
         }
     }
 
     public class GenericRequestPostProcessor<TRequest, TResponse> : IRequestPostProcessor<TRequest, TResponse>
     {
-        private readonly TextWriter _writer;
+        //private readonly TextWriter _writer;
 
-        public GenericRequestPostProcessor(TextWriter writer)
-        {
-            _writer = writer;
-        }
+        //public GenericRequestPostProcessor(TextWriter writer)
+        //{
+        //    _writer = writer;
+        //}
 
         public Task Process(TRequest request, TResponse response, CancellationToken cancellationToken)
         {
-            return _writer.WriteLineAsync("- All Done");
+            //return _writer.WriteLineAsync("- All Done");
+            return Task.CompletedTask;
         }
     }
 
     public class GenericPipelineBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     {
-        private readonly TextWriter _writer;
+        //private readonly TextWriter _writer;
 
-        public GenericPipelineBehavior(TextWriter writer)
-        {
-            _writer = writer;
-        }
+        //public GenericPipelineBehavior(TextWriter writer)
+        //{
+        //    _writer = writer;
+        //}
 
         public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
         {
-            await _writer.WriteLineAsync("-- Handling Request");
+            //return Task.CompletedTask;
+            //await _writer.WriteLineAsync("-- Handling Request");
             var response = await next();
-            await _writer.WriteLineAsync("-- Finished Request");
+            //await _writer.WriteLineAsync("-- Finished Request");
             return response;
         }
     }

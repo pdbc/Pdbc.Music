@@ -1,23 +1,30 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using NUnit.Framework;
 using Pdbc.Music.Core.CQRS.Errors.List;
 using Microsoft.Extensions.DependencyInjection;
 using Pdbc.Music.Api.Contracts;
 using Pdbc.Music.Api.Contracts.Requests.Errors;
+using Pdbc.Music.UnitTests.Base;
 
 
 namespace Pdbc.Music.Core.IntegrationTests.CQRS.Errors.List
 {
     public class ListErrorMessagesQueryHandlerTestFixture : MusicIntegrationTestFixture
     {
-        [Test]
-        public void Verify()
+        [TestCase("NL")]
+        [TestCase("FR")]
+        public void Verify_errors_returned(String language)
         {
-           //var queryHandler = ServiceProvider.GetService<ListErrorMessagesQueryHandler>();
-           //queryHandler.Handle(new ListErrorMessagesQuery(), (CancellationToken.None));
-
-           var service = ServiceProvider.GetService<IErrorService>();
-           service.ListErrorMessages(new ListErrorsRequest());
+            var service = ServiceProvider.GetService<IErrorService>();
+            var response = service.ListErrorMessages(new ListErrorMessagesRequest()
+            {
+                Language = language
+            })
+                .GetAwaiter()
+                .GetResult();
+            
+            response.Resources.Count.ShouldBeGreaterThan(0);
         }
     }
 }

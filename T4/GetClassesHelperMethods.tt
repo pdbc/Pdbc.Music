@@ -24,4 +24,26 @@
         return classes;
     }
 
+
+    // Gets all the CQRS classes from the project (convention = Command,Query,Info)
+    public List<EnvDTE.CodeClass> GetCqrsClasses(EnvDTE.Project project) {
+        return GetClassesOf(project).Where(c => 
+				// Specify the name prefixes
+				(
+                    c.Name.EndsWith("Query") ||
+                    c.Name.EndsWith("Result") ||
+
+                    // Ignore all the Builder classes
+				    !c.Name.EndsWith("Builder")
+				).ToList();	
+    }
+
+    // Gets all the request objects from the project (Convention = Request)
+    public List<EnvDTE.CodeClass> GetRequestsClasses(EnvDTE.Project project) {
+        return GetClassesOf(project).Where(c => 
+                    c.Name.EndsWith("Request") || 
+                    c.Name.EndsWith("Response") || 
+                    c.Name.EndsWith("Dto")).ToList();	
+    }
+
 #>

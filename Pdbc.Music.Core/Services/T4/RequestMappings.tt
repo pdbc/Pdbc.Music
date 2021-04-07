@@ -1,0 +1,70 @@
+<#@ template language="C#" debug="false" hostspecific="true" #>
+<#@ output extension=".cs" #>
+<#@ assembly name="System" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Data.Entity" #>
+<#@ assembly name="EnvDTE" #>
+
+<#@ import namespace="EnvDTE" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Reflection" #>
+
+<#@ include file="$(SolutionDir)T4\Utilities.tt" #>
+<#@ include file="$(SolutionDir)T4\MapperTemplates.tt" #>
+<#
+    var nsRequests = "Pdbc.Music.Api.Mappings.Requests";
+    var nsEntities = "Pdbc.Music.Api.Mappings.Entities";
+
+    // Setup variables for using throughout the script.
+    var cqrsProject = GetProjectByName("Pdbc.Music.Core");
+    var cqrsClasses = GetCqrsClasses(cqrsProject); 
+
+    var requestProject = GetProjectByName("Pdbc.Music.Api.Contracts");
+    var requestClasses = GetRequestsClasses(requestProject); 
+
+    //var contractsCommonProject = GetProjectByName("IdentityStore.Contracts.Common");
+    //var domainProject = GetProjectByName("IdentityStore.Domain");
+    //var entities = GetDomainModelClasses(domainProject);
+    //var identityStoreResponses = GetIdentityStoreResponse(contractsCommonProject);
+#>
+using System;
+using System.Linq;
+
+using AutoMapper;
+
+using SDWORX.Framework.Infrastructure.Mapping;
+
+<# 
+foreach(var requestClass in requestClasses)
+    {        
+        var matchingCqrsName = GetMatchingCqrsClassNameFor(requestClass);
+
+        foreach(var cqrsClass in cqrsClasses)
+        {      
+            if (cqrsClass.Name == matchingCqrsName) {
+                GenerateRequestCqrsMapperConfiguration(nsRequests, requestClass.Name, requestClass, cqrsClass);
+                break;                
+            }
+        }
+
+    }
+#>
+
+/*
+<# 
+foreach(var entity in entities)
+    {        
+        //entity.Name
+
+        foreach(var identityStoreResponse in identityStoreResponses)
+        { 
+            GenerateRequestCqrsMapperConfiguration(nsEntities, entity.Name, identityStoreResponse, entity);        
+        }
+        
+    }
+#>
+-*/
+

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
-
+using AutoMapper;
 using MediatR;
 
 using Pdbc.Music.Api.Contracts;
@@ -12,22 +12,19 @@ namespace Pdbc.Music.Core.Services
     public class ErrorService : IErrorService
     {
         private readonly IMediator _mediator;
+        private readonly IMapper _mapper;
 
-        public ErrorService(IMediator mediator)
+        public ErrorService(IMediator mediator, IMapper mapper)
         {
             _mediator = mediator;
+            _mapper = mapper;
         }
 
-        public async Task<ListErrorsResponse> ListErrorMessages(ListErrorsRequest request)
+        public async Task<ListErrorMessagesResponse> ListErrorMessages(ListErrorMessagesRequest request)
         {
-            // Map Request to Query/Command
-            var query = new ListErrorMessagesQuery();
-
-            // Call mediator
-            var result = await _mediator.Send(query);
-
-            // Map Result to Response
-            return new ListErrorsResponse();
+            var query = _mapper.Map<ListErrorMessagesRequest, ListErrorMessagesQuery>(request);
+            ListErrorMessagesQueryResult result = await _mediator.Send(query);
+            return _mapper.Map<ListErrorMessagesQueryResult, ListErrorMessagesResponse>(result);
         }
 
         public Task<GetErrorResponse> GetErrorMessage(GetErrorRequest request)

@@ -22,8 +22,8 @@ namespace Pdbc.Music.Api.Common.Controllers
         /// <param name="request">The Request.</param>
         /// <returns>Returns a dictionary with all possible error keys and translations in the chosen language</returns>
         [HttpGet("{Language}")]
-        [ProducesResponseType(typeof(ListErrorsResponse), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<ListErrorsResponse>> ListErrorMessages([FromRoute] ListErrorsRequest request)
+        [ProducesResponseType(typeof(ListErrorMessagesResponse), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<ListErrorMessagesResponse>> ListErrorMessages([FromRoute] ListErrorMessagesRequest request)
         {
             return base.Ok();
         }

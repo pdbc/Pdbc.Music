@@ -7,6 +7,6 @@ namespace Pdbc.Music.Core.CQRS.Errors.List
 {
     public class ListErrorMessagesQueryResult
     {
-
+        public IDictionary<string, string> Resources { get; set; }
     }
 }

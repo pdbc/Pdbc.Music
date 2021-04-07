@@ -19,7 +19,7 @@ namespace Pdbc.Music.Core.Services
             _mediator = mediator;
         }
 
-        public async Task<ListErrorsResponse> ListErrorMessages(ListErrorsRequest request)
+        public async Task<ListErrorMessagesResponse> ListErrorMessages(ListErrorMessagesRequest request)
         {
             // Map Request to Query/Command
             var query = new ListErrorMessagesQuery();
@@ -28,7 +28,7 @@ namespace Pdbc.Music.Core.Services
             var result = await _mediator.Send(query);
 
             // Map Result to Response
-            return new ListErrorsResponse();
+            return new ListErrorMessagesResponse();
         }
 
         public Task CreateArtist(CreateArtistRequest request)

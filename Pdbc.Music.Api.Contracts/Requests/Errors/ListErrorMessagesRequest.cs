@@ -8,7 +8,7 @@ namespace Pdbc.Music.Api.Contracts.Requests.Errors
     /// Request to retrieve all the possible errors from the API
     /// </summary>
     [HttpAction("errors/{Language}", Method.Get)]
-    public class ListErrorsRequest
+    public class ListErrorMessagesRequest
     {
         /// <summary>
         /// Gets or sets the language.
@@ -23,7 +23,7 @@ namespace Pdbc.Music.Api.Contracts.Requests.Errors
     /// all errors in the specific language
     /// </summary>
     /// <seealso cref="MusicResponse" />
-    public class ListErrorsResponse : MusicResponse
+    public class ListErrorMessagesResponse : MusicResponse
     {
         /// <summary>
         /// Gets the messages in the specific language

@@ -5,6 +5,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Mapping\**" />
+    <EmbeddedResource Remove="Mapping\**" />
+    <None Remove="Mapping\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Services\T4\RequestMappings.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Services\T4\RequestMappings.tt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
     <PackageReference Include="MediatR" Version="9.0.0" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
@@ -13,10 +29,15 @@
   <ItemGroup>
     <ProjectReference Include="..\Pdbc.Music.Api.Contracts\Pdbc.Music.Api.Contracts.csproj" />
     <ProjectReference Include="..\Pdbc.Music.Common\Pdbc.Music.Common.csproj" />
+    <ProjectReference Include="..\Pdbc.Music.I18N\Pdbc.Music.I18N.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="CQRS\Diagnostics\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>
 
 </Project>

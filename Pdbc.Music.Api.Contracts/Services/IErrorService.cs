@@ -14,7 +14,7 @@ namespace Pdbc.Music.Api.Contracts
         /// </summary>
         /// <param name="request">The request.</param>
         /// <returns></returns>
-        Task<ListErrorsResponse> ListErrorMessages(ListErrorsRequest request);
+        Task<ListErrorMessagesResponse> ListErrorMessages(ListErrorMessagesRequest request);
 
         /// <summary>
         /// Gets the specified error translation.
