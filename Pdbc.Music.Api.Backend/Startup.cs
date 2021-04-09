@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -7,12 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Linq;
 using System.Reflection;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc.ApiExplorer;
-using Microsoft.AspNetCore.Mvc.Authorization;
-using Microsoft.AspNetCore.Mvc.Formatters;
-using Pdbc.Music.Api.Common.Authentication;
+
 using Pdbc.Music.Api.Common.Controllers;
 using Pdbc.Music.Api.Common.Extensions;
 using Pdbc.Music.Common.Extensions;
@@ -64,7 +58,7 @@ namespace Pdbc.Music.Api.Backend
 
             services.RegisterModule<MusicCoreModule>(Configuration);
             services.RegisterModule<MusicDataModule>(Configuration);
-            services.RegisterModule<MusicCqrsServiceModule>(Configuration);
+            services.RegisterModule<MusicCqrsServicesModule>(Configuration);
 
 
             var serviceProvider = services.BuildServiceProvider(); //.GetService<IApiVersionDescriptionProvider>();

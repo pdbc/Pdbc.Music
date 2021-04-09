@@ -68,5 +68,14 @@ namespace Pdbc.Music.I18N {
                 return ResourceManager.GetString("ErrorCode_Sample", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Language cannot be empty.
+        /// </summary>
+        public static string LanguageNotEmpty {
+            get {
+                return ResourceManager.GetString("LanguageNotEmpty", resourceCulture);
+            }
+        }
     }
 }

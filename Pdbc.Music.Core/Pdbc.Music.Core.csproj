@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -6,21 +6,17 @@
 
   <ItemGroup>
     <Compile Remove="Mapping\**" />
+    <Compile Remove="Services\**" />
     <EmbeddedResource Remove="Mapping\**" />
+    <EmbeddedResource Remove="Services\**" />
     <None Remove="Mapping\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Remove="Services\T4\RequestMappings.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Remove="Services\T4\RequestMappings.tt" />
+    <None Remove="Services\**" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="10.1.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+    <PackageReference Include="FluentValidation" Version="10.0.0" />
     <PackageReference Include="MediatR" Version="9.0.0" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
@@ -38,6 +34,21 @@
 
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="T4\ModelBuilders.cs">
+      <DependentUpon>ModelBuilders.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="T4\ModelBuilders.tt">
+      <LastGenOutput>ModelBuilders.cs</LastGenOutput>
+      <Generator>TextTemplatingFileGenerator</Generator>
+    </None>
   </ItemGroup>
 
 </Project>

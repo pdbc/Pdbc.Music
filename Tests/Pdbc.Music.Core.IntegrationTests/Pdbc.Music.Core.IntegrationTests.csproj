@@ -24,6 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Pdbc.Music.Core.Services\Pdbc.Music.Core.Services.csproj" />
     <ProjectReference Include="..\..\Pdbc.Music.Core\Pdbc.Music.Core.csproj" />
     <ProjectReference Include="..\..\Pdbc.Music.Data\Pdbc.Music.Data.csproj" />
     <ProjectReference Include="..\Pdbc.Music.Tests.Seed\Pdbc.Music.Tests.Seed.csproj" />

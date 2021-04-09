@@ -120,4 +120,7 @@
   <data name="ErrorCode_Sample" xml:space="preserve">
     <value>Sample error code</value>
   </data>
+  <data name="LanguageNotEmpty" xml:space="preserve">
+    <value>Language cannot be empty</value>
+  </data>
 </root>

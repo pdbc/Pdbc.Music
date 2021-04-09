@@ -63,27 +63,5 @@ namespace Pdbc.Music.Data.Setup
         }
     }
 
-
-    //private static void SetupDatabase()
-    //{
-    //// Clear the tables
-    //Unittests.Helpers.SetupDatabase.ClearDatabaseTables(_configuration);
-
-    //// Migrate the databse
-    //var connectionProvider = new IdentityStoreDbContextConnectionStringProvider(new IdentityStoreConfiguration(_configuration), _configuration);
-    //var connectionString = connectionProvider.GetConnectionString();
-    //var migrationConfiguration = new Configuration()
-    //{
-    //    TargetDatabase = new DbConnectionInfo(connectionString, ProviderInvariantName)
-    //};
-    //var dbMigrator = new DbMigrator(migrationConfiguration, new MigrationDbContext(connectionString));
-    ////dbMigrator.Update("v122");
-    //dbMigrator.Update();
-
-    //// Seed the data
-    //Unittests.Helpers.SetupDatabase.Seed(_configuration);
-
-    ////Unittests.Helpers.SetupDatabase.Run(_configuration);
-
-    //}
+    
 }

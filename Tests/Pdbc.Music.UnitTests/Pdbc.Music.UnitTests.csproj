@@ -18,8 +18,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Pdbc.Music.Core\Pdbc.Music.Core.csproj" />
     <ProjectReference Include="..\..\Pdbc.Music.Domain\Pdbc.Music.Domain.csproj" />
     <ProjectReference Include="..\Pdbc.Music.UnitTest.Helpers\Pdbc.Music.UnitTest.Helpers.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Core\CQRS\ErrorMessages\List\" />
   </ItemGroup>
 
 </Project>

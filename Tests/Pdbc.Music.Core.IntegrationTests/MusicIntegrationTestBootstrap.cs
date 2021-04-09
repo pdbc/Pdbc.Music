@@ -1,9 +1,5 @@
-﻿using System.Security.Claims;
-using System.Security.Principal;
-using System.Threading;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Newtonsoft.Json;
 using Pdbc.Music.Common.Extensions;
 using Pdbc.Music.Core.Services;
 using Pdbc.Music.Data;
@@ -16,7 +12,7 @@ namespace Pdbc.Music.Core.IntegrationTests
                                               IConfiguration configuration)
         {
             services.RegisterModule<MusicCoreModule>(configuration);
-            services.RegisterModule<MusicCqrsServiceModule>(configuration);
+            services.RegisterModule<MusicCqrsServicesModule>(configuration);
             services.RegisterModule<MusicDataModule>(configuration);
 
             //services.RegisterModule<MusicDataModule>(configuration);

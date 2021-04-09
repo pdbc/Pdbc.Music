@@ -1,12 +1,13 @@
 ﻿using System;
 using System.IO;
-using System.Threading;
-using System.Threading.Tasks;
+using FluentValidation;
 using MediatR;
 using MediatR.Pipeline;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Pdbc.Music.Common;
+using Pdbc.Music.Common.Validation;
+using Pdbc.Music.Core.CQRS;
 
 namespace Pdbc.Music.Core
 {
@@ -20,58 +21,14 @@ namespace Pdbc.Music.Core
             serviceCollection.AddScoped(typeof(IRequestPreProcessor<>), typeof(GenericRequestPreProcessor<>));
             serviceCollection.AddScoped(typeof(IRequestPostProcessor<,>), typeof(GenericRequestPostProcessor<,>));
 
-            //serviceCollection.Scan()
-        }
-    }
+            serviceCollection.AddScoped<ValidationBag>();
 
-    public class GenericRequestPreProcessor<TRequest> : IRequestPreProcessor<TRequest>
-    {
-        //private readonly TextWriter _writer;
-
-        //public GenericRequestPreProcessor(TextWriter writer)
-        //{
-        //    _writer = writer;
-        //}
-
-        public Task Process(TRequest request, CancellationToken cancellationToken)
-        {
-            //return _writer.WriteLineAsync("- Starting Up");
-            return Task.CompletedTask;
-        }
-    }
-
-    public class GenericRequestPostProcessor<TRequest, TResponse> : IRequestPostProcessor<TRequest, TResponse>
-    {
-        //private readonly TextWriter _writer;
-
-        //public GenericRequestPostProcessor(TextWriter writer)
-        //{
-        //    _writer = writer;
-        //}
-
-        public Task Process(TRequest request, TResponse response, CancellationToken cancellationToken)
-        {
-            //return _writer.WriteLineAsync("- All Done");
-            return Task.CompletedTask;
-        }
-    }
-
-    public class GenericPipelineBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
-    {
-        //private readonly TextWriter _writer;
-
-        //public GenericPipelineBehavior(TextWriter writer)
-        //{
-        //    _writer = writer;
-        //}
-
-        public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
-        {
-            //return Task.CompletedTask;
-            //await _writer.WriteLineAsync("-- Handling Request");
-            var response = await next();
-            //await _writer.WriteLineAsync("-- Finished Request");
-            return response;
+            //// Scan register 
+            serviceCollection.Scan(scan => scan.FromAssemblyOf<MusicCoreModule>()
+                .AddClasses(classes => classes.AssignableTo(typeof(IValidator<>)).Where(_ => !_.IsGenericType))  // Get all classes implementing the IValidator<T>
+                .AsImplementedInterfaces()
+                .WithScopedLifetime()
+            );
         }
     }
 }

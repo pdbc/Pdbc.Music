@@ -5,9 +5,8 @@ using System.Reflection;
 using Moq;
 using Moq.AutoMock;
 using NUnit.Framework;
-using Pdbc.Music.UnitTest.Helpers.Base;
 
-namespace Pdbc.Music.UnitTests.Base
+namespace Pdbc.Music.UnitTest.Helpers.Base
 {
     /// <summary>
     /// Base class for AAA test fixture. 

@@ -133,7 +133,7 @@ namespace Pdbc.Music.Data.Interceptors
 
         ////public static void RegisterDatabaseCallsInterception()
         ////{
-        ////    var configuration = Container.Resolve<IIdentityStoreConfiguration>();
+        ////    var configuration = true
         ////    if (configuration.LogDatabaseCommands)
         ////    {
         ////        DbInterception.Add(new DatabaseCommandInterceptor());

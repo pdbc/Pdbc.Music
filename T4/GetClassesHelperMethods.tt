@@ -31,19 +31,66 @@
 				// Specify the name prefixes
 				(
                     c.Name.EndsWith("Query") ||
-                    c.Name.EndsWith("Result") ||
+                    c.Name.EndsWith("ViewModel") ||
+                    c.Name.EndsWith("Command")
 
-                    // Ignore all the Builder classes
-				    !c.Name.EndsWith("Builder")
+                )  &&
+                
+                // Ignore all the Builder classes
+				!c.Name.EndsWith("Builder")
 				).ToList();	
     }
 
     // Gets all the request objects from the project (Convention = Request)
-    public List<EnvDTE.CodeClass> GetRequestsClasses(EnvDTE.Project project) {
+    public List<EnvDTE.CodeClass> GetApiContractClasses(EnvDTE.Project project) {
         return GetClassesOf(project).Where(c => 
                     c.Name.EndsWith("Request") || 
                     c.Name.EndsWith("Response") || 
                     c.Name.EndsWith("Dto")).ToList();	
     }
 
+
+    // Finds the matching CQRS contract class for an API contract class
+   public string GetMatchingCqrsClassNameFor(EnvDTE.CodeClass c) {
+
+        var name = GetSpecificNameFromClass(c);
+
+        var isGetRequest = c.Name.StartsWith("Get") || 
+                           c.Name.StartsWith("List");
+       
+
+        if (c.Name.EndsWith("Request")) {
+            if (isGetRequest) {
+                return name+"Query";
+            } else {
+                return name+"Command";
+            }
+        }
+
+        if (c.Name.EndsWith("Dto")) {
+            return name+"Info";
+        }
+
+        if (c.Name.EndsWith("Response")) {
+			if (isGetRequest) {
+				return name+"ViewModel";
+			} else {
+                return name+"Result";
+            }
+
+        }
+         
+        return "";
+    }
+
+
+    // Gets the name without the postfix defining why it is for.
+    public string GetSpecificNameFromClass(EnvDTE.CodeClass c) {
+            return c.Name
+                        .Replace("Request", "")
+                        .Replace("Response", "")
+                        .Replace("Dto", "")
+                        .Replace("Command", "")
+                        .Replace("Query", "");
+    }
 #>

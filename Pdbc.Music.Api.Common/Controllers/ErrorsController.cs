@@ -31,11 +31,11 @@ namespace Pdbc.Music.Api.Common.Controllers
         /// <summary>
         /// Gets the translations for a specific error key in the specific language.
         /// </summary>
-        /// <param name="request">The request.</param>
+        /// <param name="messageRequest">The messageRequest.</param>
         /// <returns>Returns the translated full text of the error code if found or null.</returns>
         [HttpGet("{Language}/{Key}")]
-        [ProducesResponseType(typeof(GetErrorResponse), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<GetErrorResponse>> GetErrorMessage([FromRoute] GetErrorRequest request)
+        [ProducesResponseType(typeof(GetErrorMessageResponse), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<GetErrorMessageResponse>> GetErrorMessage([FromRoute] GetErrorMessageRequest messageRequest)
         {
             return Ok();
         }

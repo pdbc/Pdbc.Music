@@ -16,7 +16,7 @@ namespace Pdbc.Music.Core.IntegrationTests.CQRS.Errors.List
         [TestCase("FR")]
         public void Verify_errors_returned(String language)
         {
-            var service = ServiceProvider.GetService<IErrorService>();
+            var service = ServiceProvider.GetService<IErrorMessagesService>();
             var response = service.ListErrorMessages(new ListErrorMessagesRequest()
             {
                 Language = language

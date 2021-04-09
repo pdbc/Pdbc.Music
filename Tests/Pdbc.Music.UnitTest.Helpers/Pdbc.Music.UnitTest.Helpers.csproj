@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Pdbc.Music.Core\Pdbc.Music.Core.csproj" />
     <ProjectReference Include="..\..\Pdbc.Music.Domain\Pdbc.Music.Domain.csproj" />
   </ItemGroup>
 
