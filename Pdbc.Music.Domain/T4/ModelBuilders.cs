@@ -97,6 +97,36 @@ public AlbumBuilder WithName(System.String name)
     this.Name = name;
 	return this;
 }	
+protected System.String CreatedBy { get; set; }		
+public AlbumBuilder WithCreatedBy(System.String createdby)
+{
+    this.CreatedBy = createdby;
+	return this;
+}	
+protected System.DateTimeOffset CreatedOn { get; set; }		
+public AlbumBuilder WithCreatedOn(System.DateTimeOffset createdon)
+{
+    this.CreatedOn = createdon;
+	return this;
+}	
+protected System.String ModifiedBy { get; set; }		
+public AlbumBuilder WithModifiedBy(System.String modifiedby)
+{
+    this.ModifiedBy = modifiedby;
+	return this;
+}	
+protected System.DateTimeOffset ModifiedOn { get; set; }		
+public AlbumBuilder WithModifiedOn(System.DateTimeOffset modifiedon)
+{
+    this.ModifiedOn = modifiedon;
+	return this;
+}	
+protected System.Int64 Id { get; set; }		
+public AlbumBuilder WithId(System.Int64 id)
+{
+    this.Id = id;
+	return this;
+}	
 
 
 
@@ -109,6 +139,21 @@ public override Album Build()
 	    	
 		
 	item.Name = Name;
+	    	
+		
+	item.CreatedBy = CreatedBy;
+	    	
+		
+	item.CreatedOn = CreatedOn;
+	    	
+		
+	item.ModifiedBy = ModifiedBy;
+	    	
+		
+	item.ModifiedOn = ModifiedOn;
+	    	
+		
+	item.Id = Id;
 	    
     return item;
 }
@@ -203,6 +248,36 @@ public ArtistBuilder WithName(System.String name)
     this.Name = name;
 	return this;
 }	
+protected System.String CreatedBy { get; set; }		
+public ArtistBuilder WithCreatedBy(System.String createdby)
+{
+    this.CreatedBy = createdby;
+	return this;
+}	
+protected System.DateTimeOffset CreatedOn { get; set; }		
+public ArtistBuilder WithCreatedOn(System.DateTimeOffset createdon)
+{
+    this.CreatedOn = createdon;
+	return this;
+}	
+protected System.String ModifiedBy { get; set; }		
+public ArtistBuilder WithModifiedBy(System.String modifiedby)
+{
+    this.ModifiedBy = modifiedby;
+	return this;
+}	
+protected System.DateTimeOffset ModifiedOn { get; set; }		
+public ArtistBuilder WithModifiedOn(System.DateTimeOffset modifiedon)
+{
+    this.ModifiedOn = modifiedon;
+	return this;
+}	
+protected System.Int64 Id { get; set; }		
+public ArtistBuilder WithId(System.Int64 id)
+{
+    this.Id = id;
+	return this;
+}	
 
 
 
@@ -215,6 +290,21 @@ public override Artist Build()
 	    	
 		
 	item.Name = Name;
+	    	
+		
+	item.CreatedBy = CreatedBy;
+	    	
+		
+	item.CreatedOn = CreatedOn;
+	    	
+		
+	item.ModifiedBy = ModifiedBy;
+	    	
+		
+	item.ModifiedOn = ModifiedOn;
+	    	
+		
+	item.Id = Id;
 	    
     return item;
 }
@@ -271,6 +361,36 @@ public FileInformationBuilder WithSongId(System.Nullable<System.Int64> songid)
     this.SongId = songid;
 	return this;
 }	
+protected System.String CreatedBy { get; set; }		
+public FileInformationBuilder WithCreatedBy(System.String createdby)
+{
+    this.CreatedBy = createdby;
+	return this;
+}	
+protected System.DateTimeOffset CreatedOn { get; set; }		
+public FileInformationBuilder WithCreatedOn(System.DateTimeOffset createdon)
+{
+    this.CreatedOn = createdon;
+	return this;
+}	
+protected System.String ModifiedBy { get; set; }		
+public FileInformationBuilder WithModifiedBy(System.String modifiedby)
+{
+    this.ModifiedBy = modifiedby;
+	return this;
+}	
+protected System.DateTimeOffset ModifiedOn { get; set; }		
+public FileInformationBuilder WithModifiedOn(System.DateTimeOffset modifiedon)
+{
+    this.ModifiedOn = modifiedon;
+	return this;
+}	
+protected System.Int64 Id { get; set; }		
+public FileInformationBuilder WithId(System.Int64 id)
+{
+    this.Id = id;
+	return this;
+}	
 
 
 
@@ -295,6 +415,21 @@ public override FileInformation Build()
 	    	
 		
 	item.SongId = SongId;
+	    	
+		
+	item.CreatedBy = CreatedBy;
+	    	
+		
+	item.CreatedOn = CreatedOn;
+	    	
+		
+	item.ModifiedBy = ModifiedBy;
+	    	
+		
+	item.ModifiedOn = ModifiedOn;
+	    	
+		
+	item.Id = Id;
 	    
     return item;
 }
@@ -389,6 +524,36 @@ public GenreBuilder WithName(System.String name)
     this.Name = name;
 	return this;
 }	
+protected System.String CreatedBy { get; set; }		
+public GenreBuilder WithCreatedBy(System.String createdby)
+{
+    this.CreatedBy = createdby;
+	return this;
+}	
+protected System.DateTimeOffset CreatedOn { get; set; }		
+public GenreBuilder WithCreatedOn(System.DateTimeOffset createdon)
+{
+    this.CreatedOn = createdon;
+	return this;
+}	
+protected System.String ModifiedBy { get; set; }		
+public GenreBuilder WithModifiedBy(System.String modifiedby)
+{
+    this.ModifiedBy = modifiedby;
+	return this;
+}	
+protected System.DateTimeOffset ModifiedOn { get; set; }		
+public GenreBuilder WithModifiedOn(System.DateTimeOffset modifiedon)
+{
+    this.ModifiedOn = modifiedon;
+	return this;
+}	
+protected System.Int64 Id { get; set; }		
+public GenreBuilder WithId(System.Int64 id)
+{
+    this.Id = id;
+	return this;
+}	
 
 
 
@@ -401,6 +566,21 @@ public override Genre Build()
 	    	
 		
 	item.Name = Name;
+	    	
+		
+	item.CreatedBy = CreatedBy;
+	    	
+		
+	item.CreatedOn = CreatedOn;
+	    	
+		
+	item.ModifiedBy = ModifiedBy;
+	    	
+		
+	item.ModifiedOn = ModifiedOn;
+	    	
+		
+	item.Id = Id;
 	    
     return item;
 }
@@ -495,6 +675,36 @@ public virtual PlaylistBuilder ClearSongs()
 //}
 
 
+protected System.String CreatedBy { get; set; }		
+public PlaylistBuilder WithCreatedBy(System.String createdby)
+{
+    this.CreatedBy = createdby;
+	return this;
+}	
+protected System.DateTimeOffset CreatedOn { get; set; }		
+public PlaylistBuilder WithCreatedOn(System.DateTimeOffset createdon)
+{
+    this.CreatedOn = createdon;
+	return this;
+}	
+protected System.String ModifiedBy { get; set; }		
+public PlaylistBuilder WithModifiedBy(System.String modifiedby)
+{
+    this.ModifiedBy = modifiedby;
+	return this;
+}	
+protected System.DateTimeOffset ModifiedOn { get; set; }		
+public PlaylistBuilder WithModifiedOn(System.DateTimeOffset modifiedon)
+{
+    this.ModifiedOn = modifiedon;
+	return this;
+}	
+protected System.Int64 Id { get; set; }		
+public PlaylistBuilder WithId(System.Int64 id)
+{
+    this.Id = id;
+	return this;
+}	
 
 
 
@@ -507,6 +717,21 @@ public override Playlist Build()
 	    	
 		
 	item.Songs = Songs;
+	    	
+		
+	item.CreatedBy = CreatedBy;
+	    	
+		
+	item.CreatedOn = CreatedOn;
+	    	
+		
+	item.ModifiedBy = ModifiedBy;
+	    	
+		
+	item.ModifiedOn = ModifiedOn;
+	    	
+		
+	item.Id = Id;
 	    
     return item;
 }
@@ -713,6 +938,36 @@ public SongBuilder WithFileInformationId(System.Nullable<System.Int64> fileinfor
     this.FileInformationId = fileinformationid;
 	return this;
 }	
+protected System.String CreatedBy { get; set; }		
+public SongBuilder WithCreatedBy(System.String createdby)
+{
+    this.CreatedBy = createdby;
+	return this;
+}	
+protected System.DateTimeOffset CreatedOn { get; set; }		
+public SongBuilder WithCreatedOn(System.DateTimeOffset createdon)
+{
+    this.CreatedOn = createdon;
+	return this;
+}	
+protected System.String ModifiedBy { get; set; }		
+public SongBuilder WithModifiedBy(System.String modifiedby)
+{
+    this.ModifiedBy = modifiedby;
+	return this;
+}	
+protected System.DateTimeOffset ModifiedOn { get; set; }		
+public SongBuilder WithModifiedOn(System.DateTimeOffset modifiedon)
+{
+    this.ModifiedOn = modifiedon;
+	return this;
+}	
+protected System.Int64 Id { get; set; }		
+public SongBuilder WithId(System.Int64 id)
+{
+    this.Id = id;
+	return this;
+}	
 
 
 
@@ -740,6 +995,21 @@ public override Song Build()
 	    	
 		
 	item.FileInformationId = FileInformationId;
+	    	
+		
+	item.CreatedBy = CreatedBy;
+	    	
+		
+	item.CreatedOn = CreatedOn;
+	    	
+		
+	item.ModifiedBy = ModifiedBy;
+	    	
+		
+	item.ModifiedOn = ModifiedOn;
+	    	
+		
+	item.Id = Id;
 	    
     return item;
 }

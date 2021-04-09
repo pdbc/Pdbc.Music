@@ -138,6 +138,7 @@
 
     public List<EnvDTE.CodeProperty> GetAllPropertiesAndInheritedProperties(EnvDTE.CodeClass domainClass, List<EnvDTE.CodeClass> allClasses) {
         var properties = FindProperties(domainClass.Members);
+
         AddBaseClassProperties(domainClass, allClasses, properties);
 
 
@@ -149,12 +150,12 @@
         if	(domainClass.Bases  != null) {
             foreach(CodeElement  b in domainClass.Bases )
             {
-                if(IsClassIncludedInList(allClasses, b.FullName)) {
+                //if(IsClassIncludedInList(allClasses, b.FullName)) {
                     EnvDTE.CodeClass parent =  ((EnvDTE.CodeClass)b);
                     AddProperties(properties, parent.Members);
 
                     AddBaseClassProperties(parent, allClasses, properties);
-                }
+                //}
             }
         }        
     }

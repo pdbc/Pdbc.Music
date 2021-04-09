@@ -20,7 +20,7 @@ namespace Pdbc.Music.Domain.Model
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return string.Equals(Id, other.Id);
+            return string.Equals(Name, other.Name);
         }
 
         public override bool Equals(object obj)
@@ -33,7 +33,7 @@ namespace Pdbc.Music.Domain.Model
 
         public override int GetHashCode()
         {
-            return (Id != null ? Id.GetHashCode() : 0);
+            return (Name != null ? Name.GetHashCode() : 0);
         }
 
         public static bool operator ==(Genre left, Genre right)
