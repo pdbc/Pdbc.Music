@@ -5,7 +5,7 @@ using Pdbc.Music.I18N;
 
 namespace Pdbc.Music.Core.CQRS.ErrorMessages.Get
 {
-    public class GetErrorMessageQueryValidator : FluentValidationValidator<GetErrorMessageQuery>, IValidator<GetErrorMessageQuery>
+    public class GetErrorMessageQueryValidator : FluentValidationValidator<GetErrorMessageQuery>, IValidationBagValidator<GetErrorMessageQuery>
     {
         public GetErrorMessageQueryValidator()
         {

@@ -39,6 +39,7 @@ namespace Pdbc.Music.Core.IntegrationTests.CQRS.Errors.Get
                 .GetResult();
 
             response.Message.ShouldBeNull();
+            response.Notifications.HasErrors().ShouldBeTrue();
         }
     }
 }

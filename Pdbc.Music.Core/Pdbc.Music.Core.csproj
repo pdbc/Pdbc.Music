@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -11,6 +11,11 @@
     <EmbeddedResource Remove="Services\**" />
     <None Remove="Mapping\**" />
     <None Remove="Services\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="CQRS\Base\GenericRequestPostProcessor.cs" />
+    <Compile Remove="CQRS\Base\GenericRequestPreProcessor.cs" />
   </ItemGroup>
 
   <ItemGroup>

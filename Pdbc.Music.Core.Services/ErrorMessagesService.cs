@@ -5,6 +5,7 @@ using MediatR;
 
 using Pdbc.Music.Api.Contracts;
 using Pdbc.Music.Api.Contracts.Requests.Errors;
+using Pdbc.Music.Common.Validation;
 using Pdbc.Music.Core.CQRS.ErrorMessages.Get;
 using Pdbc.Music.Core.CQRS.ErrorMessages.List;
 using Pdbc.Music.Core.CQRS.Errors.Get;
@@ -14,7 +15,8 @@ namespace Pdbc.Music.Core.Services
 {
     public class ErrorMessagesService : CqrsService, IErrorMessagesCqrsService, IErrorMessagesService
     {
-        public ErrorMessagesService(IMediator mediator, IMapper mapper) : base(mediator, mapper)
+        public ErrorMessagesService(IMediator mediator, IMapper mapper, ValidationBag validationBag) 
+            : base(mediator, mapper, validationBag)
         {
         }
 

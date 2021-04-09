@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
+using Pdbc.Music.Api.Contracts.Requests;
 using Pdbc.Music.Common.Validation;
 using Pdbc.Music.Core.Validation;
 
 namespace Pdbc.Music.Core.CQRS
 {
-    public class GenericPipelineBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TResponse : new()
+    public class GenericPipelineBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TResponse: new()
     {
         private readonly IServiceProvider _serviceProvider;
         private readonly ValidationBag _validationBag;
@@ -46,7 +47,8 @@ namespace Pdbc.Music.Core.CQRS
             await PerformValidation(request);
             if (_validationBag.HasErrors())
             {
-                return new TResponse();
+                var r = new TResponse();
+                return r;
             }
 
             var response = await next();
