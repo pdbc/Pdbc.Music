@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Pdbc.Music.Api.Contracts\Pdbc.Music.Api.Contracts.csproj" />
+    <ProjectReference Include="..\..\Pdbc.Music.Data\Pdbc.Music.Data.csproj" />
+    <ProjectReference Include="..\Pdbc.Music.UnitTest.Helpers\Pdbc.Music.UnitTest.Helpers.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Errors\List\" />
+  </ItemGroup>
+
+</Project>

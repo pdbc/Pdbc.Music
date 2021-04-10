@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Pdbc.Music.Core.IntegrationTests\Pdbc.Music.Core.IntegrationTests.csproj" />
+    <ProjectReference Include="..\Pdbc.Music.UnitTest.Helpers\Pdbc.Music.UnitTest.Helpers.csproj" />
+  </ItemGroup>
+
+</Project>
