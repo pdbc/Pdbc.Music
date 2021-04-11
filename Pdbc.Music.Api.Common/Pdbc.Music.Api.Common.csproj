@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Pdbc.Music.Api.Contracts\Pdbc.Music.Api.Contracts.csproj" />
+    <ProjectReference Include="..\Pdbc.Music.Core.Services\Pdbc.Music.Core.Services.csproj" />
   </ItemGroup>
 
 </Project>

@@ -5,8 +5,22 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Pdbc.Music.Core.IntegrationTests\Pdbc.Music.Core.IntegrationTests.csproj" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Pdbc.Music.Api.ServiceAgent\Pdbc.Music.Api.ServiceAgent.csproj" />
+    <ProjectReference Include="..\Pdbc.Music.Integration.Tests\Pdbc.Music.Integration.Tests.csproj" />
+    <ProjectReference Include="..\Pdbc.Music.Tests.Seed\Pdbc.Music.Tests.Seed.csproj" />
     <ProjectReference Include="..\Pdbc.Music.UnitTest.Helpers\Pdbc.Music.UnitTest.Helpers.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

@@ -6,7 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Linq;
 using System.Reflection;
-
+using Newtonsoft.Json.Serialization;
 using Pdbc.Music.Api.Common.Controllers;
 using Pdbc.Music.Api.Common.Extensions;
 using Pdbc.Music.Common.Extensions;
@@ -32,14 +32,14 @@ namespace Pdbc.Music.Api.Backend
             services.AddMvc(options =>
                 {
                     options.RegisterProducesResponseTypes();
-                     //options.ReturnHttpNotAcceptable = true;
+                    //options.ReturnHttpNotAcceptable = true;
                     options.SetOutputFormatters();
 
                     //options.Filters.Add(new AuthorizeFilter());
 
                 })
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+                ;
 
             //services.Configure<ApiBehaviorOptions>(options =>
             //{
@@ -59,7 +59,7 @@ namespace Pdbc.Music.Api.Backend
             services.RegisterModule<MusicCoreModule>(Configuration);
             services.RegisterModule<MusicDataModule>(Configuration);
             services.RegisterModule<MusicCqrsServicesModule>(Configuration);
-
+            services.AddAutoMapper(typeof(RequestToCqrsMappings));
 
             var serviceProvider = services.BuildServiceProvider(); //.GetService<IApiVersionDescriptionProvider>();
             services.AddSwaggerGen(options =>
@@ -90,7 +90,18 @@ namespace Pdbc.Music.Api.Backend
                 //a.ConfigureSwaggerAuthentication();
             });
 
-            services.AddControllers();
+            services.AddControllers()
+                .AddNewtonsoftJson(options =>
+                {
+                    // Domain Model classes can have navigation properties leading to cycles
+                    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+                    options.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.None;
+                    options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+                    options.SerializerSettings.Formatting = Newtonsoft.Json.Formatting.Indented;
+                    options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
+                    //options.SerializerSettings.Converters.Add(new TrimStringConverter());
+                });
+
         }
 
 
@@ -116,7 +127,7 @@ namespace Pdbc.Music.Api.Backend
             // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Pdbc.Music");
+                c.SwaggerEndpoint("v1/swagger.json", "Pdbc.Music");
 
                 c.DefaultModelExpandDepth(2);
                 c.DefaultModelRendering(Swashbuckle.AspNetCore.SwaggerUI.ModelRendering.Model);

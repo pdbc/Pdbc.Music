@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using NUnit.Framework;
 using Pdbc.Music.Data;
 using Pdbc.Music.Data.Interceptors;
+using Pdbc.Music.Integration.Tests;
 using Pdbc.Music.Tests.Seed;
 using Pdbc.Music.UnitTest.Helpers.Base;
 
@@ -59,8 +60,7 @@ namespace Pdbc.Music.Core.IntegrationTests
             var services = new ServiceCollection();
             services.AddSingleton(Configuration);
             services.AddLogging();
-            services.AddAutoMapper(typeof(RequestToCqrsMappings));
-
+            
             MusicIntegrationTestBootstrap.BootstrapContainer(services, Configuration);
 
             ServiceProvider = services.BuildServiceProvider();

@@ -1,20 +1,112 @@
 ﻿using System;
-
+using System.Data.Common;
+using System.IO;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using NUnit.Framework;
 using NUnit.Framework.Internal;
-using Pdbc.Music.Core.IntegrationTests.CQRS;
+using Pdbc.Music.Api.ServiceAgent;
+using Pdbc.Music.Common.Extensions;
+using Pdbc.Music.Data;
 using Pdbc.Music.Integration.Tests;
-using Microsoft.EntityFrameworkCore;
-using Pdbc.Music.Core.IntegrationTests;
+using Pdbc.Music.Tests.Seed;
+using Pdbc.Music.UnitTest.Helpers.Base;
+
 
 namespace Pdbc.Music.Api.IntegrationTests
 {
     /// <inheritdoc />
-    public abstract class MusicIntegrationApiRequestTestFixture : MusicIntegrationTestFixture
+    public abstract class MusicIntegrationApiRequestTestFixture : BaseSpecification
     {
+        protected MusicDbContext Context;
+
+        protected IConfiguration Configuration { get; private set; }
+
+        protected virtual bool ShouldLoadTestObjects { get; set; } = true;
+        protected MusicTestsDataObjects MusicObjects { get; private set; } = null;
+
+        protected ServiceProvider ServiceProvider;
+
+        protected TestCaseService TestCaseService;
+
+        protected DateTime TestStartedDatTime;
         protected IIntegrationTest IntegrationTest;
 
         protected abstract IIntegrationTest CreateIntegrationTest();
+
+        protected override void Establish_context()
+        {
+            LoadConfiguration();
+
+            DbProviderFactories.RegisterFactory("System.Data.SqlClient", SqlClientFactory.Instance);
+
+            var dir = TestContext.CurrentContext.TestDirectory;
+            Directory.SetCurrentDirectory(dir);
+
+            SetupServiceProvider();
+
+            Context = ServiceProvider.GetService<MusicDbContext>();
+
+            TestCaseService = new TestCaseService(Context);
+            if (ShouldLoadTestObjects)
+            {
+                MusicObjects = new MusicTestsDataObjects(Context);
+                MusicObjects.LoadObjects();
+            }
+
+            TestStartedDatTime = DateTime.Now;
+
+            base.Establish_context();
+        }
+
+        private void SetupServiceProvider()
+        {
+            var services = new ServiceCollection();
+            services.AddSingleton(Configuration);
+            services.AddLogging();
+            services.AddHttpClient();
+
+            services.RegisterModule<MusicDataModule>(Configuration);
+            services.RegisterModule<MusicServiceAgentModule>(Configuration);
+            
+            ServiceProvider = services.BuildServiceProvider();
+        }
+
+        private void LoadConfiguration()
+        {
+            var configurationBuilder = new ConfigurationBuilder();
+            configurationBuilder
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+
+            Configuration = configurationBuilder.Build();
+
+        }
+
+        protected override void Dispose_context()
+        {
+            RunWithoutException(CleanupActionsAfterTest);
+            RunWithoutException(() => Context.SaveChanges());
+            RunWithoutException(() => Context?.Dispose());
+        }
+
+        private void RunWithoutException(Action action)
+        {
+            try
+            {
+                action();
+            }
+            catch (Exception) { }
+        }
+
+        protected override void Because()
+        {
+            //Context.SaveChanges();
+            base.Because();
+            //Context.SaveChanges();
+        }
+        
 
         [Test]
         public void Execute_Test()
@@ -48,7 +140,7 @@ namespace Pdbc.Music.Api.IntegrationTests
 
         }
 
-        protected override void CleanupActionsAfterTest()
+        protected virtual void CleanupActionsAfterTest()
         {
             if (IntegrationTest != null)
             {

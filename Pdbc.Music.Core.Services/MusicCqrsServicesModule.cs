@@ -9,6 +9,8 @@ namespace Pdbc.Music.Core.Services
     {
         public void Register(IServiceCollection serviceCollection, IConfiguration configuration)
         {
+            serviceCollection.AddScoped<IErrorMessagesCqrsService, ErrorMessagesService>();
+
             serviceCollection.AddScoped<IErrorMessagesService, ErrorMessagesService>();
         }
     
