@@ -1,6 +1,7 @@
 ﻿using Pdbc.Music.Api.Contracts;
 using Pdbc.Music.Api.Contracts.Requests.Errors;
 using Pdbc.Music.Data;
+using Pdbc.Music.I18N;
 using Pdbc.Music.UnitTests.Base;
 
 namespace Pdbc.Music.Integration.Tests.Errors.Get
@@ -37,7 +38,7 @@ namespace Pdbc.Music.Integration.Tests.Errors.Get
         public override void VerifyResponse(GetErrorMessageResponse response)
         {
             response.Message.ShouldBeNull();
-            response.Message.ShouldHaveCount(1);
+            response.Notifications.HasErrors().ShouldBeTrue();
         }
     }
 }

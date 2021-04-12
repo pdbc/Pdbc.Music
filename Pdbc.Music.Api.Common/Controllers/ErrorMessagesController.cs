@@ -31,7 +31,7 @@ namespace Pdbc.Music.Api.Common.Controllers
         [ProducesResponseType(typeof(ListErrorMessagesResponse), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<ListErrorMessagesResponse>> ListErrorMessages([FromRoute] ListErrorMessagesRequest request)
         {
-            var response = _errorMessagesService.ListErrorMessages(request);
+            var response = await _errorMessagesService.ListErrorMessages(request);
             return base.Ok(response);
         }
 
@@ -44,7 +44,7 @@ namespace Pdbc.Music.Api.Common.Controllers
         [ProducesResponseType(typeof(GetErrorMessageResponse), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<GetErrorMessageResponse>> GetErrorMessage([FromRoute] GetErrorMessageRequest request)
         {
-            var response = _errorMessagesService.GetErrorMessage(request);
+            var response = await _errorMessagesService.GetErrorMessage(request);
             return base.Ok(response);
         }
     }

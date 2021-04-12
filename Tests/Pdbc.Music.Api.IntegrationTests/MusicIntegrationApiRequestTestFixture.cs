@@ -66,7 +66,7 @@ namespace Pdbc.Music.Api.IntegrationTests
             var services = new ServiceCollection();
             services.AddSingleton(Configuration);
             services.AddLogging();
-            services.AddHttpClient();
+            //services.AddHttpClient().AddNewtonsoft();
 
             services.RegisterModule<MusicDataModule>(Configuration);
             services.RegisterModule<MusicServiceAgentModule>(Configuration);

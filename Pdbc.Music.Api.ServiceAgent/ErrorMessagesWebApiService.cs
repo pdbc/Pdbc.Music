@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using Pdbc.Music.Api.Contracts.Requests.Errors;
 using Pdbc.Music.Api.ServiceAgent.Extensions;
-using RestSharp;
 
 namespace Pdbc.Music.Api.ServiceAgent
 {

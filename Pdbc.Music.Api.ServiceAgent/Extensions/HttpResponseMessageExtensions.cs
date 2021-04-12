@@ -4,9 +4,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
-using System.Text.Json;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using Pdbc.Music.Api.ServiceAgent.Exceptions;
+using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace Pdbc.Music.Api.ServiceAgent.Extensions
 {
@@ -22,9 +23,16 @@ namespace Pdbc.Music.Api.ServiceAgent.Extensions
         {
             try
             {
-                await using var responseStream = await response.Content.ReadAsStreamAsync();
-                var result = await JsonSerializer.DeserializeAsync<TResponse>(responseStream);
-                return result;
+                var r = await response.Content.ReadAsStringAsync();
+                var r2 = JsonConvert.DeserializeObject<TResponse>(r);
+                return r2;
+
+                //var r2 = JsonSerializer.Deserialize<TResponse>(r);
+                ////return r2;
+
+                //await using var responseStream = await response.Content.ReadAsStreamAsync();
+                //var result = await JsonSerializer.DeserializeAsync<TResponse>(responseStream);
+                //return result;
 
             }
             catch (Exception ex)
