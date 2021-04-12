@@ -17,7 +17,7 @@ namespace Pdbc.Music.Api.ServiceAgent
        
         public async Task<ListErrorMessagesResponse> ListErrorMessages(ListErrorMessagesRequest request)
         {
-            var response = await _proxy.CallAsync(c => c.GetAsync($"/{_route}/{request.Language}"));
+            var response = await _proxy.CallAsync(c => c.GetAsync($"{_route}/{request.Language}"));
             return await response.Deserialize<ListErrorMessagesResponse>();
         }
 

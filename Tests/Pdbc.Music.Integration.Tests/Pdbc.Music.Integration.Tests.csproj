@@ -10,8 +10,4 @@
     <ProjectReference Include="..\Pdbc.Music.UnitTest.Helpers\Pdbc.Music.UnitTest.Helpers.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Errors\List\" />
-  </ItemGroup>
-
 </Project>
