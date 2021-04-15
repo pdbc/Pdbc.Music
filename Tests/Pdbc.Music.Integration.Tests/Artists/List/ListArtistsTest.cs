@@ -6,9 +6,9 @@ using Pdbc.Music.UnitTests.Base;
 
 namespace Pdbc.Music.Integration.Tests.Artists.List
 {
-    public class ListErrorArtistsTest : ArtistsServiceTest<ListArtistsResponse>
+    public class ListArtistsTest : ArtistsServiceTest<ListArtistsResponse>
     {
-        public ListErrorArtistsTest(IArtistService service, MusicDbContext dbContext) 
+        public ListArtistsTest(IArtistService service, MusicDbContext dbContext) 
             : base(service, dbContext)
         {
         }

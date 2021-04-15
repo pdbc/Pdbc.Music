@@ -39,8 +39,6 @@ public class RequestToCqrsMappings : Profile
             foreach(var cqrsClass in cqrsClasses)
             {    
             #>
-
-            // <#= contractClass.Name #> <#= matchingCqrsName #>
 <#
     if (cqrsClass.Name == matchingCqrsName)
     {
@@ -48,6 +46,7 @@ public class RequestToCqrsMappings : Profile
     }
 }
             #>
+            // <#= contractClass.Name #>
         <# 
         }
         #>

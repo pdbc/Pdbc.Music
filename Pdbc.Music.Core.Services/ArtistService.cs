@@ -10,7 +10,7 @@ using Pdbc.Music.Core.CQRS.Artists.List;
 
 namespace Pdbc.Music.Core.Services
 {
-    public class ArtistCqrsService : CqrsService, IArtistService
+    public class ArtistCqrsService : CqrsService, IArtistCqrsService
     {
         public ArtistCqrsService(IMediator mediator, IMapper mapper, ValidationBag validationBag) 
             : base(mediator, mapper, validationBag)
