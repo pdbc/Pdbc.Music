@@ -52,7 +52,8 @@
         var dte = (EnvDTE.DTE)serviceProvider.GetService(typeof(EnvDTE.DTE));
 
         var solution = dte.Solution;
-        foreach (Project p in solution.Projects)
+        var projects = GetAllProjectsRecursiveFromSolution(dte);
+        foreach (Project p in projects)
         {
             if (p != null) {
                 if (p.Name == projectName){
@@ -62,6 +63,59 @@
         }
 
         return null;
+    }
+
+    public static IEnumerable<EnvDTE.Project> GetAllProjectsRecursiveFromSolution(EnvDTE.DTE dte)
+    {
+        List<EnvDTE.Project> projectList = new List<EnvDTE.Project>();
+        var folders = dte.Solution.Projects.Cast<EnvDTE.Project>().Where(p => p.Kind == EnvDTE80.ProjectKinds.vsProjectKindSolutionFolder);
+ 
+        foreach (EnvDTE.Project folder in folders)
+        {
+            foreach (EnvDTE.ProjectItem item in folder.ProjectItems)
+            {
+                if(item.Object == null)
+                {
+                    continue;
+                }
+                if((item.Object as EnvDTE.Project).Kind ==  EnvDTE.Constants.vsProjectKindSolutionItems )
+                {
+                    projectList.AddRange(GetAllProjectsRecursive(item.Object as EnvDTE.Project));
+                }
+                else if (item.Object is EnvDTE.Project)
+                {
+                    projectList.Add(item.Object as EnvDTE.Project);
+                }
+            }
+        }
+        var projects = dte.Solution.Projects.Cast<EnvDTE.Project>().Where(p => p.Kind != EnvDTE80.ProjectKinds.vsProjectKindSolutionFolder);
+        projectList.AddRange(projects);
+ 
+        return projectList;
+    }
+    public static IEnumerable<Project> GetAllProjectsRecursive(EnvDTE.Project folder)
+    {
+        List<EnvDTE.Project> projectList = new List<EnvDTE.Project>();
+ 
+        if (folder.ProjectItems != null)
+        {
+            foreach (EnvDTE.ProjectItem item in folder.ProjectItems)
+            {
+                if(item.Object == null)
+                {
+                    continue;
+                }
+                if((item.Object as EnvDTE.Project).Kind ==  EnvDTE.Constants.vsProjectKindSolutionItems )
+                {
+                    projectList.AddRange(GetAllProjectsRecursive(item.Object as EnvDTE.Project));
+                }
+                else if (item.Object is EnvDTE.Project)
+                {
+                    projectList.Add(item.Object as EnvDTE.Project);
+                }
+            }
+        }
+        return projectList;
     }
 
     // Get the current project the T4 template is in.

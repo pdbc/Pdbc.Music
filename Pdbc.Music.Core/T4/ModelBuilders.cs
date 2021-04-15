@@ -9,11 +9,9 @@ using System.Linq;
 
 
 using Pdbc.Music.Common;
-using Pdbc.Music.Core.CQRS.ErrorMessages.Get;
-using Pdbc.Music.Core.CQRS.ErrorMessages.List;
 
-namespace Pdbc.Music.Core.CQRS.Errors.Get {
-    public partial class GetErrorMessageQueryBuilder : ObjectBuilder<GetErrorMessageQuery>
+namespace Pdbc.Music.Core.CQRS.ErrorMessages.Get {
+    public partial class GetErrorMessageQueryBuilder : ObjectBuilder<Pdbc.Music.Core.CQRS.ErrorMessages.Get.GetErrorMessageQuery>
 	{
        protected System.String Language { get; set; }		
 public GetErrorMessageQueryBuilder WithLanguage(System.String language)
@@ -46,8 +44,8 @@ public override GetErrorMessageQuery Build()
     }
 }
 
-namespace Pdbc.Music.Core.CQRS.Errors.Get {
-    public partial class GetErrorMessageViewModelBuilder : ObjectBuilder<GetErrorMessageViewModel>
+namespace Pdbc.Music.Core.CQRS.ErrorMessages.Get {
+    public partial class GetErrorMessageViewModelBuilder : ObjectBuilder<Pdbc.Music.Core.CQRS.ErrorMessages.Get.GetErrorMessageViewModel>
 	{
        protected System.String Message { get; set; }		
 public GetErrorMessageViewModelBuilder WithMessage(System.String message)
@@ -71,8 +69,8 @@ public override GetErrorMessageViewModel Build()
     }
 }
 
-namespace Pdbc.Music.Core.CQRS.Errors.List {
-    public partial class ListErrorMessagesQueryBuilder : ObjectBuilder<ListErrorMessagesQuery>
+namespace Pdbc.Music.Core.CQRS.ErrorMessages.List {
+    public partial class ListErrorMessagesQueryBuilder : ObjectBuilder<Pdbc.Music.Core.CQRS.ErrorMessages.List.ListErrorMessagesQuery>
 	{
        protected System.String Language { get; set; }		
 public ListErrorMessagesQueryBuilder WithLanguage(System.String language)
@@ -96,8 +94,8 @@ public override ListErrorMessagesQuery Build()
     }
 }
 
-namespace Pdbc.Music.Core.CQRS.Errors.List {
-    public partial class ListErrorMessagesViewModelBuilder : ObjectBuilder<ListErrorMessagesViewModel>
+namespace Pdbc.Music.Core.CQRS.ErrorMessages.List {
+    public partial class ListErrorMessagesViewModelBuilder : ObjectBuilder<Pdbc.Music.Core.CQRS.ErrorMessages.List.ListErrorMessagesViewModel>
 	{
        protected System.Collections.Generic.IDictionary<System.String, System.String> Resources { get; set; }		
 public ListErrorMessagesViewModelBuilder WithResources(System.Collections.Generic.IDictionary<System.String, System.String> resources)
@@ -115,6 +113,38 @@ public override ListErrorMessagesViewModel Build()
 		
 	item.Resources = Resources;
 	    
+    return item;
+}
+       
+    }
+}
+
+namespace Pdbc.Music.Core.CQRS.HealthCheck.IsServiceRunning {
+    public partial class IsServiceRunningQueryBuilder : ObjectBuilder<Pdbc.Music.Core.CQRS.HealthCheck.IsServiceRunning.IsServiceRunningQuery>
+	{
+       
+
+
+public override IsServiceRunningQuery Build()
+{
+    var item = (IsServiceRunningQuery)Activator.CreateInstance(typeof(IsServiceRunningQuery));
+    
+    return item;
+}
+       
+    }
+}
+
+namespace Pdbc.Music.Core.CQRS.HealthCheck.IsServiceRunning {
+    public partial class IsServiceRunningViewModelBuilder : ObjectBuilder<Pdbc.Music.Core.CQRS.HealthCheck.IsServiceRunning.IsServiceRunningViewModel>
+	{
+       
+
+
+public override IsServiceRunningViewModel Build()
+{
+    var item = (IsServiceRunningViewModel)Activator.CreateInstance(typeof(IsServiceRunningViewModel));
+    
     return item;
 }
        
