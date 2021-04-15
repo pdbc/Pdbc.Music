@@ -39,7 +39,7 @@ namespace Pdbc.Music.Api.Backend
                     //options.Filters.Add(new AuthorizeFilter());
 
                 })
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
                 ;
 
             //services.Configure<ApiBehaviorOptions>(options =>
@@ -63,7 +63,7 @@ namespace Pdbc.Music.Api.Backend
             services.AddAutoMapper(typeof(RequestToCqrsMappings),
                                    typeof(ArtistDtoMappings));
 
-            var serviceProvider = services.BuildServiceProvider(); //.GetService<IApiVersionDescriptionProvider>();
+            //var serviceProvider = services.BuildServiceProvider(); //.GetService<IApiVersionDescriptionProvider>();
             services.AddSwaggerGen(options =>
             {
                 options.ConfigureSwaggerDocument("PDBC.Music API",

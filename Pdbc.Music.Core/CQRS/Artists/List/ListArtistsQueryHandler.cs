@@ -28,7 +28,7 @@ namespace Pdbc.Music.Core.CQRS.Artists.List
             List<ArtistListItem> artists = await _artistRepository
                 .GetAll()
                 .ProjectTo<ArtistListItem>(_configurationProvider)
-                .ToListAsync();
+                .ToListAsync(cancellationToken);
 
             var result = new ListArtistsViewModel()
             {

@@ -12,7 +12,6 @@ namespace Pdbc.Music.Api.ServiceAgent
     /// </summary>
     public class WebApiClientProxy
     {
-        
         private readonly Uri _baseAddress;
         private readonly string _name;
         private readonly IHttpClientFactory _httpClientFactory;

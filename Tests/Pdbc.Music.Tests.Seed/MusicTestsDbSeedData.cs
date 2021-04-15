@@ -15,7 +15,7 @@ namespace Pdbc.Music.Tests.Seed
     public class MusicTestsDbSeedData : IMusicTestsDbSeedData
     {
         private readonly MusicDbContext _dbContext;
-        private MusicTestsDataObjects _objects;
+        private readonly MusicTestsDataObjects _objects;
 
         public MusicTestsDbSeedData(MusicDbContext dbContext)
         {
@@ -86,7 +86,7 @@ namespace Pdbc.Music.Tests.Seed
         private void SeedPlaylists()
         {
             SeedPlaylistIfNotExists(_dbContext, MusicTestsDataObjectsValues.PlaylistA, _objects.SongA);
-            SeedPlaylistIfNotExists(_dbContext, MusicTestsDataObjectsValues.PlaylistB, _objects.SongA, _objects.SongB); ;
+            SeedPlaylistIfNotExists(_dbContext, MusicTestsDataObjectsValues.PlaylistB, _objects.SongA, _objects.SongB);
             SeedPlaylistIfNotExists(_dbContext, MusicTestsDataObjectsValues.PlaylistC);
 
 

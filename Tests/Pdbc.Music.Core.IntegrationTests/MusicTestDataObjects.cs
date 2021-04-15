@@ -6,8 +6,8 @@ namespace Pdbc.Music.Core.IntegrationTests
 {
     public class MusicObjects : IHaveDataObjects
     {
-        public MusicDataObjects MusicDataObjects { get; private set; }
-        public MusicTestsDataObjects MusicTestsDataObjects { get; private set; }
+        public MusicDataObjects MusicDataObjects { get; }
+        public MusicTestsDataObjects MusicTestsDataObjects { get; }
 
         public MusicObjects(MusicDbContext musicDbContext)
         {

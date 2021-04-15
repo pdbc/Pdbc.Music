@@ -10,7 +10,7 @@ using Pdbc.Music.Core.Validation.Extensions;
 
 namespace Pdbc.Music.Core.Validation
 {
-    public interface IValidationBagValidator<T> : IValidator<T>
+    public interface IValidationBagValidator<in T> : IValidator<T>
     {
         Task Validate(T instance, ValidationBag bag);
     }

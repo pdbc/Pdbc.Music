@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Pdbc.Music.Api.Contracts.Enum
+﻿namespace Pdbc.Music.Api.Contracts.Enum
 {
     /// <summary>
     /// Typewriter enumeration for HttpMethods

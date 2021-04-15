@@ -44,7 +44,7 @@ namespace Pdbc.Music.Data
             // TODO put this behaind configuration
             optionsBuilder.LogTo(Console.WriteLine)
                 .EnableSensitiveDataLogging()
-                .EnableDetailedErrors(); ;
+                .EnableDetailedErrors();
 
             optionsBuilder.AddInterceptors(new DatabaseCommandInterceptor());
             base.OnConfiguring(optionsBuilder);
