@@ -21,7 +21,7 @@ namespace Pdbc.Music.Api.Common.Authentication
             // Initialize the operation.security property
             operation.Security = new List<OpenApiSecurityRequirement>
             {
-                new OpenApiSecurityRequirement
+                new()
                 {
                     {
                         new OpenApiSecurityScheme

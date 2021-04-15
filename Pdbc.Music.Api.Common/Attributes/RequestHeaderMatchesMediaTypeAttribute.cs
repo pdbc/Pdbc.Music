@@ -8,7 +8,7 @@ namespace Pdbc.Music.Api.Common.Attributes
     [AttributeUsage(AttributeTargets.All, Inherited = true, AllowMultiple = true)]
     public class RequestHeaderMatchesMediaTypeAttribute : Attribute, IActionConstraint
     {
-        private readonly MediaTypeCollection _mediaTypes = new MediaTypeCollection();
+        private readonly MediaTypeCollection _mediaTypes = new();
         private readonly string _requestHeaderToMatch;
 
         public RequestHeaderMatchesMediaTypeAttribute(string requestHeaderToMatch,

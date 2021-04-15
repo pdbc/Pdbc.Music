@@ -5,7 +5,7 @@ namespace Pdbc.Music.UnitTest.Helpers.Extensions
 {
     public class UnitTestValueGenerator
     {
-        private static readonly Random Random = new Random();
+        private static readonly Random Random = new();
 
         public const string Alphanumeric = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
         public const string Numeric = "1234567890";
