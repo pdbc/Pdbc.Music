@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
+using Pdbc.Music.Dto.Artists;
 
 namespace Pdbc.Music.Core.CQRS.Artists.List
 {
     public class ListArtistsViewModel
     {
-        public IDictionary<string, string> Resources { get; set; }
+        public IList<ArtistListItem> Items { get; set; }
     }
 }

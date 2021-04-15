@@ -19,11 +19,14 @@ namespace Pdbc.Music.Data
             serviceCollection.AddDbContext<MusicDbContext>(options => options.UseSqlServer(
                 settings.DbConnectionString, builder =>
                 {
-                    builder.EnableRetryOnFailure(
-                        settings.SqlServerMaxRetryCount,
-                        TimeSpan.FromMilliseconds(settings.SqlServerMaxDelay),
-                        new List<int>()
-                    );
+                    if (settings.UseRetries)
+                    {
+                        builder.EnableRetryOnFailure(
+                            settings.SqlServerMaxRetryCount,
+                            TimeSpan.FromMilliseconds(settings.SqlServerMaxDelay),
+                            new List<int>()
+                        );
+                    }
 
                     builder.MigrationsHistoryTable(DbConstants.MigrationsTableName, DbConstants.DefaultSchemaName);
                 }));

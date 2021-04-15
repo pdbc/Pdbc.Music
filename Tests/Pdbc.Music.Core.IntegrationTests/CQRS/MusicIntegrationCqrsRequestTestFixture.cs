@@ -1,6 +1,5 @@
 ﻿using System;
-using System.ComponentModel;
-using System.Transactions;
+using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
 using NUnit.Framework.Internal;
 using Pdbc.Music.Integration.Tests;
@@ -16,12 +15,21 @@ namespace Pdbc.Music.Core.IntegrationTests.CQRS
             base.Establish_context();
 
             IntegrationTest = CreateIntegrationTest();
-
-            using (var transaction = new TransactionScope())
+            var strategy = Context.Database.CreateExecutionStrategy();
+            strategy.Execute(() =>
             {
+                using var transaction = Context.Database.BeginTransaction();
+
                 IntegrationTest.Setup();
-                transaction.Complete();
-            }
+                Context.SaveChanges();
+                transaction.Commit();
+            });
+
+            //using (var transaction = new TransactionScope())
+            //{
+            //    IntegrationTest.Setup();
+            //    transaction.Complete();
+            //}
             
             // Set the name in the setup
             TestExecutionContext.CurrentContext.CurrentTest.Name = $"{IntegrationTest.GetType().Name}.Execute_Test";

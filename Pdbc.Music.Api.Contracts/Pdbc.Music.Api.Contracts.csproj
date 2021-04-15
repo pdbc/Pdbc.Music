@@ -9,4 +9,8 @@
     <DocumentationFile>obj\Debug\net5.0\Pdbc.Music.Api.Contracts.xml</DocumentationFile>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Pdbc.Music.Dto\Pdbc.Music.Dto.csproj" />
+  </ItemGroup>
+
 </Project>

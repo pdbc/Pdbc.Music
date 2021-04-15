@@ -36,6 +36,8 @@ namespace Pdbc.Music.Integration.Tests.Artists.List
         public override void VerifyResponse(ListArtistsResponse response)
         {
             response.ShouldNotBeNull();
+            response.Items.ShouldNotBeNull();
+            response.Items.Count.ShouldBeGreaterThan(0);
         }
     }
 }

@@ -15,5 +15,6 @@
         public const string UseAdminConnectionString = "sqlServer:useAdminConnectionString";
         
         public const string MigrationsAssembly = "Pdbc.Music.Data";
+        public static string UseRetries = "sqlServer:useRetries";
     }
 }

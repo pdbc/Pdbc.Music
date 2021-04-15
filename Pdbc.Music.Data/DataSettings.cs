@@ -17,5 +17,6 @@ namespace Pdbc.Music.Data
 
         public int SqlServerMaxRetryCount => _config.GetValue(DbConstants.MaxRetryCountValue, 20);
         public int SqlServerMaxDelay => _config.GetValue(DbConstants.MaxDelayValue, 500);
+        public bool UseRetries => _config.GetValue(DbConstants.UseRetries, false);
     }
 }
