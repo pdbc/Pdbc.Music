@@ -1,10 +1,10 @@
 ﻿using Pdbc.Music.Api.Contracts;
 using Pdbc.Music.Api.Contracts.Requests.Errors;
 using Pdbc.Music.Data;
-using Pdbc.Music.I18N;
+using Pdbc.Music.Integration.Tests.Errors;
 using Pdbc.Music.UnitTests.Base;
 
-namespace Pdbc.Music.Integration.Tests.Errors.Get
+namespace Pdbc.Music.Integration.Tests.ErrorMessages.Get
 {
     public class GetErrorMessageWithoutLanguageTest : ErrorMessageServiceTest<GetErrorMessageResponse>
     {

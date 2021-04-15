@@ -9,9 +9,17 @@ namespace Pdbc.Music.Core.Services
     {
         public void Register(IServiceCollection serviceCollection, IConfiguration configuration)
         {
-            serviceCollection.AddScoped<IErrorMessagesCqrsService, ErrorMessagesService>();
 
-            serviceCollection.AddScoped<IErrorMessagesService, ErrorMessagesService>();
+            //// Scan register 
+            serviceCollection.Scan(scan => scan.FromAssemblyOf<MusicCqrsServicesModule>()
+                .AddClasses(true)  // Get all classes implementing the IValidator<T>
+                .AsMatchingInterface()
+                .WithScopedLifetime()
+            );
+
+
+            serviceCollection.AddScoped<IErrorMessagesCqrsService, ErrorMessagesCqrsService>();
+            serviceCollection.AddScoped<IErrorMessagesService, ErrorMessagesCqrsService>();
         }
     
     }

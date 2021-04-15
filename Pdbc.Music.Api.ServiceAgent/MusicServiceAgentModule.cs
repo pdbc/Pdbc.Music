@@ -12,11 +12,12 @@ namespace Pdbc.Music.Api.ServiceAgent
             serviceCollection.AddSingleton<IMusicApiServiceAgentConfiguration, MusicApiServiceAgentConfiguration>();
 
             serviceCollection.AddScoped<IErrorMessagesWebApiService, ErrorMessagesWebApiService>();
+            serviceCollection.AddScoped<IHealthCheckWebApiService, HealthCheckWebApiService>();
 
             var config = new MusicApiServiceAgentConfiguration(configuration);
             serviceCollection.AddHttpClient(config.Name, c =>
             {
-                c.BaseAddress = new Uri(config.BaseUrl); // "https://api.github.com/");
+                c.BaseAddress = new Uri(config.BaseUrl); 
 
                 // Github API versioning
                 //c.DefaultRequestHeaders.Add("Accept", "application/vnd.github.v3+json");

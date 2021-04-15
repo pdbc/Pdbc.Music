@@ -13,9 +13,9 @@ using Pdbc.Music.Core.CQRS.Errors.List;
 
 namespace Pdbc.Music.Core.Services
 {
-    public class ErrorMessagesService : CqrsService, IErrorMessagesCqrsService, IErrorMessagesService
+    public class ErrorMessagesCqrsService : CqrsService, IErrorMessagesCqrsService, IErrorMessagesService
     {
-        public ErrorMessagesService(IMediator mediator, IMapper mapper, ValidationBag validationBag) 
+        public ErrorMessagesCqrsService(IMediator mediator, IMapper mapper, ValidationBag validationBag) 
             : base(mediator, mapper, validationBag)
         {
         }

@@ -56,7 +56,8 @@
         var name = GetSpecificNameFromClass(c);
 
         var isGetRequest = c.Name.StartsWith("Get") || 
-                           c.Name.StartsWith("List");
+                           c.Name.StartsWith("List") || 
+                           c.Name.StartsWith("IsServiceRunning") ;
        
 
         if (c.Name.EndsWith("Request")) {

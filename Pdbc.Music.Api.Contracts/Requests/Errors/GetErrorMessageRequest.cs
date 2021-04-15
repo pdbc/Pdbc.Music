@@ -7,7 +7,7 @@ namespace Pdbc.Music.Api.Contracts.Requests.Errors
     /// <summary>
     /// Request to get the possible errors from the API by language and key
     /// </summary>
-    [HttpAction("errors/{Language}/{Key}", Method.Get)]
+    [HttpAction("errorMessages/{Language}/{Key}", Method.Get)]
     public class GetErrorMessageRequest : IMusicRequest
     {
 

@@ -1,14 +1,9 @@
-﻿using System;
-using Microsoft.Extensions.DependencyInjection;
-using NUnit.Framework;
-using Pdbc.Music.Api.Contracts;
-using Pdbc.Music.Api.Contracts.Requests.Errors;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Pdbc.Music.Api.ServiceAgent;
 using Pdbc.Music.Integration.Tests;
 using Pdbc.Music.Integration.Tests.Errors.List;
-using Pdbc.Music.UnitTests.Base;
 
-namespace Pdbc.Music.Api.IntegrationTests.Errors.List
+namespace Pdbc.Music.Api.IntegrationTests.ErrorMessages.List
 {
     public class ListErrorMessagesQueryHandlerTestFixture : MusicIntegrationApiRequestTestFixture
     {
