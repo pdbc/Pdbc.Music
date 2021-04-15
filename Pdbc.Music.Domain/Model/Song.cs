@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Pdbc.Music.Domain.Model
 {
-    public class Song :  AuditableIdentifiable, IModifiable
+    public class Song : AuditableIdentifiable, IModifiable
     {
 
         public virtual String Title { get; set; }
@@ -19,6 +19,6 @@ namespace Pdbc.Music.Domain.Model
         public virtual FileInformation FileInformation { get; set; }
         public virtual Int64? FileInformationId { get; set; }
 
-        
+
     }
 }

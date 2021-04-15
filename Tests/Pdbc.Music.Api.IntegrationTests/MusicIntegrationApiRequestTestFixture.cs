@@ -1,7 +1,4 @@
-﻿using System;
-using System.Data.Common;
-using System.IO;
-using Microsoft.Data.SqlClient;
+﻿using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,6 +10,9 @@ using Pdbc.Music.Data;
 using Pdbc.Music.Integration.Tests;
 using Pdbc.Music.Tests.Seed;
 using Pdbc.Music.UnitTest.Helpers.Base;
+using System;
+using System.Data.Common;
+using System.IO;
 
 
 namespace Pdbc.Music.Api.IntegrationTests
@@ -70,7 +70,7 @@ namespace Pdbc.Music.Api.IntegrationTests
 
             services.RegisterModule<MusicDataModule>(Configuration);
             services.RegisterModule<MusicServiceAgentModule>(Configuration);
-            
+
             ServiceProvider = services.BuildServiceProvider();
         }
 
@@ -106,7 +106,7 @@ namespace Pdbc.Music.Api.IntegrationTests
             base.Because();
             //Context.SaveChanges();
         }
-        
+
 
         [Test]
         public void Execute_Test()

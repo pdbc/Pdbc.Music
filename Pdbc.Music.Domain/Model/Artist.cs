@@ -7,7 +7,7 @@ namespace Pdbc.Music.Domain.Model
     {
         public virtual IList<Song> Songs { get; set; }
         public virtual String Name { get; set; }
-        
+
         public Artist()
         {
             Songs = new List<Song>();

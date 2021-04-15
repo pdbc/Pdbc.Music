@@ -1,12 +1,7 @@
-﻿using System;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Linq;
-using System.Transactions;
-using Pdbc.Music.Api.Contracts.Requests;
+﻿using Pdbc.Music.Api.Contracts.Requests;
 using Pdbc.Music.Data;
-using Pdbc.Music.Data.Extensions;
-using Pdbc.Music.UnitTests.Base;
+using System;
+using System.Transactions;
 
 namespace Pdbc.Music.Integration.Tests
 {
@@ -64,13 +59,13 @@ namespace Pdbc.Music.Integration.Tests
         {
 
         }
-        
+
 
         public virtual void CheckActionAfterNsbHandlingSucceeded()
         {
 
         }
-        
+
         //public void VerifyResultWithNotification(TResult result, string errorCode)
         //{
         //    result.Notifications.ExpectErrorWithCode(errorCode);
@@ -83,6 +78,6 @@ namespace Pdbc.Music.Integration.Tests
             //ClearContext();
             //ReloadAllItems();
         }
-        
+
     }
 }

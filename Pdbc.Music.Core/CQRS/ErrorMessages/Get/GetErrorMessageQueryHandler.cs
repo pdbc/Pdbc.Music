@@ -1,7 +1,7 @@
-﻿using System.Threading;
-using System.Threading.Tasks;
-using MediatR;
+﻿using MediatR;
 using Pdbc.Music.Core.Extensions;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Pdbc.Music.Core.CQRS.ErrorMessages.Get
 {

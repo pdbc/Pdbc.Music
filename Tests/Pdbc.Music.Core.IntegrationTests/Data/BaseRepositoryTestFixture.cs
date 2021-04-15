@@ -1,12 +1,5 @@
-﻿using System;
-using System.Linq;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using NUnit.Framework;
-using Pdbc.Music.Data.Exceptions;
+﻿using NUnit.Framework;
 using Pdbc.Music.Data.Extensions;
-using Pdbc.Music.Data.Repositories;
-using Pdbc.Music.Domain.Model;
 using Pdbc.Music.UnitTest.Helpers.Domain.Model;
 using Pdbc.Music.UnitTests.Base;
 

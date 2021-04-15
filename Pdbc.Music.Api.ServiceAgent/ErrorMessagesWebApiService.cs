@@ -1,7 +1,7 @@
-﻿using System.Net.Http;
-using System.Threading.Tasks;
-using Pdbc.Music.Api.Contracts.Requests.Errors;
+﻿using Pdbc.Music.Api.Contracts.Requests.Errors;
 using Pdbc.Music.Api.ServiceAgent.Extensions;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace Pdbc.Music.Api.ServiceAgent
 {
@@ -9,12 +9,12 @@ namespace Pdbc.Music.Api.ServiceAgent
     {
         private string _route = "ErrorMessages";
         private readonly WebApiClientProxy _proxy;
-        
+
         public ErrorMessagesWebApiService(IHttpClientFactory clientFactory, IMusicApiServiceAgentConfiguration configuration)
         {
             _proxy = new WebApiClientProxy(clientFactory, configuration.Name);
         }
-       
+
         public async Task<ListErrorMessagesResponse> ListErrorMessages(ListErrorMessagesRequest request)
         {
             var response = await _proxy.CallAsync(c => c.GetAsync($"{_route}/{request.Language}"));
@@ -26,7 +26,7 @@ namespace Pdbc.Music.Api.ServiceAgent
             var response = await _proxy.CallAsync(c => c.GetAsync($"{_route}/{request.Language}/{request.Key}"));
             return await response.Deserialize<GetErrorMessageResponse>();
 
-           
+
         }
     }
 }

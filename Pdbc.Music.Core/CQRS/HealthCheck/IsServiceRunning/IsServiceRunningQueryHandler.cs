@@ -1,6 +1,6 @@
-﻿using System.Threading;
+﻿using MediatR;
+using System.Threading;
 using System.Threading.Tasks;
-using MediatR;
 
 namespace Pdbc.Music.Core.CQRS.HealthCheck.IsServiceRunning
 {

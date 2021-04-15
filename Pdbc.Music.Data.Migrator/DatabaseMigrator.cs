@@ -1,10 +1,10 @@
-﻿using System;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Pdbc.Music.Data.Extensions;
+using System;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Pdbc.Music.Data.Migrator
 {

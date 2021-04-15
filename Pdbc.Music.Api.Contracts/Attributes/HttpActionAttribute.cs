@@ -1,6 +1,5 @@
-﻿using System;
-
-using Pdbc.Music.Api.Contracts.Enum;
+﻿using Pdbc.Music.Api.Contracts.Enum;
+using System;
 
 namespace Pdbc.Music.Api.Contracts.Attributes
 {

@@ -1,14 +1,12 @@
-﻿using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using Pdbc.Music.Core.CQRS.ErrorMessages.List;
-using Pdbc.Music.Core.Extensions;
 using Pdbc.Music.Data.Repositories;
 using Pdbc.Music.Dto.Artists;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Pdbc.Music.Core.CQRS.Artists.List
 {
@@ -17,8 +15,8 @@ namespace Pdbc.Music.Core.CQRS.Artists.List
         private readonly IArtistRepository _artistRepository;
         private readonly IConfigurationProvider _configurationProvider;
 
-        public ListArtistsQueryHandler(IArtistRepository artistRepository, 
-                                        IConfigurationProvider  configurationProvider)
+        public ListArtistsQueryHandler(IArtistRepository artistRepository,
+                                        IConfigurationProvider configurationProvider)
         {
             _artistRepository = artistRepository;
             _configurationProvider = configurationProvider;

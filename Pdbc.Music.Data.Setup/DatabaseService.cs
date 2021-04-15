@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Pdbc.Music.Common.Extensions;
+using System;
+using System.Collections.Generic;
 
 namespace Pdbc.Music.Data.Setup
 {
@@ -22,7 +22,7 @@ namespace Pdbc.Music.Data.Setup
             _context = context;
 
             var model = _context.Model.GetRelationalModel();
-            var functions = model.Functions; 
+            var functions = model.Functions;
             foreach (var function in functions)
             {
                 Functions.Add(function.Name);
@@ -63,5 +63,5 @@ namespace Pdbc.Music.Data.Setup
         }
     }
 
-    
+
 }

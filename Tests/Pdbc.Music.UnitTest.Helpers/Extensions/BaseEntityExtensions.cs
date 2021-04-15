@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Pdbc.Music.Domain.Model;
+﻿using Pdbc.Music.Domain.Model;
 using Pdbc.Music.UnitTests.Base;
+using System;
 
 namespace Pdbc.Music.UnitTest.Helpers.Extensions
 {

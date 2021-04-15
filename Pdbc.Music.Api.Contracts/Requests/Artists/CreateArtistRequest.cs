@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Pdbc.Music.Api.Contracts.Attributes;
+﻿using Pdbc.Music.Api.Contracts.Attributes;
 using Pdbc.Music.Api.Contracts.Dto.Artists;
 using Pdbc.Music.Api.Contracts.Enum;
 

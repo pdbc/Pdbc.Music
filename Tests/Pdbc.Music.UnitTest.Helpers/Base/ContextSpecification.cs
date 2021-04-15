@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Moq;
+using Moq.AutoMock;
+using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Reflection;
-using Moq;
-using Moq.AutoMock;
-using NUnit.Framework;
 
 namespace Pdbc.Music.UnitTest.Helpers.Base
 {

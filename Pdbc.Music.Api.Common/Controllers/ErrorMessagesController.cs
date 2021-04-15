@@ -1,10 +1,8 @@
-﻿using System.Net;
-using System.Threading.Tasks;
-
-using Microsoft.AspNetCore.Mvc;
-using Pdbc.Music.Api.Contracts;
+﻿using Microsoft.AspNetCore.Mvc;
 using Pdbc.Music.Api.Contracts.Requests.Errors;
 using Pdbc.Music.Core.Services;
+using System.Net;
+using System.Threading.Tasks;
 
 namespace Pdbc.Music.Api.Common.Controllers
 {

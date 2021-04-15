@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Hosting;
-
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Hosting;
 
 #if ApiConventions
 [assembly: ApiConventionType(typeof(DefaultApiConventions))]

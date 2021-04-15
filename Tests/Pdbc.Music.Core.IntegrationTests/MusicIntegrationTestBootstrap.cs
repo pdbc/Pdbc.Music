@@ -9,7 +9,7 @@ namespace Pdbc.Music.Core.IntegrationTests
 {
     public class MusicIntegrationTestBootstrap
     {
-        public static void BootstrapContainer(IServiceCollection services, 
+        public static void BootstrapContainer(IServiceCollection services,
                                               IConfiguration configuration)
         {
             services.AddAutoMapper(typeof(RequestToCqrsMappings),

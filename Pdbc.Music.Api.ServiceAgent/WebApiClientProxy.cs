@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Pdbc.Music.Api.ServiceAgent.Extensions;
+using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
-using Pdbc.Music.Api.ServiceAgent.Extensions;
 
 namespace Pdbc.Music.Api.ServiceAgent
 {
@@ -47,7 +47,7 @@ namespace Pdbc.Music.Api.ServiceAgent
         protected virtual HttpClient GetHttpClient()
         {
             var client = _httpClientFactory.CreateClient(_name);
-            
+
             // Request response in json
             client.DefaultRequestHeaders.Accept
                     .Add(new MediaTypeWithQualityHeaderValue("application/json"));

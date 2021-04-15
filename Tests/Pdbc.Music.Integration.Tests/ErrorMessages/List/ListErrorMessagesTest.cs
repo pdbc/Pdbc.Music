@@ -7,7 +7,7 @@ namespace Pdbc.Music.Integration.Tests.Errors.List
 {
     public class ListErrorMessagesTest : ErrorMessageServiceTest<ListErrorMessagesResponse>
     {
-        public ListErrorMessagesTest(IErrorMessagesService service, MusicDbContext dbContext) 
+        public ListErrorMessagesTest(IErrorMessagesService service, MusicDbContext dbContext)
             : base(service, dbContext)
         {
         }

@@ -7,7 +7,7 @@ namespace Pdbc.Music.Data.Extensions
     {
         public static void EnsureSeedData(this MusicDbContext context)
         {
-            
+
         }
 
         public static void SetupInitialData(this ModelBuilder modelBuilder)

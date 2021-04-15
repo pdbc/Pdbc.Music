@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Pdbc.Music.Domain.Model;
+using System;
 using System.Linq;
-using Pdbc.Music.Domain.Model;
 
 namespace Pdbc.Music.Data.Seed
 {

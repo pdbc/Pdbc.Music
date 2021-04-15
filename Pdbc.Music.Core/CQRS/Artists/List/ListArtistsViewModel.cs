@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using Pdbc.Music.Dto.Artists;
+﻿using Pdbc.Music.Dto.Artists;
+using System.Collections.Generic;
 
 namespace Pdbc.Music.Core.CQRS.Artists.List
 {

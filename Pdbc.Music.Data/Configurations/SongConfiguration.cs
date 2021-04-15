@@ -23,7 +23,7 @@ namespace Pdbc.Music.Data.Configurations
             //    .OnDelete(DeleteBehavior.NoAction);
 
             builder.HasOne(s => s.FileInformation)
-                .WithOne(f=>f.Song)
+                .WithOne(f => f.Song)
                 .HasForeignKey<FileInformation>(x => x.SongId)
                 .OnDelete(DeleteBehavior.Cascade);
 

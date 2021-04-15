@@ -1,9 +1,9 @@
-﻿using System;
-using System.Linq;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Pdbc.Music.Common.Extensions;
+using System;
+using System.Linq;
 
 namespace Pdbc.Music.Data.Migrator
 {

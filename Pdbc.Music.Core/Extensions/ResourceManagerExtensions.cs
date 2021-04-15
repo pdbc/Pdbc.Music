@@ -9,17 +9,17 @@ namespace Pdbc.Music.Core.Extensions
 {
     public static class ResourceManagerExtensions
     {
-        public static IDictionary<string, string> CreateCaseInsensitiveSpecificResourceData(this ResourceManager resourceManager, 
+        public static IDictionary<string, string> CreateCaseInsensitiveSpecificResourceData(this ResourceManager resourceManager,
             string language)
         {
             return resourceManager.CreateSpecificResourceData(language, StringComparer.OrdinalIgnoreCase);
         }
 
-        public static IDictionary<string, string> CreateSpecificResourceData(this ResourceManager resourceManager, 
-            string language, 
+        public static IDictionary<string, string> CreateSpecificResourceData(this ResourceManager resourceManager,
+            string language,
             StringComparer comparer = null)
         {
-            if (resourceManager == null) 
+            if (resourceManager == null)
                 return new Dictionary<string, string>(comparer);
 
             var languageShort = language.ToCultureInfo();

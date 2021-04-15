@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Pdbc.Music.Common;
 using Pdbc.Music.Data.Repositories;
-using Pdbc.Music.Domain.Model;
+using System;
+using System.Collections.Generic;
 
 namespace Pdbc.Music.Data
 {

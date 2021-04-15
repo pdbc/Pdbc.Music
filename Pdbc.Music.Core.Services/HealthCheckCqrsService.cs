@@ -1,18 +1,16 @@
-﻿using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using MediatR;
-
 using Pdbc.Music.Api.Contracts;
 using Pdbc.Music.Api.Contracts.Requests.HealthCheck;
 using Pdbc.Music.Common.Validation;
-
 using Pdbc.Music.Core.CQRS.HealthCheck.IsServiceRunning;
+using System.Threading.Tasks;
 
 namespace Pdbc.Music.Core.Services
 {
     public class HealthCheckCqrsService : CqrsService, IHealthCheckCqrsService, IHealthCheckService
     {
-        public HealthCheckCqrsService(IMediator mediator, IMapper mapper, ValidationBag validationBag) 
+        public HealthCheckCqrsService(IMediator mediator, IMapper mapper, ValidationBag validationBag)
             : base(mediator, mapper, validationBag)
         {
         }

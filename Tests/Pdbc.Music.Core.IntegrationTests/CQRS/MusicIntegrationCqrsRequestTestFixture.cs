@@ -1,8 +1,8 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
 using NUnit.Framework.Internal;
 using Pdbc.Music.Integration.Tests;
+using System;
 
 namespace Pdbc.Music.Core.IntegrationTests.CQRS
 {
@@ -30,13 +30,13 @@ namespace Pdbc.Music.Core.IntegrationTests.CQRS
             //    IntegrationTest.Setup();
             //    transaction.Complete();
             //}
-            
+
             // Set the name in the setup
             TestExecutionContext.CurrentContext.CurrentTest.Name = $"{IntegrationTest.GetType().Name}.Execute_Test";
         }
 
         protected abstract IIntegrationTest CreateIntegrationTest();
-        
+
         [Test]
         public void Execute_Test()
         {

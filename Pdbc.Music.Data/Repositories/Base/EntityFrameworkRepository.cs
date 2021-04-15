@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Microsoft.EntityFrameworkCore;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
 
 namespace Pdbc.Music.Data.Repositories
 {
     public abstract class EntityFrameworkRepository<TEntity> : IEntityRepository<TEntity> where TEntity : class
     {
         protected readonly MusicDbContext _dbContext;
-        
+
         protected DbSet<TEntity> DbEntities;
 
         protected EntityFrameworkRepository(MusicDbContext dbContext)

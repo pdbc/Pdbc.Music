@@ -1,9 +1,7 @@
-﻿using System.Net.Http;
-using System.Threading.Tasks;
-using Pdbc.Music.Api.Contracts;
-using Pdbc.Music.Api.Contracts.Requests.Errors;
-using Pdbc.Music.Api.Contracts.Requests.HealthCheck;
+﻿using Pdbc.Music.Api.Contracts.Requests.HealthCheck;
 using Pdbc.Music.Api.ServiceAgent.Extensions;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace Pdbc.Music.Api.ServiceAgent
 {
@@ -11,12 +9,12 @@ namespace Pdbc.Music.Api.ServiceAgent
     {
         private string _route = "HealthCheck";
         private readonly WebApiClientProxy _proxy;
-        
+
         public HealthCheckWebApiService(IHttpClientFactory clientFactory, IMusicApiServiceAgentConfiguration configuration)
         {
             _proxy = new WebApiClientProxy(clientFactory, configuration.Name);
         }
-        
+
 
         public async Task<IsServiceRunningResponse> IsServiceRunning(IsServiceRunningRequest request)
         {

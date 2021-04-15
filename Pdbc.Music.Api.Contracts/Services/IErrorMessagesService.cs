@@ -1,5 +1,5 @@
-﻿using System.Threading.Tasks;
-using Pdbc.Music.Api.Contracts.Requests.Errors;
+﻿using Pdbc.Music.Api.Contracts.Requests.Errors;
+using System.Threading.Tasks;
 
 namespace Pdbc.Music.Api.Contracts
 {

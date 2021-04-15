@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Pdbc.Music.Common
+﻿namespace Pdbc.Music.Common
 {
     /// <summary>
     /// Interface for an object builder

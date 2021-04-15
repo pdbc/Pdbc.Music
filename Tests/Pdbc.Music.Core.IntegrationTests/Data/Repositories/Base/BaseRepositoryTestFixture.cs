@@ -1,17 +1,14 @@
-﻿using System;
-using System.Linq;
-
-using Microsoft.EntityFrameworkCore;
-
-using NUnit.Framework;
-
-using Pdbc.Music.Data.Repositories;
-using Pdbc.Music.Domain.Model;
-using Pdbc.Music.UnitTests.Base;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using NUnit.Framework;
 using Pdbc.Music.Data.Exceptions;
 using Pdbc.Music.Data.Extensions;
+using Pdbc.Music.Data.Repositories;
+using Pdbc.Music.Domain.Model;
 using Pdbc.Music.UnitTest.Helpers.Extensions;
+using Pdbc.Music.UnitTests.Base;
+using System;
+using System.Linq;
 
 namespace Pdbc.Music.Core.IntegrationTests.Data.Repositories
 {
@@ -105,7 +102,7 @@ namespace Pdbc.Music.Core.IntegrationTests.Data.Repositories
             Repository.Delete(ExistingItem);
             Context.SaveChanges();
 
-           
+
             Repository.GetById(ExistingItem.Id).ShouldBeNull();
         }
 
@@ -154,7 +151,7 @@ namespace Pdbc.Music.Core.IntegrationTests.Data.Repositories
         {
             Repository.Delete(entity);
             Context.SaveChanges();
-            
+
             // Detach all objects (force reload)
             Context.DetachAll();
 

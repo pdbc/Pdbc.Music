@@ -1,16 +1,13 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Design;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Pdbc.Music.Common;
 using Pdbc.Music.Data.Configurations;
 using Pdbc.Music.Data.Exceptions;
-using Pdbc.Music.Data.Extensions;
 using Pdbc.Music.Data.Interceptors;
 using Pdbc.Music.Domain.Model;
+using System;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace Pdbc.Music.Data
 {
@@ -54,7 +51,7 @@ namespace Pdbc.Music.Data
 
         public DbSet<Genre> Genres { get; set; }
 
-        public DbSet<Artist> Artists{ get; set; }
+        public DbSet<Artist> Artists { get; set; }
         public DbSet<Album> Albums { get; set; }
 
         public DbSet<FileInformation> FileInformations { get; set; }

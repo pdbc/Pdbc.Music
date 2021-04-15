@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Pdbc.Music.Common.Extensions;
@@ -17,7 +15,7 @@ namespace Pdbc.Music.Data.Setup
             var hostBuilder = CreateHostBuilder(args);
             var host = hostBuilder.Build();
             host.Run();
-            
+
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) => Host.CreateDefaultBuilder(args)

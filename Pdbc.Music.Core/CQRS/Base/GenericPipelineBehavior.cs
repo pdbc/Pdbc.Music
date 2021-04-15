@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
-using FluentValidation;
-using MediatR;
+﻿using MediatR;
 using Microsoft.Extensions.DependencyInjection;
-using Pdbc.Music.Api.Contracts.Requests;
 using Pdbc.Music.Common.Validation;
 using Pdbc.Music.Core.Validation;
+using System;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Pdbc.Music.Core.CQRS
 {
-    public class GenericPipelineBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TResponse: new()
+    public class GenericPipelineBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TResponse : new()
     {
         private readonly IServiceProvider _serviceProvider;
         private readonly ValidationBag _validationBag;
@@ -28,7 +24,7 @@ namespace Pdbc.Music.Core.CQRS
             if (request is IQuery query)
             {
                 return await ExecuteQuery(request, cancellationToken, next);
-            } 
+            }
             else if (request is ICommand command)
             {
                 return await ExecuteCommand(request, cancellationToken, next);
@@ -37,10 +33,10 @@ namespace Pdbc.Music.Core.CQRS
             {
                 return await ExecuteOther(request, cancellationToken, next);
             }
-            
+
         }
 
-        private async Task<TResponse> ExecuteQuery(TRequest request, 
+        private async Task<TResponse> ExecuteQuery(TRequest request,
             CancellationToken cancellationToken,
             RequestHandlerDelegate<TResponse> next)
         {

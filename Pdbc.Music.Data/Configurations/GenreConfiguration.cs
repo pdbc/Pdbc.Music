@@ -17,7 +17,7 @@ namespace Pdbc.Music.Data.Configurations
                 .HasMaxLength(ValidationConstants.GenreNameMaxLength)
                 .IsRequired();
 
-            builder.HasIndex(e => new { e.Name}).IsUnique();
+            builder.HasIndex(e => new { e.Name }).IsUnique();
 
         }
     }

@@ -1,8 +1,8 @@
-﻿using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Pdbc.Music.Api.Common.Controllers;
 using Pdbc.Music.Api.Contracts.Requests.Artists;
+using System.Threading.Tasks;
 
 namespace Pdbc.Music.Api.Backend.Controllers
 {

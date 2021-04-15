@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
-using Pdbc.Music.Api.Contracts.Requests;
+﻿using Pdbc.Music.Api.Contracts.Requests;
 using Pdbc.Music.Common.Validation;
+using System.Collections.Generic;
 
 namespace Pdbc.Music.Core.Services
 {
@@ -28,9 +28,9 @@ namespace Pdbc.Music.Core.Services
                 messages.Add(item);
             }
             var validationResult = new ValidationResult(messages);
-            
+
             return validationResult;
-            
+
         }
     }
 }

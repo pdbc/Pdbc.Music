@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FluentValidation;
+﻿using FluentValidation;
 using FluentValidation.Results;
 using Pdbc.Music.Common.Validation;
 using Pdbc.Music.Core.Validation.Extensions;
+using System.Threading.Tasks;
 
 namespace Pdbc.Music.Core.Validation
 {

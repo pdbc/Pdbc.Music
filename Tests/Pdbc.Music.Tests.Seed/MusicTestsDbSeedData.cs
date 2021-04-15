@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.EntityFrameworkCore;
-using Pdbc.Music.Data;
-using Pdbc.Music.Data.Repositories;
+﻿using Pdbc.Music.Data;
 using Pdbc.Music.Data.Seed;
 using Pdbc.Music.Domain.Model;
+using System;
+using System.Linq;
 
 namespace Pdbc.Music.Tests.Seed
 {

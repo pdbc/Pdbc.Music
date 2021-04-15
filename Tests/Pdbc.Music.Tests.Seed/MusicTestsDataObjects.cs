@@ -1,15 +1,15 @@
-﻿using System;
-using System.Linq;
-using Pdbc.Music.Data;
+﻿using Pdbc.Music.Data;
 using Pdbc.Music.Data.Seed;
 using Pdbc.Music.Domain.Model;
+using System;
+using System.Linq;
 
 namespace Pdbc.Music.Tests.Seed
 {
     public class MusicTestsDataObjects : IHaveDataObjects
     {
         private readonly MusicDbContext _context;
-        
+
         public MusicTestsDataObjects(MusicDbContext context)
         {
             _context = context;
@@ -24,7 +24,7 @@ namespace Pdbc.Music.Tests.Seed
 
         public Song SongA { get; set; }
         public Song SongB { get; set; }
-        
+
         public void LoadSongs()
         {
             SongA = GetSongFor(MusicTestsDataObjectsValues.SongTitleA);

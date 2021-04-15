@@ -1,9 +1,9 @@
 ﻿
-using System.Collections.Generic;
-using System.Linq;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Pdbc.Music.Api.Common.Authentication
 {
@@ -37,7 +37,7 @@ namespace Pdbc.Music.Api.Common.Authentication
                         },
                         new List<string>()
                         {
-                           
+
                         }
                     }
                 }

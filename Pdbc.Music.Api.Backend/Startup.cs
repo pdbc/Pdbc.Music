@@ -4,8 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System.Linq;
-using System.Reflection;
 using Newtonsoft.Json.Serialization;
 using Pdbc.Music.Api.Common.Controllers;
 using Pdbc.Music.Api.Common.Extensions;
@@ -14,6 +12,8 @@ using Pdbc.Music.Core;
 using Pdbc.Music.Core.Mappings;
 using Pdbc.Music.Core.Services;
 using Pdbc.Music.Data;
+using System.Linq;
+using System.Reflection;
 
 namespace Pdbc.Music.Api.Backend
 {

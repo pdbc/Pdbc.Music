@@ -14,7 +14,7 @@ namespace Pdbc.Music.Tests.Seed
                 .AsMatchingInterface()
                 .WithScopedLifetime()
             );
-            
+
         }
     }
 }

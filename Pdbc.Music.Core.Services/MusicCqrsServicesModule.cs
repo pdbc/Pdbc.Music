@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Pdbc.Music.Api.Contracts;
 using Pdbc.Music.Common;
 
 namespace Pdbc.Music.Core.Services
@@ -21,6 +20,6 @@ namespace Pdbc.Music.Core.Services
             //serviceCollection.AddScoped<IErrorMessagesCqrsService, ErrorMessagesCqrsService>();
             //serviceCollection.AddScoped<IErrorMessagesService, ErrorMessagesCqrsService>();
         }
-    
+
     }
 }

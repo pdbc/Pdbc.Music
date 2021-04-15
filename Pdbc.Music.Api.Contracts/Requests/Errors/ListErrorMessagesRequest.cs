@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
-using Pdbc.Music.Api.Contracts.Attributes;
+﻿using Pdbc.Music.Api.Contracts.Attributes;
 using Pdbc.Music.Api.Contracts.Enum;
+using System.Collections.Generic;
 
 namespace Pdbc.Music.Api.Contracts.Requests.Errors
 {

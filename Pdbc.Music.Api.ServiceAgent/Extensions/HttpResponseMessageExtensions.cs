@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Newtonsoft.Json;
+using Pdbc.Music.Api.ServiceAgent.Exceptions;
+using System;
 using System.Net;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
-using Pdbc.Music.Api.ServiceAgent.Exceptions;
-using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace Pdbc.Music.Api.ServiceAgent.Extensions
 {
@@ -61,7 +57,7 @@ namespace Pdbc.Music.Api.ServiceAgent.Extensions
         public static async Task<TResponse> HandleRequestCannotDeserialize<TResponse>(this HttpResponseMessage response,
             HttpStatusCode statusCode = HttpStatusCode.InternalServerError)
         {
-            
+
             var r = await response.Content.ReadAsStringAsync()
                 .ConfigureAwait(false);
 

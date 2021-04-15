@@ -1,14 +1,13 @@
 ﻿using Pdbc.Music.Api.Contracts;
 using Pdbc.Music.Api.Contracts.Requests.Artists;
 using Pdbc.Music.Data;
-using Pdbc.Music.Integration.Tests.Errors;
 using Pdbc.Music.UnitTests.Base;
 
 namespace Pdbc.Music.Integration.Tests.Artists.List
 {
     public class ListArtistsTest : ArtistsServiceTest<ListArtistsResponse>
     {
-        public ListArtistsTest(IArtistService service, MusicDbContext dbContext) 
+        public ListArtistsTest(IArtistService service, MusicDbContext dbContext)
             : base(service, dbContext)
         {
         }

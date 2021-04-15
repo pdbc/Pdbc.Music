@@ -1,8 +1,8 @@
-﻿using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using MediatR;
 using Pdbc.Music.Api.Contracts.Requests;
 using Pdbc.Music.Common.Validation;
+using System.Threading.Tasks;
 
 namespace Pdbc.Music.Core.Services
 {
@@ -23,7 +23,7 @@ namespace Pdbc.Music.Core.Services
         {
             var query = _mapper.Map<TRequest, TQuery>(request);
             var result = await _mediator.Send(query);
-            
+
             var response = _mapper.Map<TResult, TResponse>((TResult)result);
             response.Notifications = _validationBag.ToValidationResult();
 

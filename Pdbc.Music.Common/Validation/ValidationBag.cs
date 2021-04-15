@@ -18,7 +18,7 @@ namespace Pdbc.Music.Common.Validation
 
         public void AddError(String key, String message)
         {
-            AddError(new ValidationMessage() { Key = key, Message = message});
+            AddError(new ValidationMessage() { Key = key, Message = message });
 
         }
         public void AddError(ValidationMessage validationMessage)

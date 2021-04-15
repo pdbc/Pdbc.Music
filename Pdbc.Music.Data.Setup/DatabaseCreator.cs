@@ -1,12 +1,11 @@
-﻿using System;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Pdbc.Music.Data.Extensions;
 using Pdbc.Music.Data.Seed;
 using Pdbc.Music.Tests.Seed;
+using System;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Pdbc.Music.Data.Setup
 {
@@ -34,7 +33,7 @@ namespace Pdbc.Music.Data.Setup
 
                     databaseService.ClearFunctions();
                     databaseService.DropTables();
-                    
+
                     Console.WriteLine("Migrating database to latest version");
                     database.Migrate();
 

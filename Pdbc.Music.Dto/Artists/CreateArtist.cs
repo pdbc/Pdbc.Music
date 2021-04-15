@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Pdbc.Music.Dto.Artists
+﻿namespace Pdbc.Music.Dto.Artists
 {
     /// <summary>
     ///  Marker interface for creating an artist
@@ -12,7 +6,7 @@ namespace Pdbc.Music.Dto.Artists
     /// <seealso cref="ICreateArtist" />
     public interface ICreateArtist : IArtistInfo
     {
-      
+
     }
 
 

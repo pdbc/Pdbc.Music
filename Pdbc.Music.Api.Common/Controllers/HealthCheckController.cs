@@ -1,10 +1,8 @@
-﻿using System;
-using System.Net;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Pdbc.Music.Api.Contracts;
+﻿using Microsoft.AspNetCore.Mvc;
 using Pdbc.Music.Api.Contracts.Requests.HealthCheck;
 using Pdbc.Music.Core.Services;
+using System.Net;
+using System.Threading.Tasks;
 
 namespace Pdbc.Music.Api.Common.Controllers
 {
@@ -18,8 +16,8 @@ namespace Pdbc.Music.Api.Common.Controllers
         {
             _healthCheckService = healthCheckService;
         }
-        [HttpGet("IsServiceRunning", Name = nameof(IsRunning))] 
-        
+        [HttpGet("IsServiceRunning", Name = nameof(IsRunning))]
+
         [ProducesResponseType(typeof(IsServiceRunningResponse), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<IsServiceRunningResponse>> IsRunning([FromRoute] IsServiceRunningRequest request)
         {

@@ -1,5 +1,5 @@
-﻿using System;
-using Pdbc.Music.Common.Exceptions;
+﻿using Pdbc.Music.Common.Exceptions;
+using System;
 
 namespace Pdbc.Music.Data.Exceptions
 {

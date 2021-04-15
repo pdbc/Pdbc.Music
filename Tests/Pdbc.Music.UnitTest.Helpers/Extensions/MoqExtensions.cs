@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-using Moq;
+﻿using Moq;
 using Moq.Language.Flow;
+using System;
+using System.Linq.Expressions;
 
 namespace Pdbc.Music.UnitTest.Helpers.Extensions
 {

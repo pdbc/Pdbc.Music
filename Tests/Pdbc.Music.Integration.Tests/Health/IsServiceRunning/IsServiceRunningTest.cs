@@ -1,15 +1,13 @@
 ﻿using Pdbc.Music.Api.Contracts;
-using Pdbc.Music.Api.Contracts.Requests.Errors;
 using Pdbc.Music.Api.Contracts.Requests.HealthCheck;
 using Pdbc.Music.Data;
-using Pdbc.Music.Integration.Tests.Errors;
 using Pdbc.Music.UnitTests.Base;
 
 namespace Pdbc.Music.Integration.Tests.Health.IsServiceRunning
 {
     public class IsServiceRunningTest : HealthCheckServiceTest<IsServiceRunningResponse>
     {
-        public IsServiceRunningTest(IHealthCheckService service, MusicDbContext dbContext) 
+        public IsServiceRunningTest(IHealthCheckService service, MusicDbContext dbContext)
             : base(service, dbContext)
         {
         }
@@ -20,7 +18,7 @@ namespace Pdbc.Music.Integration.Tests.Health.IsServiceRunning
         {
             _request = new IsServiceRunningRequest()
             {
-              
+
             };
         }
 

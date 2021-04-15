@@ -15,6 +15,6 @@
 
         void VerifyResponse(TResult result);
 
-       // void VerifyResultWithNotification(TResult result, string errorCode);
+        // void VerifyResultWithNotification(TResult result, string errorCode);
     }
 }

@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using Pdbc.Music.Common.Validation;
 using Pdbc.Music.Core.CQRS.ErrorMessages.Get;
 using Pdbc.Music.I18N;
 using Pdbc.Music.UnitTest.Helpers.Base;
 using Pdbc.Music.UnitTest.Helpers.Core.CQRS.ErrorMessages;
 using Pdbc.Music.UnitTests.Base;
+using System.Linq;
 
 namespace Pdbc.Music.UnitTests.Core.CQRS.ErrorMessages.Get
 {

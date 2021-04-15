@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Pdbc.Music.Domain.Model
+﻿namespace Pdbc.Music.Domain.Model
 {
     public abstract class BaseEntity : AuditableIdentifiable // Identifiable, ICreatable
     {

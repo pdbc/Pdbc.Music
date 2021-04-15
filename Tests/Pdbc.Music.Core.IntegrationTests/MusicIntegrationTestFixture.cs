@@ -1,16 +1,14 @@
-﻿using System;
-using System.Data.Common;
-using System.IO;
-using Microsoft.Data.SqlClient;
+﻿using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using NUnit.Framework;
 using Pdbc.Music.Data;
-using Pdbc.Music.Data.Interceptors;
 using Pdbc.Music.Integration.Tests;
 using Pdbc.Music.Tests.Seed;
 using Pdbc.Music.UnitTest.Helpers.Base;
+using System;
+using System.Data.Common;
+using System.IO;
 
 
 namespace Pdbc.Music.Core.IntegrationTests
@@ -35,7 +33,7 @@ namespace Pdbc.Music.Core.IntegrationTests
             LoadConfiguration();
 
             DbProviderFactories.RegisterFactory("System.Data.SqlClient", SqlClientFactory.Instance);
-            
+
             var dir = TestContext.CurrentContext.TestDirectory;
             Directory.SetCurrentDirectory(dir);
 
@@ -60,7 +58,7 @@ namespace Pdbc.Music.Core.IntegrationTests
             var services = new ServiceCollection();
             services.AddSingleton(Configuration);
             services.AddLogging();
-            
+
             MusicIntegrationTestBootstrap.BootstrapContainer(services, Configuration);
 
             ServiceProvider = services.BuildServiceProvider();

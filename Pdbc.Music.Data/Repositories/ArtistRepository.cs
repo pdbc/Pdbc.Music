@@ -5,7 +5,7 @@ namespace Pdbc.Music.Data.Repositories
 {
     public interface IArtistRepository : IEntityRepository<Artist>
     {
-       
+
 
     }
 
