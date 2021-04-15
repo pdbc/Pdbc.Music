@@ -1,6 +1,4 @@
-﻿using Pdbc.Music.Core.CQRS.Errors.List;
-
-namespace Pdbc.Music.Core.CQRS.ErrorMessages.List
+﻿namespace Pdbc.Music.Core.CQRS.ErrorMessages.List
 {
     public class ListErrorMessagesQuery : IQuery<ListErrorMessagesViewModel>
     {

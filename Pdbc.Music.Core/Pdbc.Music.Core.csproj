@@ -6,10 +6,13 @@
 
   <ItemGroup>
     <Compile Remove="Mapping\**" />
+    <Compile Remove="Repositories\**" />
     <Compile Remove="Services\**" />
     <EmbeddedResource Remove="Mapping\**" />
+    <EmbeddedResource Remove="Repositories\**" />
     <EmbeddedResource Remove="Services\**" />
     <None Remove="Mapping\**" />
+    <None Remove="Repositories\**" />
     <None Remove="Services\**" />
   </ItemGroup>
 
@@ -30,6 +33,8 @@
   <ItemGroup>
     <ProjectReference Include="..\Pdbc.Music.Api.Contracts\Pdbc.Music.Api.Contracts.csproj" />
     <ProjectReference Include="..\Pdbc.Music.Common\Pdbc.Music.Common.csproj" />
+    <ProjectReference Include="..\Pdbc.Music.Data\Pdbc.Music.Data.csproj" />
+    <ProjectReference Include="..\Pdbc.Music.Dto\Pdbc.Music.Dto.csproj" />
     <ProjectReference Include="..\Pdbc.Music.I18N\Pdbc.Music.I18N.csproj" />
   </ItemGroup>
 

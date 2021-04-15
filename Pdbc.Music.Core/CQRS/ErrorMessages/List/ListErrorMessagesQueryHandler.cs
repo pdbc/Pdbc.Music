@@ -1,7 +1,6 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
-using Pdbc.Music.Core.CQRS.Errors.List;
 using Pdbc.Music.Core.Extensions;
 
 namespace Pdbc.Music.Core.CQRS.ErrorMessages.List

@@ -69,6 +69,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{
 		.github\workflows\dotnet.yml = .github\workflows\dotnet.yml
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pdbc.Music.Dto", "Pdbc.Music.Dto\Pdbc.Music.Dto.csproj", "{BD6F8670-5FD6-4911-957A-B30BEA3B88DC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -147,6 +149,10 @@ Global
 		{64138172-E0A8-4098-ACA0-1CFC4F3B5DBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64138172-E0A8-4098-ACA0-1CFC4F3B5DBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{64138172-E0A8-4098-ACA0-1CFC4F3B5DBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD6F8670-5FD6-4911-957A-B30BEA3B88DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD6F8670-5FD6-4911-957A-B30BEA3B88DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD6F8670-5FD6-4911-957A-B30BEA3B88DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD6F8670-5FD6-4911-957A-B30BEA3B88DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

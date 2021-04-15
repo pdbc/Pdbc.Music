@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Pdbc.Music.Api.Contracts;
+using Pdbc.Music.Core.Services;
 using Pdbc.Music.Integration.Tests;
 using Pdbc.Music.Integration.Tests.Errors.List;
 
@@ -9,7 +10,7 @@ namespace Pdbc.Music.Core.IntegrationTests.CQRS.ErrorMessages.List
     {
         protected override IIntegrationTest CreateIntegrationTest()
         {
-            var service = ServiceProvider.GetService<IErrorMessagesService>();
+            var service = ServiceProvider.GetRequiredService<IErrorMessagesCqrsService>();
             return new ListErrorMessagesTest(service, base.Context);
         }
     }

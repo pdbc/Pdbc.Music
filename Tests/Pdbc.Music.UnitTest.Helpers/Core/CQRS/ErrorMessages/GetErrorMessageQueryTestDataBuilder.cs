@@ -1,4 +1,4 @@
-﻿using Pdbc.Music.Core.CQRS.Errors.Get;
+﻿using Pdbc.Music.Core.CQRS.ErrorMessages.Get;
 
 namespace Pdbc.Music.UnitTest.Helpers.Core.CQRS.ErrorMessages
 {

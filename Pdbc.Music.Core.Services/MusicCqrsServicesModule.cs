@@ -18,8 +18,8 @@ namespace Pdbc.Music.Core.Services
             );
 
 
-            serviceCollection.AddScoped<IErrorMessagesCqrsService, ErrorMessagesCqrsService>();
-            serviceCollection.AddScoped<IErrorMessagesService, ErrorMessagesCqrsService>();
+            //serviceCollection.AddScoped<IErrorMessagesCqrsService, ErrorMessagesCqrsService>();
+            //serviceCollection.AddScoped<IErrorMessagesService, ErrorMessagesCqrsService>();
         }
     
     }

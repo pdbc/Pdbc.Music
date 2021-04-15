@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using NUnit.Framework;
 using Pdbc.Music.Common.Validation;
 using Pdbc.Music.Core.CQRS.ErrorMessages.Get;
-using Pdbc.Music.Core.CQRS.Errors.Get;
 using Pdbc.Music.I18N;
 using Pdbc.Music.UnitTest.Helpers.Base;
 using Pdbc.Music.UnitTest.Helpers.Core.CQRS.ErrorMessages;

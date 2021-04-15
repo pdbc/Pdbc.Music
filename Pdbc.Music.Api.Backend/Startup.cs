@@ -11,6 +11,7 @@ using Pdbc.Music.Api.Common.Controllers;
 using Pdbc.Music.Api.Common.Extensions;
 using Pdbc.Music.Common.Extensions;
 using Pdbc.Music.Core;
+using Pdbc.Music.Core.Mappings;
 using Pdbc.Music.Core.Services;
 using Pdbc.Music.Data;
 
@@ -59,7 +60,8 @@ namespace Pdbc.Music.Api.Backend
             services.RegisterModule<MusicCoreModule>(Configuration);
             services.RegisterModule<MusicDataModule>(Configuration);
             services.RegisterModule<MusicCqrsServicesModule>(Configuration);
-            services.AddAutoMapper(typeof(RequestToCqrsMappings));
+            services.AddAutoMapper(typeof(RequestToCqrsMappings),
+                                   typeof(ArtistDtoMappings));
 
             var serviceProvider = services.BuildServiceProvider(); //.GetService<IApiVersionDescriptionProvider>();
             services.AddSwaggerGen(options =>

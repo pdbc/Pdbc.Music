@@ -8,8 +8,6 @@ using Pdbc.Music.Api.Contracts.Requests.Errors;
 using Pdbc.Music.Common.Validation;
 using Pdbc.Music.Core.CQRS.ErrorMessages.Get;
 using Pdbc.Music.Core.CQRS.ErrorMessages.List;
-using Pdbc.Music.Core.CQRS.Errors.Get;
-using Pdbc.Music.Core.CQRS.Errors.List;
 
 namespace Pdbc.Music.Core.Services
 {

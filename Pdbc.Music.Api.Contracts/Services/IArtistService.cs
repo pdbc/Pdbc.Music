@@ -14,5 +14,11 @@ namespace Pdbc.Music.Api.Contracts
         /// <param name="request">The request.</param>
         /// <returns></returns>
         Task CreateArtist(CreateArtistRequest request);
+
+        /// <summary>
+        /// List all artists
+        /// </summary>
+        /// <param name="request"></param>
+        Task<ListArtistsResponse> ListArtists(ListArtistsRequest request);
     }
 }

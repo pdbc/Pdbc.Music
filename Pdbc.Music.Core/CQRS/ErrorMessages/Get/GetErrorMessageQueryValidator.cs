@@ -1,5 +1,4 @@
 ﻿using FluentValidation;
-using Pdbc.Music.Core.CQRS.Errors.Get;
 using Pdbc.Music.Core.Validation;
 using Pdbc.Music.I18N;
 
